@@ -1,0 +1,3 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Dummysection}{3}{section.1}
+\contentsline {section}{\numberline {2}Literatur}{4}{section.2}
