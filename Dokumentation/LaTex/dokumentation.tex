@@ -1,0 +1,30 @@
+% Apostel, Bogdanski, Ritter
+%
+% Wahlpflichtfach Künstliche Intelligenz:
+% Projekt - Schiffe Versenken
+%
+% Hochschule Bremen - University of applied siences
+% ============================================================================
+%
+% report.tex
+%
+% das Wurzel-Dokument, fügt alle einzelteile zusammen
+
+\input{header}
+
+\begin{document}
+	\listoftodos
+	\pagenumbering{Alph}
+		\include{chapters/0_deckblatt}
+	\pagenumbering{roman}
+		%\include{chapters/02_abstract}
+	\pagenumbering{arabic}
+		\include{toc}
+		\listoffigures 
+		\listoftables
+		\clearpage 
+		\input{chapters/1_chapter}
+		\include{literatur}
+		\let\cleardoublepage\clearpage
+		\appendix
+\end{document}                                                 

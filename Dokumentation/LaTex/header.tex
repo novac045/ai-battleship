@@ -1,0 +1,168 @@
+%!TEX root = /Users/stefanbogdanski/Dropbox/BÄTTLESHÖP/Dokumentation/dokumentation.text
+% 
+% Apostel, Bogdanski, Ritter
+%
+% Wahlpflichtfach Künstliche Intelligenz:
+% Projekt - Schiffe Versenken
+%
+% Hochschule Bremen - University of applied siences
+% ============================================================================
+%
+% header.tex
+%
+% Präambel und LaTeX Einstellungen
+
+\documentclass[
+    pdflatex,           % Use PDFTex
+    a4paper,            % A4 paper
+    oneside,            % oneside print
+    12pt,               % Font size 12pt
+    captions=tableheading,  % korrekte Abstaende bei TabellenUEBERschriften
+    chapterprefix,      % Chapter write to as chapter
+    headsepline,        % Line after header
+    footsepline,        % Line before footer
+    headinclude,        % Kopfzeile wird Seiten-Layouts mit beruecksichtigt
+    footinclude=false,  % Fu{\ss}zeile wird Seiten-Layouts mit 
+    plainheadsepline,   % horizontale Linie auch beim plain-Style
+    fleqn,              % Write the formula left-aligned
+    appendixprefix,
+	bibtotocnumbered,	%referencen mit nummerieren und ins inhalts VZ 
+]{scrartcl}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{epsf}
+\usepackage{epsfig}
+%
+% package for the appendix.
+%
+\usepackage{appendix}
+
+% mehrzeilige Captions ausrichten
+\usepackage[font=footnotesize]{caption}
+%
+% package to create subfigure, subtables
+%
+\usepackage{subfigure} 
+
+%
+%package to include pdf-files to Latex Document
+%
+\usepackage{pdfpages}
+
+%
+% package for the index.
+%
+\usepackage{makeidx} 
+
+\usepackage{rotfloat}
+
+
+
+%
+% using babel
+%
+\usepackage[ngerman]{babel}
+
+%
+% package to use the UTF8 character and their writings
+%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+%
+% Flie{\ss}umgebung: Erm\"{o}glicht Platzierung [H] f\"{u}r Grafiken und Tabellen
+%
+\usepackage{float}
+\restylefloat{figure}
+\restylefloat{table}
+
+%
+% package for more table settings
+%
+\usepackage{array}%,tabularx}
+\usepackage[table,svgnames]{xcolor}
+\usepackage{ragged2e}
+
+\usepackage{setspace}            % Zeilenabstand einstellbar
+\onehalfspacing                  % eineinhalbzeilig einstellen
+
+\typearea[current]{current}        % Neuberechnung des Satzspiegels mit alten Werten nach \"{A}nderung von Zeilenabstand,etc
+
+
+%
+% header und footer
+%
+%\pagestyle{headings}
+%\usepackage{scrpage2}            % Kopf und Fusszeilen-Layout
+\renewcommand{\headfont}{\normalfont\sffamily}    % Kolumnentitel serifenlos
+\renewcommand{\pnumfont}{\normalfont\sffamily}    % Seitennummern serifenlos
+%\pagestyle{headings}
+%\ihead[]{\headmark}              % Kolumnentitel immer oben innen
+%\ohead[\pagemark]{\pagemark}     % Seitennummern immer oben aussen
+%\ofoot{\pagemark}                       % Seitennummern in der Fusszeile loeschen
+
+\usepackage[automark]{scrpage2}
+\ihead{}
+\ohead{\headmark}
+\chead{}
+\cfoot{}
+\ofoot{\pagemark}
+
+\pagestyle{scrheadings}
+
+% 
+\usepackage{blindtext}
+% define the color "LinkColor"
+%
+\definecolor{LinkColor}{rgb}{1,0,0}
+\definecolor{CiteColor}{rgb}{0,1,0}
+\definecolor{URLColor}{rgb}{0,0,1}
+
+%
+% package for using Hyperlinks in PDF files
+%
+ \usepackage[
+	pdftitle={Projekt - Schiffe Versenken},
+	pdfauthor={Apostel, Bogdanski, Ritter},
+	pdfsubject={Wahlpflichtfach KI},
+	plainpages=true
+    ]{hyperref}
+\hypersetup{colorlinks=false,
+	linkcolor=LinkColor,
+	citecolor=CiteColor,
+	filecolor=LinkColor,
+	menucolor=LinkColor,
+%	pagecolor=LinkColor,
+	urlcolor=URLColor}
+
+%
+% package to represent listings in their formats
+%
+
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\todoin}[1]{\todo[inline]{#1}}
+
+%
+% package to use the abstract environment
+%
+\usepackage{abstract}
+
+%
+% package to use URLs
+%
+\usepackage{url}
+\usepackage{listings} 
+\usepackage{color}   
+
+%
+% build index
+%
+\makeindex
+
+%
+% build glossary
+%
+\makeglossary
+
+\usepackage[savemem]{listings}
