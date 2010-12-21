@@ -52,4 +52,8 @@ public class CMessageGenerator {
     public String attackFirst() {
         return "(4,[]).";
     }
+
+    public String generateStartSignal() {
+        return "(5,[]).";
+    }
 }

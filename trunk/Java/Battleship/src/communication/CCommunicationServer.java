@@ -4,6 +4,7 @@
  */
 
 package communication;
+import gui.CMessageGenerator;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -30,6 +31,9 @@ public class CCommunicationServer extends Thread {
             System.out.println("Server started");
 
             while (true) {
+                if (m_clients.size() == 2) {
+                    generateStart();
+                }
                 Socket socket = m_server.accept();
                 System.out.println("Client conntected: " + socket.toString());
                 boolean initDefend = m_clients.isEmpty();
@@ -46,6 +50,13 @@ public class CCommunicationServer extends Thread {
         } catch (IOException ex) {
             System.out.println("CCommunicationServer::run - IOException");
             System.out.println(ex.toString());
+        }
+    }
+
+    private synchronized void generateStart() throws IOException {
+        String msg = CMessageGenerator.getInstance().generateStartSignal();
+        for (int i = 0; i < m_clients.size(); ++i) {
+            ((CClientHandler)m_clients.get(i)).send(msg);
         }
     }
 }

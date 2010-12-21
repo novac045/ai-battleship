@@ -47,8 +47,13 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
                 try {
                     while (true) {
                         List<state[]> states = m_control.getUpdatedFields();
+                        boolean isItMyTurn = m_control.isItMyTurn();
                         System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - status update received");
-                        setEnemyPlayingField(states.get(0));
+                        if (isItMyTurn) {
+                            setEnemyPlayingField(states.get(0));
+                        } else{
+                            m_enemy.disable(m_control.getEnemyStateVec());
+                        }
                         setOwnPlayingField(states.get(1));
                     }
                 } catch (InterruptedException ex) {
@@ -81,7 +86,7 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
             String[] xy = command.split(",");
             final int x = Integer.parseInt(xy[0]);
             final int y = Integer.parseInt(xy[1]);
-            m_enemy.disable(x, y);
+            m_enemy.disable(m_control.getEnemyStateVec());
             m_control.attack(x, y);
         } catch (InterruptedException ex) {
             System.out.println("CBattleshipGUI::actionPerformed - InterruptedException");

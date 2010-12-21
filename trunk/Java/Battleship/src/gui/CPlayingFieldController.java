@@ -63,25 +63,6 @@ public class CPlayingFieldController extends Thread {
         return m_ownState;
     }
 
-    private synchronized void handleStartingCode() throws IOException, CPlayingFieldControllerException {
-        Pattern p = Pattern.compile("(\\d)");
-        String whoIsDefending = m_inStream.readLine();
-        Matcher m = p.matcher(whoIsDefending);
-        boolean found = m.find();
-        String code = m.group();
-        System.out.println("Received initial defending state: " + whoIsDefending);
-        if (found) {
-            int iCode = Integer.parseInt(code);
-            if (iCode == 3) {
-                m_itsMyTurn = false;
-            } else if (iCode == 4) {
-                m_itsMyTurn = true;
-            } else {
-                throw new CPlayingFieldControllerException("Unknown opcode: " + whoIsDefending);
-            }
-        }
-    }
-
     @Override
     public void run() {
         try {
@@ -89,7 +70,12 @@ public class CPlayingFieldController extends Thread {
             m_inStream = new BufferedReader(new InputStreamReader(m_socket.getInputStream()));
             m_outStream = new BufferedWriter(new OutputStreamWriter(m_socket.getOutputStream()));
 
-            handleStartingCode();
+            // Wer beginnt?
+            String whoIsDefending = m_inStream.readLine();
+            handleIncomingMessage(whoIsDefending);
+            // Startsignal
+            String startSignal = m_inStream.readLine();
+            handleIncomingMessage(startSignal);
 
             while(true) {
                 try {
@@ -115,7 +101,29 @@ public class CPlayingFieldController extends Thread {
       
     }
 
-    private synchronized void handleIncomingMessage(String message) {
+    private synchronized String handleOp1(String paramList) {
+        System.out.println("Coordinates: " + paramList);
+        String[] xy = paramList.split(",");
+        int x = Integer.parseInt(xy[0]);
+        int y = Integer.parseInt(xy[1]);
+        String out = CMessageGenerator.getInstance().respondAttack(x, y, state.HIT);
+        m_ownState[y * m_width + x] = state.HIT;
+        return out;
+    }
+
+    private synchronized String handleOp2(String paramList) {
+        System.out.println("Coordinates: " + paramList);
+        String[] xy = paramList.split(",");
+        int x = Integer.parseInt(xy[0]);
+        int y = Integer.parseInt(xy[1]);
+        int stateInt = Integer.parseInt(xy[2]);
+        // TODO stateInt in state umkonvertieren
+        state s = state.HIT;
+        m_enemyState[y * m_width + x] = s;
+        return "";
+    }
+
+    private synchronized String handleIncomingMessage(String message) throws CPlayingFieldControllerException {
         // Messages:
         // - Attack Response XY State
         // - Attack XY
@@ -125,6 +133,50 @@ public class CPlayingFieldController extends Thread {
         // - Hit
         // - Destroyed
         // - Last Ship destroyed
+        String out = "";
+        System.out.println("Incoming message: " + message);
+        // Nachrichten kommen in den beiden moeglichen Formaten an:
+        //   Im Falle eines Prolog Clients: OPCODE,[PARAM1,PARAM2,PARAM3]
+        //                                  OPCODE,[PARAM1,PARAM2]
+        //                                  OPCODE,[]
+        //   Im Falle eines Java Clients:   (OPCODE,[PARAM1,PARAM2,PARAM3])
+        //                                  (OPCODE,[PARAM1,PARAM2])
+        //                                  (OPCODE,[])
+        Pattern p = Pattern.compile("^\\(?(\\d+),\\[(.*)\\]\\)?");
+        Matcher m = p.matcher(message);
+        boolean found = m.find();
+        System.out.println("  Num groups: " + m.groupCount());
+        String code = m.group(1);
+        System.out.println("Opcode: " + code);
+        if (found) {
+            int iCode = Integer.parseInt(code);
+            switch(iCode) {
+                // Ich werde angegriffen
+                case 1:
+                    out = handleOp1(m.group(2));
+                    break;
+                // Reaktion des Gegners auf meinen Angriff
+                case 2:
+                    out = handleOp2(m.group(2));
+                    break;
+                // Ich verteidige zuerst
+                case 3:
+                    m_itsMyTurn = false;
+                    break;
+                // Ich greife zuerst an
+                case 4:
+                    m_itsMyTurn = true;
+                    break;
+                // Startsignal empfangen
+                case 5:
+                    // Nichts tun
+                    break;
+                // Unbekannte Nachricht
+                default:
+                    throw new CPlayingFieldControllerException("Unknown message: " + message);
+            }
+        }
+        return out;
     }
 
     private synchronized void defend() throws InterruptedException, IOException {
@@ -133,15 +185,17 @@ public class CPlayingFieldController extends Thread {
             wait();
         }
 
-        String msg = m_inStream.readLine();
-        System.out.println("Defending: " + msg);
-        handleIncomingMessage(msg);
-        String response = CMessageGenerator.getInstance().respondAttack(5, 6, state.HIT);
-        System.out.println("Defence response: " + response);
         try {
+            String msg = m_inStream.readLine();
+            System.out.println("Defending: " + msg);
+            String response = handleIncomingMessage(msg);
+            System.out.println("Defence response: " + response);
             send(response);
         } catch (IOException ex) {
             System.out.println("CPlayingFieldController::defend - IOException");
+            System.out.println(ex.toString());
+        } catch (CPlayingFieldControllerException ex) {
+            System.out.println("CPlayingFieldController::defend - CPlayingFieldControllerException");
             System.out.println(ex.toString());
         }
         m_itsMyTurn = true;
@@ -160,10 +214,15 @@ public class CPlayingFieldController extends Thread {
             send(msg);
             String response = m_inStream.readLine();
             System.out.println("Attack response: " + response);
+            handleIncomingMessage(response);
         } catch (IOException ex) {
             System.out.println("CPlayingFieldController::attack - IOException");
             System.out.println(ex.toString());
+        } catch (CPlayingFieldControllerException ex) {
+            System.out.println("CPlayingFieldController::attack - CPlayingFieldControllerException");
+            System.out.println(ex.toString());
         }
+        m_updateAvailable = true;
         notifyAll();
     }
 
@@ -194,5 +253,9 @@ public class CPlayingFieldController extends Thread {
         states.add(m_ownState);
         m_updateAvailable = false;
         return states;
+    }
+
+    public synchronized boolean isItMyTurn() {
+        return m_itsMyTurn;
     }
 }

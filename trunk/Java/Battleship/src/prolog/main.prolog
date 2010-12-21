@@ -57,11 +57,17 @@ attackFirst :-
 
 mainInit(OPCODE) :-
     OPCODE =:= 3,
+    connectedReadStream(IStream),
+    read(IStream,(5,[])),
+    write('Received start signal'), nl,
     defendFirst
     .
 
 mainInit(OPCODE) :-
     OPCODE =:= 4,
+    connectedReadStream(IStream),
+    read(IStream,(5,[])),
+    write('Received start signal'), nl,
     attackFirst
     .
 
