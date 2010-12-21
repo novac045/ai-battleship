@@ -103,6 +103,7 @@ public class CPlayingFieldPanel {
                     // TODO Exception
                     break;
                 case UNKNOWN:
+                    m_button[pos].setEnabled(true);
                     break;
                 case WATER:
                     c = Color.BLUE;
@@ -131,9 +132,10 @@ public class CPlayingFieldPanel {
         }
     }
 
-    public void disable(int x, int y) {
-        if (y * m_width + x < m_button.length) {
-            m_button[y * m_width + x].setEnabled(false);
+    public void disable(CPlayingFieldController.state[] states) {
+        setState(states);
+        for (int i = 0; i < m_button.length; ++i) {
+            m_button[i].setEnabled(false);
         }
     }
 
