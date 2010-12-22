@@ -67,9 +67,12 @@ public class CMessageGenerator {
                 out = FieldState.DESTROYED;
                 break;
             case 4:
-                out = FieldState.MISSED;
+                out = FieldState.LASTSHIPDESTROYED;
                 break;
             case 5:
+                out = FieldState.MISSED;
+                break;
+            case 6:
                 out = FieldState.SHIP;
                 break;
         }
@@ -94,11 +97,14 @@ public class CMessageGenerator {
             case DESTROYED:
                 out = 3;
                 break;
-            case MISSED:
+            case LASTSHIPDESTROYED:
                 out = 4;
                 break;
-            case SHIP:
+            case MISSED:
                 out = 5;
+                break;
+            case SHIP:
+                out = 6;
                 break;
         }
         return out;
