@@ -1,1 +1,0 @@
-/* prädikat initMyField() */
