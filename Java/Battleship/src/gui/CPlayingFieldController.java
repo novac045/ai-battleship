@@ -18,17 +18,18 @@ import java.util.regex.Pattern;
  */
 public class CPlayingFieldController extends Thread {
     // Statusbeschreibung fuer Felder:
-    // - ERROR:     Ein Fehler ist aufgetreten
-    // - UNKNOWN:   Der Feldstatus ist unbekannt.
-    //              Nur fuer die Repraesentation des gegnerischen Spielfelds gedacht
-    // - WATER:     Das Feld beinhaltet Wasser
-    // - HIT:       Ein Schiff wurde getroffen, aber noch nicht versenkt
-    // - DESTROYED: Ein Schiff wurde versenkt
-    // - SHIP:      Auf dem Feld befindet sich ein Schiff.
-    //              Nur fuer die Repraesentation des eigenen Spielfelds gedacht
-    // - MISSED:    Der Gegner startete einen Angriff auf das Feld, aber hat nichts getroffen.
-    //              Nur fuer die Repraesentation des eigenen Spielfelds gedacht
-    public enum FieldState {ERROR, UNKNOWN, WATER, HIT, DESTROYED, SHIP, MISSED};
+    // - ERROR:             Ein Fehler ist aufgetreten
+    // - UNKNOWN:           Der Feldstatus ist unbekannt.
+    //                      Nur fuer die Repraesentation des gegnerischen Spielfelds gedacht
+    // - WATER:             Das Feld beinhaltet Wasser
+    // - HIT:               Ein Schiff wurde getroffen, aber noch nicht versenkt
+    // - DESTROYED:         Ein Schiff wurde versenkt
+    // - LASTSHIPDESTROYED: Signal, dass das letzte Schiff versenkt wurde
+    // - SHIP:              Auf dem Feld befindet sich ein Schiff.
+    //                      Nur fuer die Repraesentation des eigenen Spielfelds gedacht
+    // - MISSED:            Der Gegner startete einen Angriff auf das Feld, aber hat nichts getroffen.
+    //                      Nur fuer die Repraesentation des eigenen Spielfelds gedacht
+    public enum FieldState {ERROR, UNKNOWN, WATER, HIT, DESTROYED, LASTSHIPDESTROYED, SHIP, MISSED};
     // Statusbeschreibung fuer eingehende Nachrichten
     // - UNKNOWN:           Eine Nachricht, die keinem der Status zugeordnet werden konnte
     // - ATTACK:            Angriff auf uebergebene Koordinate
@@ -49,6 +50,8 @@ public class CPlayingFieldController extends Thread {
     private String m_host = "127.0.0.1";
     private boolean m_updateAvailable = true;
     private boolean m_itsMyTurn = true;
+    private boolean m_gameInProgress = false;
+    private boolean m_won = false;
 
     public CPlayingFieldController(int width, int height, String host, int port) {
         m_port = port;
@@ -92,7 +95,7 @@ public class CPlayingFieldController extends Thread {
             String startSignal = m_inStream.readLine();
             handleIncomingMessage(startSignal);
 
-            while(true) {
+            while(m_gameInProgress) {
                 try {
                     defend();
                 } catch (IOException ex) {
@@ -135,8 +138,16 @@ public class CPlayingFieldController extends Thread {
                 // TODO pruefen, ob das Schiff gaenzlich versenkt wurde
                 boolean destroyed = false;
                 if (destroyed) {
-                    s = FieldState.DESTROYED;
-                    // TODO ganzes Schiff markieren
+                    // TODO pruefen, ob alle eigenen Schiffe versenkt wurden
+                    boolean allShipsDestroyed = false;
+                    if (allShipsDestroyed) {
+                        s = FieldState.DESTROYED;
+                    } else {
+                        s = FieldState.LASTSHIPDESTROYED;
+                        m_gameInProgress = false;
+                        m_won = false;
+                    }
+                    // TODO ganzes Schiff als zerstoert markieren
                     m_ownState[y * m_width + x] = FieldState.DESTROYED;
                 } else {
                     s = FieldState.HIT;
@@ -164,7 +175,23 @@ public class CPlayingFieldController extends Thread {
         int stateInt = Integer.parseInt(xy[2]);
         // stateInt in FieldState umkonvertieren
         FieldState s = CMessageGenerator.getInstance().parseState(stateInt);
-        m_enemyState[y * m_width + x] = s;
+        switch (s) {
+            case HIT:
+                m_enemyState[y * m_width + x] = FieldState.HIT;
+                break;
+            case WATER:
+                m_enemyState[y * m_width + x] = FieldState.WATER;
+                break;
+            case LASTSHIPDESTROYED:
+                // TODO s == LASTSHIPDESTROYED -> Spiel als gewonnen deklarieren
+                m_gameInProgress = false;
+                m_won = true;
+            case DESTROYED:
+                // TODO s == DESTORYED -> ganzes Schiff markieren
+                m_enemyState[y * m_width + x] = FieldState.DESTROYED;
+                break;
+        }
+        
         return "";
     }
 
@@ -214,7 +241,7 @@ public class CPlayingFieldController extends Thread {
                     break;
                 // Startsignal empfangen
                 case STARTGAME:
-                    // Nichts tun
+                    m_gameInProgress = true;
                     break;
                 // Unbekannte Nachricht
                 default:
