@@ -1,1 +1,0 @@
-/* prädikat defendHandling(X, Y, State) */
