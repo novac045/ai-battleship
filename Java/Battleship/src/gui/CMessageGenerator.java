@@ -27,7 +27,7 @@ public class CMessageGenerator {
     public String respondAttack(int x, int y, FieldState s) throws CPlayingFieldControllerException {
         int stateCode = -1;
         // Nur WATER, HIT und DESTORYED sind als Antwort erlaubt
-        if (s == FieldState.WATER || s == FieldState.HIT || s == FieldState.DESTROYED) {
+        if (s == FieldState.WATER || s == FieldState.HIT || s == FieldState.DESTROYED || s == FieldState.LASTSHIPDESTROYED) {
             stateCode = parseState(s);
         } else {
             throw new CPlayingFieldControllerException("Illegal output state: " + s);

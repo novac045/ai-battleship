@@ -49,9 +49,8 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
                         List<FieldState[]> states = m_control.getUpdatedFields();
                         boolean isItMyTurn = m_control.isItMyTurn();
                         System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - status update received");
-                        if (isItMyTurn) {
-                            setEnemyPlayingField(states.get(0));
-                        } else{
+                        setEnemyPlayingField(states.get(0));
+                        if (!isItMyTurn) {
                             m_enemy.disable(m_control.getEnemyStateVec());
                         }
                         setOwnPlayingField(states.get(1));

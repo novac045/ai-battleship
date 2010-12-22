@@ -70,6 +70,15 @@ public class CPlayingFieldController extends Thread {
     }
 
     private void initShips() {
+        m_ownState[0] = FieldState.SHIP;
+        /*
+        m_ownState[1] = FieldState.SHIP;
+        m_ownState[2] = FieldState.SHIP;
+        m_ownState[3] = FieldState.SHIP;
+        m_ownState[4] = FieldState.SHIP;
+        m_ownState[5] = FieldState.SHIP;
+         * 
+         */
         // TODO eigene Schiffe platzieren
     }
 
@@ -118,6 +127,61 @@ public class CPlayingFieldController extends Thread {
         }
     }
 
+    private boolean areAnyShipsLefts() {
+        for (int i = 0; i < m_ownState.length; ++i) {
+            if (m_ownState[i] == FieldState.SHIP) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Zellen auswerten
+    private boolean isShipCompletlyDestroyed(int x, int y, FieldState[] board, int oldX, int oldY) {
+        boolean north = true;
+        boolean south = true;
+        boolean west = true;
+        boolean east = true;
+        if (x < 0 || x >= m_width || y < 0 || y > m_height) {
+            return true;
+        }
+        if (board[y * m_width + x] == FieldState.SHIP) {
+            return false;
+        } else if (board[y * m_width + x] == FieldState.WATER) {
+            return true;
+        }
+        if (x + 1 != oldX) {
+            east = isShipCompletlyDestroyed(x + 1, y, board, x, y);
+        }
+        if (x - 1 != oldX) {
+            west = isShipCompletlyDestroyed(x - 1, y, board, x, y);
+        }
+        if (y + 1 != oldY) {
+            north = isShipCompletlyDestroyed(x, y + 1, board, x, y);
+        }
+        if (y - 1 != oldY) {
+            south = isShipCompletlyDestroyed(x, y - 1, board, x, y);
+        }
+        return north && south && west && east;
+    }
+
+    private void markWholeShipAsDestroyed(int x, int y, FieldState[] board) {
+        // Pruefe, ob wir uns noch im Spielfeld befinden
+        if (x < 0 || x >= m_width || y < 0 || y > m_height) {
+            return;
+        }
+        // Pruefe, ob es sich bei dem Feld um ein beschaedigtes Schiff handelt
+        if (board[y * m_width + x] != FieldState.HIT) {
+            return;
+        }
+        board[y * m_width + x] = FieldState.DESTROYED;
+        // Rufe Methode rekursiv in seiner 4er Nachbarschaft auf
+        markWholeShipAsDestroyed(x+1, y, board);
+        markWholeShipAsDestroyed(x-1, y, board);
+        markWholeShipAsDestroyed(x, y+1, board);
+        markWholeShipAsDestroyed(x, y-1, board);
+    }
+
     private synchronized String handleOp1(String paramList) throws CPlayingFieldControllerException {
         System.out.println("Coordinates: " + paramList);
         String[] xy = paramList.split(",");
@@ -135,23 +199,22 @@ public class CPlayingFieldController extends Thread {
                 m_ownState[y * m_width + x] = FieldState.MISSED;
                 break;
             case SHIP:
-                // TODO pruefen, ob das Schiff gaenzlich versenkt wurde
-                boolean destroyed = false;
+                m_ownState[y * m_width + x] = FieldState.HIT;
+                // pruefen, ob das Schiff gaenzlich versenkt wurde
+                boolean destroyed = isShipCompletlyDestroyed(x, y, m_ownState, x, y);
                 if (destroyed) {
-                    // TODO pruefen, ob alle eigenen Schiffe versenkt wurden
-                    boolean allShipsDestroyed = false;
-                    if (allShipsDestroyed) {
+                    // pruefen, ob alle eigenen Schiffe versenkt wurden
+                    if (areAnyShipsLefts()) {
                         s = FieldState.DESTROYED;
                     } else {
                         s = FieldState.LASTSHIPDESTROYED;
                         m_gameInProgress = false;
                         m_won = false;
                     }
-                    // TODO ganzes Schiff als zerstoert markieren
-                    m_ownState[y * m_width + x] = FieldState.DESTROYED;
+                    // ganzes Schiff als zerstoert markieren
+                    markWholeShipAsDestroyed(x, y, m_ownState);
                 } else {
                     s = FieldState.HIT;
-                    m_ownState[y * m_width + x] = FieldState.HIT;
                 }
                 break;
             // Darf nicht passieren.
@@ -183,13 +246,16 @@ public class CPlayingFieldController extends Thread {
                 m_enemyState[y * m_width + x] = FieldState.WATER;
                 break;
             case LASTSHIPDESTROYED:
-                // TODO s == LASTSHIPDESTROYED -> Spiel als gewonnen deklarieren
+                // Spiel als gewonnen deklarieren
                 m_gameInProgress = false;
                 m_won = true;
             case DESTROYED:
-                // TODO s == DESTORYED -> ganzes Schiff markieren
-                m_enemyState[y * m_width + x] = FieldState.DESTROYED;
+                m_enemyState[y * m_width + x] = FieldState.HIT;
+                // ganzes Schiff als zerstoert markieren
+                markWholeShipAsDestroyed(x, y, m_enemyState);
                 break;
+            default:
+                throw new CPlayingFieldControllerException("Unknown state received in Opcode 2: " + s);
         }
         
         return "";
@@ -252,11 +318,14 @@ public class CPlayingFieldController extends Thread {
     }
 
     private synchronized void defend() throws InterruptedException, IOException {
-        while(m_itsMyTurn) {
+        while(m_itsMyTurn && m_gameInProgress) {
             System.out.println("CPlayingFieldController::defend - waiting for remote turn");
             wait();
         }
-
+        if (!m_gameInProgress) {
+            notifyAll();
+            return;
+        }
         try {
             String msg = m_inStream.readLine();
             System.out.println("Defending: " + msg);
@@ -270,15 +339,19 @@ public class CPlayingFieldController extends Thread {
             System.out.println("CPlayingFieldController::defend - CPlayingFieldControllerException");
             System.out.println(ex.toString());
         }
-        m_itsMyTurn = true;
+        m_itsMyTurn = m_gameInProgress;
         m_updateAvailable = true;
         notifyAll();
     }
 
     public synchronized void attack(int x, int y) throws InterruptedException {
-        while (!m_itsMyTurn) {
+        while (!m_itsMyTurn && m_gameInProgress) {
             System.out.println("CPlayingFieldController::attack - waiting for my turn");
             wait();
+        }
+        if (!m_gameInProgress) {
+            notifyAll();
+            return;
         }
         m_itsMyTurn = false;
         String msg = CMessageGenerator.getInstance().attack(x, y);
