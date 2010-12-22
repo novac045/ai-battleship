@@ -28,11 +28,9 @@ public class CMessageGenerator {
         return "(1,[" + x + "," + y + "]).";
     }
 
-    public String respondAttack(int x, int y, state s) {
+    public String respondAttack(int x, int y, state s) throws CPlayingFieldControllerException {
         String stateCode = "";
         switch (s) {
-            default: stateCode = "0";
-                break;
             case UNKNOWN: stateCode = "0";
                 break;
             case WATER: stateCode = "1";
@@ -41,6 +39,8 @@ public class CMessageGenerator {
                 break;
             case DESTROYED: stateCode = "3";
                 break;
+            default:
+                throw new CPlayingFieldControllerException("Illegal state: " + s);
         }
         return "(2,[" + x + "," + y + "," + stateCode + "]).";
     }

@@ -59,6 +59,9 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
                 } catch (InterruptedException ex) {
                     System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - InterruptedException");
                     System.out.println(ex.toString());
+                } catch (CPlayingFieldControllerException ex) {
+                    System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - CPlayingFieldControllerException");
+                    System.out.println(ex.toString());
                 }
             }
         };
@@ -72,11 +75,11 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    public void setEnemyPlayingField(CPlayingFieldController.state[] stateVec) {
+    public void setEnemyPlayingField(CPlayingFieldController.state[] stateVec) throws CPlayingFieldControllerException {
         m_enemy.setState(stateVec);
     }
     
-    public void setOwnPlayingField(CPlayingFieldController.state[] stateVec) {
+    public void setOwnPlayingField(CPlayingFieldController.state[] stateVec) throws CPlayingFieldControllerException {
         m_own.setState(stateVec);
     }
 
@@ -90,6 +93,9 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
             m_control.attack(x, y);
         } catch (InterruptedException ex) {
             System.out.println("CBattleshipGUI::actionPerformed - InterruptedException");
+            System.out.println(ex.toString());
+        } catch (CPlayingFieldControllerException ex) {
+            System.out.println("CBattleshipGUI::actionPerformed - CPlayingFieldControllerException");
             System.out.println(ex.toString());
         }
     }

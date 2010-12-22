@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package gui;
 
 import java.io.BufferedReader;
@@ -22,7 +17,18 @@ import java.util.regex.Pattern;
  * @author victorapostel
  */
 public class CPlayingFieldController extends Thread {
-    public enum state {UNKNOWN, WATER, HIT, DESTROYED};
+    // Statusbeschreibung:
+    // - ERROR:     Ein Fehler ist aufgetreten
+    // - UNKNOWN:   Der Feldstatus ist unbekannt.
+    //              Nur fuer die Repraesentation des gegnerischen Spielfelds gedacht
+    // - WATER:     Das Feld beinhaltet Wasser
+    // - HIT:       Ein Schiff wurde getroffen, aber noch nicht versenkt
+    // - DESTROYED: Ein Schiff wurde versenkt
+    // - SHIP:      Auf dem Feld befindet sich ein Schiff.
+    //              Nur fuer die Repraesentation des eigenen Spielfelds gedacht
+    // - MISSED:    Der Gegner startete einen Angriff auf das Feld, aber hat nichts getroffen.
+    //              Nur fuer die Repraesentation des eigenen Spielfelds gedacht
+    public enum state {ERROR, UNKNOWN, WATER, HIT, DESTROYED, SHIP, MISSED};
     private state[] m_enemyState = null;
     private state[] m_ownState = null;
     private int m_width = 0;
@@ -73,7 +79,7 @@ public class CPlayingFieldController extends Thread {
             // Wer beginnt?
             String whoIsDefending = m_inStream.readLine();
             handleIncomingMessage(whoIsDefending);
-            // Startsignal
+            // Startsignal empfangen
             String startSignal = m_inStream.readLine();
             handleIncomingMessage(startSignal);
 
@@ -101,21 +107,52 @@ public class CPlayingFieldController extends Thread {
       
     }
 
-    private synchronized String handleOp1(String paramList) {
+    private synchronized String handleOp1(String paramList) throws CPlayingFieldControllerException {
         System.out.println("Coordinates: " + paramList);
         String[] xy = paramList.split(",");
         int x = Integer.parseInt(xy[0]);
         int y = Integer.parseInt(xy[1]);
-        String out = CMessageGenerator.getInstance().respondAttack(x, y, state.HIT);
-        m_ownState[y * m_width + x] = state.HIT;
+        if (y >= m_height || x >= m_width || x < 0 || y < 0) {
+            throw new CPlayingFieldControllerException("Coordinates (" + x + "/" + y +") out of range");
+        }
+        // Ausgabestate ermitteln und eigenen Feldstatus aktualisieren
+        state s = state.UNKNOWN;
+        state ownFieldState = m_ownState[y * m_width + x];
+        switch(ownFieldState) {
+            case WATER:
+                s = state.WATER;
+                m_ownState[y * m_width + x] = state.MISSED;
+                break;
+            case SHIP:
+                // TODO pruefen, ob das Schiff gaenzlich versenkt wurde
+                boolean destroyed = false;
+                if (destroyed) {
+                    s = state.DESTROYED;
+                    // TODO ganzes Schiff markieren
+                    m_ownState[y * m_width + x] = state.DESTROYED;
+                } else {
+                    s = state.HIT;
+                    m_ownState[y * m_width + x] = state.HIT;
+                }
+                break;
+            // Darf nicht passieren.
+            // Wenn der Feldstatus MISSED, HIT, oder DESTROYED ist, wurde das
+            // Feld bereits einmal angegriffen.
+            default:
+                throw new CPlayingFieldControllerException("Illegal field state: " + ownFieldState + " at (" + x + "/" + y +")");
+        }
+        String out = CMessageGenerator.getInstance().respondAttack(x, y, s);
         return out;
     }
 
-    private synchronized String handleOp2(String paramList) {
+    private synchronized String handleOp2(String paramList) throws CPlayingFieldControllerException {
         System.out.println("Coordinates: " + paramList);
         String[] xy = paramList.split(",");
         int x = Integer.parseInt(xy[0]);
         int y = Integer.parseInt(xy[1]);
+        if (y >= m_height || x >= m_width || x < 0 || y < 0) {
+            throw new CPlayingFieldControllerException("Coordinates (" + x + "/" + y +") out of range");
+        }
         int stateInt = Integer.parseInt(xy[2]);
         // TODO stateInt in state umkonvertieren
         state s = state.HIT;
@@ -145,7 +182,6 @@ public class CPlayingFieldController extends Thread {
         Pattern p = Pattern.compile("^\\(?(\\d+),\\[(.*)\\]\\)?");
         Matcher m = p.matcher(message);
         boolean found = m.find();
-        System.out.println("  Num groups: " + m.groupCount());
         String code = m.group(1);
         System.out.println("Opcode: " + code);
         if (found) {
