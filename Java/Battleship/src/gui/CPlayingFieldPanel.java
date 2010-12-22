@@ -73,11 +73,11 @@ public class CPlayingFieldPanel {
         }
     }
 
-    public void setState(int x, int y, CPlayingFieldController.state s) {
+    public void setState(int x, int y, CPlayingFieldController.state s) throws CPlayingFieldControllerException {
         applyButtonDesign(x, y, s);
     }
 
-    public void setState(CPlayingFieldController.state[] stateArray) {
+    public void setState(CPlayingFieldController.state[] stateArray) throws CPlayingFieldControllerException {
         if (stateArray.length == m_width * m_height) {
             int i = 0;
             for (CPlayingFieldController.state s : stateArray) {
@@ -87,26 +87,38 @@ public class CPlayingFieldPanel {
         }
     }
 
-    protected void applyButtonDesign(int pos, CPlayingFieldController.state s) {
+    protected void applyButtonDesign(int pos, CPlayingFieldController.state s) throws CPlayingFieldControllerException {
         int y = pos / m_width;
         int x = pos - y * m_width;
         applyButtonDesign(x, y, s);
     }
 
-    protected void applyButtonDesign(int x, int y, CPlayingFieldController.state s) {
+    protected void applyButtonDesign(int x, int y, CPlayingFieldController.state s) throws CPlayingFieldControllerException {
+        if (y >= m_height || x >= m_width || x < 0 || y < 0) {
+            throw new CPlayingFieldControllerException("Coordinates ("+ x + "/" + y +") out of range");
+        }
         int pos = m_width * y + x;
         if (pos < m_button.length) {
             String content = m_button[pos].getText();
             Color c = Color.LIGHT_GRAY;
             switch(s) {
                 default:
-                    // TODO Exception
-                    break;
+                    throw new CPlayingFieldControllerException("Unknown state");
                 case UNKNOWN:
                     m_button[pos].setEnabled(true);
                     break;
                 case WATER:
                     c = Color.BLUE;
+                    content = "~";
+                    m_button[pos].setEnabled(false);
+                    break;
+                case SHIP:
+                    c = Color.GRAY;
+                    content = "S";
+                    m_button[pos].setEnabled(false);
+                    break;
+                case MISSED:
+                    c = Color.CYAN;
                     content = "~";
                     m_button[pos].setEnabled(false);
                     break;
@@ -132,7 +144,7 @@ public class CPlayingFieldPanel {
         }
     }
 
-    public void disable(CPlayingFieldController.state[] states) {
+    public void disable(CPlayingFieldController.state[] states) throws CPlayingFieldControllerException {
         setState(states);
         for (int i = 0; i < m_button.length; ++i) {
             m_button[i].setEnabled(false);
