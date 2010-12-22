@@ -73,27 +73,27 @@ public class CPlayingFieldPanel {
         }
     }
 
-    public void setState(int x, int y, CPlayingFieldController.state s) throws CPlayingFieldControllerException {
+    public void setState(int x, int y, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
         applyButtonDesign(x, y, s);
     }
 
-    public void setState(CPlayingFieldController.state[] stateArray) throws CPlayingFieldControllerException {
+    public void setState(CPlayingFieldController.FieldState[] stateArray) throws CPlayingFieldControllerException {
         if (stateArray.length == m_width * m_height) {
             int i = 0;
-            for (CPlayingFieldController.state s : stateArray) {
+            for (CPlayingFieldController.FieldState s : stateArray) {
                 applyButtonDesign(i, s);
                 ++i;
             }
         }
     }
 
-    protected void applyButtonDesign(int pos, CPlayingFieldController.state s) throws CPlayingFieldControllerException {
+    protected void applyButtonDesign(int pos, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
         int y = pos / m_width;
         int x = pos - y * m_width;
         applyButtonDesign(x, y, s);
     }
 
-    protected void applyButtonDesign(int x, int y, CPlayingFieldController.state s) throws CPlayingFieldControllerException {
+    protected void applyButtonDesign(int x, int y, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
         if (y >= m_height || x >= m_width || x < 0 || y < 0) {
             throw new CPlayingFieldControllerException("Coordinates ("+ x + "/" + y +") out of range");
         }
@@ -144,7 +144,7 @@ public class CPlayingFieldPanel {
         }
     }
 
-    public void disable(CPlayingFieldController.state[] states) throws CPlayingFieldControllerException {
+    public void disable(CPlayingFieldController.FieldState[] states) throws CPlayingFieldControllerException {
         setState(states);
         for (int i = 0; i < m_button.length; ++i) {
             m_button[i].setEnabled(false);

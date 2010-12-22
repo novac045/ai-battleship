@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  * @author victorapostel
  */
 public class CPlayingFieldController extends Thread {
-    // Statusbeschreibung:
+    // Statusbeschreibung fuer Felder:
     // - ERROR:     Ein Fehler ist aufgetreten
     // - UNKNOWN:   Der Feldstatus ist unbekannt.
     //              Nur fuer die Repraesentation des gegnerischen Spielfelds gedacht
@@ -28,9 +28,18 @@ public class CPlayingFieldController extends Thread {
     //              Nur fuer die Repraesentation des eigenen Spielfelds gedacht
     // - MISSED:    Der Gegner startete einen Angriff auf das Feld, aber hat nichts getroffen.
     //              Nur fuer die Repraesentation des eigenen Spielfelds gedacht
-    public enum state {ERROR, UNKNOWN, WATER, HIT, DESTROYED, SHIP, MISSED};
-    private state[] m_enemyState = null;
-    private state[] m_ownState = null;
+    public enum FieldState {ERROR, UNKNOWN, WATER, HIT, DESTROYED, SHIP, MISSED};
+    // Statusbeschreibung fuer eingehende Nachrichten
+    // - UNKNOWN:           Eine Nachricht, die keinem der Status zugeordnet werden konnte
+    // - ATTACK:            Angriff auf uebergebene Koordinate
+    // - ATTACKRESPONSE:    Antwort auf Angriff
+    // - ATTACKFIRST:       Der Spieler, der diese Nachricht empfaengt, faengt an
+    // - DEFENDFIRST:       Der Spieler, der diese Nachricht empfaengt, wartet auf den Gegenspieler
+    // - STARTGAME:         Startsignal, zur Synchronisation beider Clients
+    public enum CommandState {UNKNOWN, ATTACK, ATTACKRESPONSE, ATTACKFIRST, DEFENDFIRST, STARTGAME};
+    
+    private FieldState[] m_enemyState = null;
+    private FieldState[] m_ownState = null;
     private int m_width = 0;
     private int m_height = 0;
     private BufferedReader m_inStream = null;
@@ -46,26 +55,26 @@ public class CPlayingFieldController extends Thread {
         m_host = host;
         m_width = width;
         m_height = height;
-        m_enemyState = new state[m_width * m_height];
-        m_ownState = new state[m_width * m_height];
+        m_enemyState = new FieldState[m_width * m_height];
+        m_ownState = new FieldState[m_width * m_height];
 
         for (int i = 0; i < m_width * m_height; ++i) {
-            m_enemyState[i] = state.UNKNOWN;
-            m_ownState[i] = state.WATER;
+            m_enemyState[i] = FieldState.UNKNOWN;
+            m_ownState[i] = FieldState.WATER;
         }
 
         initShips();
     }
 
     private void initShips() {
-        // TODO init own ships
+        // TODO eigene Schiffe platzieren
     }
 
-    public state[] getEnemyStateVec() {
+    public FieldState[] getEnemyStateVec() {
         return m_enemyState;
     }
 
-    public state[] getOwnStateVec() {
+    public FieldState[] getOwnStateVec() {
         return m_ownState;
     }
 
@@ -104,7 +113,6 @@ public class CPlayingFieldController extends Thread {
             System.out.println("CPlayingFieldController::connect - CPlayingFieldControllerException");
             System.out.println(ex.toString());
         }
-      
     }
 
     private synchronized String handleOp1(String paramList) throws CPlayingFieldControllerException {
@@ -116,23 +124,23 @@ public class CPlayingFieldController extends Thread {
             throw new CPlayingFieldControllerException("Coordinates (" + x + "/" + y +") out of range");
         }
         // Ausgabestate ermitteln und eigenen Feldstatus aktualisieren
-        state s = state.UNKNOWN;
-        state ownFieldState = m_ownState[y * m_width + x];
+        FieldState s = FieldState.UNKNOWN;
+        FieldState ownFieldState = m_ownState[y * m_width + x];
         switch(ownFieldState) {
             case WATER:
-                s = state.WATER;
-                m_ownState[y * m_width + x] = state.MISSED;
+                s = FieldState.WATER;
+                m_ownState[y * m_width + x] = FieldState.MISSED;
                 break;
             case SHIP:
                 // TODO pruefen, ob das Schiff gaenzlich versenkt wurde
                 boolean destroyed = false;
                 if (destroyed) {
-                    s = state.DESTROYED;
+                    s = FieldState.DESTROYED;
                     // TODO ganzes Schiff markieren
-                    m_ownState[y * m_width + x] = state.DESTROYED;
+                    m_ownState[y * m_width + x] = FieldState.DESTROYED;
                 } else {
-                    s = state.HIT;
-                    m_ownState[y * m_width + x] = state.HIT;
+                    s = FieldState.HIT;
+                    m_ownState[y * m_width + x] = FieldState.HIT;
                 }
                 break;
             // Darf nicht passieren.
@@ -154,8 +162,8 @@ public class CPlayingFieldController extends Thread {
             throw new CPlayingFieldControllerException("Coordinates (" + x + "/" + y +") out of range");
         }
         int stateInt = Integer.parseInt(xy[2]);
-        // TODO stateInt in state umkonvertieren
-        state s = state.HIT;
+        // stateInt in FieldState umkonvertieren
+        FieldState s = CMessageGenerator.getInstance().parseState(stateInt);
         m_enemyState[y * m_width + x] = s;
         return "";
     }
@@ -186,25 +194,26 @@ public class CPlayingFieldController extends Thread {
         System.out.println("Opcode: " + code);
         if (found) {
             int iCode = Integer.parseInt(code);
-            switch(iCode) {
+            CommandState s = CMessageGenerator.getInstance().parseCommand(iCode);
+            switch(s) {
                 // Ich werde angegriffen
-                case 1:
+                case ATTACK:
                     out = handleOp1(m.group(2));
                     break;
                 // Reaktion des Gegners auf meinen Angriff
-                case 2:
+                case ATTACKRESPONSE:
                     out = handleOp2(m.group(2));
                     break;
                 // Ich verteidige zuerst
-                case 3:
+                case DEFENDFIRST:
                     m_itsMyTurn = false;
                     break;
                 // Ich greife zuerst an
-                case 4:
+                case ATTACKFIRST:
                     m_itsMyTurn = true;
                     break;
                 // Startsignal empfangen
-                case 5:
+                case STARTGAME:
                     // Nichts tun
                     break;
                 // Unbekannte Nachricht
@@ -279,8 +288,8 @@ public class CPlayingFieldController extends Thread {
         return m_height;
     }
 
-    public synchronized List<state[]> getUpdatedFields() throws InterruptedException {
-        List<state[]> states = new LinkedList<state[]>();
+    public synchronized List<FieldState[]> getUpdatedFields() throws InterruptedException {
+        List<FieldState[]> states = new LinkedList<FieldState[]>();
         while (!m_updateAvailable) {
             System.out.println("CPlayingFieldController::getUpdatedFields - waiting for status update");
             wait();

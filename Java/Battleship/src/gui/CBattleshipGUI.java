@@ -5,7 +5,7 @@
 
 package gui;
 
-import gui.CPlayingFieldController.state;
+import gui.CPlayingFieldController.FieldState;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,7 +46,7 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
             public void run() {
                 try {
                     while (true) {
-                        List<state[]> states = m_control.getUpdatedFields();
+                        List<FieldState[]> states = m_control.getUpdatedFields();
                         boolean isItMyTurn = m_control.isItMyTurn();
                         System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - status update received");
                         if (isItMyTurn) {
@@ -75,11 +75,11 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    public void setEnemyPlayingField(CPlayingFieldController.state[] stateVec) throws CPlayingFieldControllerException {
+    public void setEnemyPlayingField(CPlayingFieldController.FieldState[] stateVec) throws CPlayingFieldControllerException {
         m_enemy.setState(stateVec);
     }
     
-    public void setOwnPlayingField(CPlayingFieldController.state[] stateVec) throws CPlayingFieldControllerException {
+    public void setOwnPlayingField(CPlayingFieldController.FieldState[] stateVec) throws CPlayingFieldControllerException {
         m_own.setState(stateVec);
     }
 
