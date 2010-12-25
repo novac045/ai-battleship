@@ -38,6 +38,7 @@ public class CPlayingFieldController extends Thread {
     // - DEFENDFIRST:       Der Spieler, der diese Nachricht empfaengt, wartet auf den Gegenspieler
     // - STARTGAME:         Startsignal, zur Synchronisation beider Clients
     public enum CommandState {UNKNOWN, ATTACK, ATTACKRESPONSE, ATTACKFIRST, DEFENDFIRST, STARTGAME};
+    public enum GameState {INITIALIZATION, RUNNING, WON, LOST};
     
     private FieldState[] m_enemyState = null;
     private FieldState[] m_ownState = null;
@@ -50,8 +51,7 @@ public class CPlayingFieldController extends Thread {
     private String m_host = "127.0.0.1";
     private boolean m_updateAvailable = true;
     private boolean m_itsMyTurn = true;
-    private boolean m_gameInProgress = false;
-    private boolean m_won = false;
+    private GameState m_gameState = GameState.INITIALIZATION;
 
     public CPlayingFieldController(int width, int height, String host, int port) {
         m_port = port;
@@ -70,16 +70,12 @@ public class CPlayingFieldController extends Thread {
     }
 
     private void initShips() {
-        m_ownState[0] = FieldState.SHIP;
-        /*
-        m_ownState[1] = FieldState.SHIP;
-        m_ownState[2] = FieldState.SHIP;
-        m_ownState[3] = FieldState.SHIP;
-        m_ownState[4] = FieldState.SHIP;
-        m_ownState[5] = FieldState.SHIP;
-         * 
-         */
-        // TODO eigene Schiffe platzieren
+        CShipPlacementController shipPlacer = new CShipPlacementController(m_width, m_height);
+        m_ownState = shipPlacer.getNewBoard();
+    }
+
+    public synchronized GameState getGameState() {
+        return m_gameState;
     }
 
     public FieldState[] getEnemyStateVec() {
@@ -104,7 +100,7 @@ public class CPlayingFieldController extends Thread {
             String startSignal = m_inStream.readLine();
             handleIncomingMessage(startSignal);
 
-            while(m_gameInProgress) {
+            while(m_gameState == GameState.RUNNING) {
                 try {
                     defend();
                 } catch (IOException ex) {
@@ -127,7 +123,7 @@ public class CPlayingFieldController extends Thread {
         }
     }
 
-    private boolean areAnyShipsLefts() {
+    private synchronized boolean areAnyShipsLefts() {
         for (int i = 0; i < m_ownState.length; ++i) {
             if (m_ownState[i] == FieldState.SHIP) {
                 return true;
@@ -137,37 +133,39 @@ public class CPlayingFieldController extends Thread {
     }
 
     // Zellen auswerten
-    private boolean isShipCompletlyDestroyed(int x, int y, FieldState[] board, int oldX, int oldY) {
+    private synchronized boolean isShipCompletlyDestroyed(int x, int y, FieldState[] board, int oldX, int oldY) {
         boolean north = true;
         boolean south = true;
         boolean west = true;
         boolean east = true;
-        if (x < 0 || x >= m_width || y < 0 || y > m_height) {
+        //System.out.println("  X: " + x + " Y: " + y);
+        if (x < 0 || x >= m_width || y < 0 || y >= m_height) {
             return true;
         }
         if (board[y * m_width + x] == FieldState.SHIP) {
             return false;
-        } else if (board[y * m_width + x] == FieldState.WATER) {
+        } else if (board[y * m_width + x] == FieldState.HIT) {
+            if (x + 1 != oldX) {
+                east = isShipCompletlyDestroyed(x + 1, y, board, x, y);
+            }
+            if (x - 1 != oldX) {
+                west = isShipCompletlyDestroyed(x - 1, y, board, x, y);
+            }
+            if (y - 1 != oldY) {
+                north = isShipCompletlyDestroyed(x, y - 1, board, x, y);
+            }
+            if (y + 1 != oldY) {
+                south = isShipCompletlyDestroyed(x, y + 1, board, x, y);
+            }
+            return north && south && west && east;
+        } else {
             return true;
         }
-        if (x + 1 != oldX) {
-            east = isShipCompletlyDestroyed(x + 1, y, board, x, y);
-        }
-        if (x - 1 != oldX) {
-            west = isShipCompletlyDestroyed(x - 1, y, board, x, y);
-        }
-        if (y + 1 != oldY) {
-            north = isShipCompletlyDestroyed(x, y + 1, board, x, y);
-        }
-        if (y - 1 != oldY) {
-            south = isShipCompletlyDestroyed(x, y - 1, board, x, y);
-        }
-        return north && south && west && east;
     }
 
-    private void markWholeShipAsDestroyed(int x, int y, FieldState[] board) {
+    private synchronized void markWholeShipAsDestroyed(int x, int y, FieldState[] board) {
         // Pruefe, ob wir uns noch im Spielfeld befinden
-        if (x < 0 || x >= m_width || y < 0 || y > m_height) {
+        if (x < 0 || x >= m_width || y < 0 || y >= m_height) {
             return;
         }
         // Pruefe, ob es sich bei dem Feld um ein beschaedigtes Schiff handelt
@@ -183,13 +181,15 @@ public class CPlayingFieldController extends Thread {
     }
 
     private synchronized String handleOp1(String paramList) throws CPlayingFieldControllerException {
-        System.out.println("Coordinates: " + paramList);
+        System.out.println("Parameterlist: " + paramList);
         String[] xy = paramList.split(",");
+        //System.out.println("Arraylength: " + xy.length);
         int x = Integer.parseInt(xy[0]);
         int y = Integer.parseInt(xy[1]);
         if (y >= m_height || x >= m_width || x < 0 || y < 0) {
             throw new CPlayingFieldControllerException("Coordinates (" + x + "/" + y +") out of range");
         }
+        //System.out.println("X: " + x + " Y:" + y);
         // Ausgabestate ermitteln und eigenen Feldstatus aktualisieren
         FieldState s = FieldState.UNKNOWN;
         FieldState ownFieldState = m_ownState[y * m_width + x];
@@ -201,6 +201,7 @@ public class CPlayingFieldController extends Thread {
             case SHIP:
                 m_ownState[y * m_width + x] = FieldState.HIT;
                 // pruefen, ob das Schiff gaenzlich versenkt wurde
+                System.out.println("Pruefe, ob das ganze Schiff versenkt wurde");
                 boolean destroyed = isShipCompletlyDestroyed(x, y, m_ownState, x, y);
                 if (destroyed) {
                     // pruefen, ob alle eigenen Schiffe versenkt wurden
@@ -208,8 +209,7 @@ public class CPlayingFieldController extends Thread {
                         s = FieldState.DESTROYED;
                     } else {
                         s = FieldState.LASTSHIPDESTROYED;
-                        m_gameInProgress = false;
-                        m_won = false;
+                        m_gameState = GameState.LOST;
                     }
                     // ganzes Schiff als zerstoert markieren
                     markWholeShipAsDestroyed(x, y, m_ownState);
@@ -228,13 +228,14 @@ public class CPlayingFieldController extends Thread {
     }
 
     private synchronized String handleOp2(String paramList) throws CPlayingFieldControllerException {
-        System.out.println("Coordinates: " + paramList);
+        System.out.println("Parameterlist: " + paramList);
         String[] xy = paramList.split(",");
         int x = Integer.parseInt(xy[0]);
         int y = Integer.parseInt(xy[1]);
         if (y >= m_height || x >= m_width || x < 0 || y < 0) {
             throw new CPlayingFieldControllerException("Coordinates (" + x + "/" + y +") out of range");
         }
+        //System.out.println("X: " + x + " Y:" + y);
         int stateInt = Integer.parseInt(xy[2]);
         // stateInt in FieldState umkonvertieren
         FieldState s = CMessageGenerator.getInstance().parseState(stateInt);
@@ -247,8 +248,7 @@ public class CPlayingFieldController extends Thread {
                 break;
             case LASTSHIPDESTROYED:
                 // Spiel als gewonnen deklarieren
-                m_gameInProgress = false;
-                m_won = true;
+                m_gameState = GameState.WON;
             case DESTROYED:
                 m_enemyState[y * m_width + x] = FieldState.HIT;
                 // ganzes Schiff als zerstoert markieren
@@ -307,7 +307,7 @@ public class CPlayingFieldController extends Thread {
                     break;
                 // Startsignal empfangen
                 case STARTGAME:
-                    m_gameInProgress = true;
+                    m_gameState = GameState.RUNNING;
                     break;
                 // Unbekannte Nachricht
                 default:
@@ -318,11 +318,13 @@ public class CPlayingFieldController extends Thread {
     }
 
     private synchronized void defend() throws InterruptedException, IOException {
-        while(m_itsMyTurn && m_gameInProgress) {
+        // Verhindere das Schlafenlegen, wenn das Spiel beendet ist, damit die GUI
+        // nicht einfriert.
+        while(m_itsMyTurn && m_gameState == GameState.RUNNING) {
             System.out.println("CPlayingFieldController::defend - waiting for remote turn");
             wait();
         }
-        if (!m_gameInProgress) {
+        if (m_gameState != GameState.RUNNING) {
             notifyAll();
             return;
         }
@@ -339,17 +341,19 @@ public class CPlayingFieldController extends Thread {
             System.out.println("CPlayingFieldController::defend - CPlayingFieldControllerException");
             System.out.println(ex.toString());
         }
-        m_itsMyTurn = m_gameInProgress;
+        m_itsMyTurn = (m_gameState == GameState.RUNNING);
         m_updateAvailable = true;
         notifyAll();
     }
 
     public synchronized void attack(int x, int y) throws InterruptedException {
-        while (!m_itsMyTurn && m_gameInProgress) {
+        // Verhindere das Schlafenlegen, wenn das Spiel beendet ist, damit die GUI
+        // nicht einfriert.
+        while (!m_itsMyTurn && m_gameState == GameState.RUNNING) {
             System.out.println("CPlayingFieldController::attack - waiting for my turn");
             wait();
         }
-        if (!m_gameInProgress) {
+        if (m_gameState != GameState.RUNNING) {
             notifyAll();
             return;
         }
@@ -371,7 +375,7 @@ public class CPlayingFieldController extends Thread {
         notifyAll();
     }
 
-    private void send(String msg) throws IOException {
+    private synchronized void send(String msg) throws IOException {
         if (m_outStream != null) {
             System.out.print("CPlayingFieldController::send: ");
             System.out.println(msg);
