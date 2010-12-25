@@ -6,11 +6,14 @@
 package gui;
 
 import gui.CPlayingFieldController.FieldState;
+import gui.CPlayingFieldController.GameState;
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -20,12 +23,15 @@ import javax.swing.JPanel;
 public class CBattleshipGUI extends JFrame implements ActionListener {
     protected CPlayingFieldPanel m_enemy = null;
     protected CPlayingFieldPanel m_own = null;
-    private GridLayout m_layout = new GridLayout(0,2);
+    private GridLayout m_playingFieldLayout = new GridLayout(0,2);
+    private BorderLayout m_windowLayout = new BorderLayout();
     private JPanel m_panel = new JPanel();
     private CPlayingFieldController m_control = null;
     private Thread m_controllerListener = null;
+    private JLabel m_statusMsg = new JLabel("DUMMYLABEL");
 
     public CBattleshipGUI(CPlayingFieldController control) {
+        setLayout(m_windowLayout);
         m_control = control;
         int width = m_control.getWidth();
         int height = m_control.getHeight();
@@ -34,7 +40,7 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
         // Buttons reagieren, deshalb ist der ActionListener
         // auf null gesetzt
         m_own = new CPlayingFieldPanel(width, height, null);
-        m_panel.setLayout(m_layout);
+        m_panel.setLayout(m_playingFieldLayout);
 
         //m_panel.add(new JLabel("Computer"));
         //m_panel.add(new JLabel("Eigenes Feld"));
@@ -48,12 +54,24 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
                     while (true) {
                         List<FieldState[]> states = m_control.getUpdatedFields();
                         boolean isItMyTurn = m_control.isItMyTurn();
+                        GameState gameState = m_control.getGameState();
                         System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - status update received");
                         setEnemyPlayingField(states.get(0));
                         if (!isItMyTurn) {
+                            m_statusMsg.setText("Gegner ist am Zug");
                             m_enemy.disable(m_control.getEnemyStateVec());
+                        } else {
+                            m_statusMsg.setText("Sie sind am Zug");
                         }
                         setOwnPlayingField(states.get(1));
+                        // Wenn das Spiel beendet ist, wird der Kommunikationsthread mit dem Controller beendet
+                        if (gameState == GameState.WON) {
+                            m_statusMsg.setText("Sie haben das Spiel gewonnen!");
+                            this.interrupt();
+                        } else if (gameState == GameState.LOST) {
+                            m_statusMsg.setText("Sie haben das Spiel leider verloren!");
+                            this.interrupt();
+                        }
                     }
                 } catch (InterruptedException ex) {
                     System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - InterruptedException");
@@ -65,7 +83,8 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
             }
         };
 
-        getContentPane().add(m_panel);
+        getContentPane().add(m_panel, BorderLayout.CENTER);
+        getContentPane().add(m_statusMsg, BorderLayout.SOUTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Fenster automatisch justieren, sodass alle Elemente
         // sichtbar sind
