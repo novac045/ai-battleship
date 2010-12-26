@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package gui;
 
 import java.awt.Color;
@@ -17,8 +12,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 /**
+ * Diese Klasse ist Bestandteil der GUI und stellt eines der beiden vorgesehenen
+ * Spielfelder dar. Das Spielfeld ist quadratisch aufgebaut und die einzelnen
+ * Felder sind durch die Verwendung von Buttons interaktiv bedienbar. Des Weiteren
+ * wird das Spielfeld mit Labeln in der ersten Zeile und Spalte versehen, die
+ * Koordinaten widerspiegeln.
  *
- * @author victorapostel
+ * @author Victor Apostel
  */
 public class CPlayingFieldPanel {
     private int m_width;
@@ -27,6 +27,16 @@ public class CPlayingFieldPanel {
     private JPanel m_panel = new JPanel();
     private GridLayout m_layout = null;
 
+    /**
+     * Der Konstruktor initialisiert ein Spielfeld, indem das Design auf "flach"
+     * gestellt wird und die GUI Elemente im GridLayout platziert werden.
+     * Gleichzeitig werden den Buttons ActionCommands zugewiesen, die dem Angriff
+     * dienen.
+     *
+     * @param width
+     * @param height
+     * @param al
+     */
     public CPlayingFieldPanel(int width, int height, ActionListener al) {
         m_width = width;
         m_height = height;
@@ -35,12 +45,13 @@ public class CPlayingFieldPanel {
         m_panel.setLayout(m_layout);
 
         // Element oben links bleibt leer
-        m_panel.add(new JLabel(""));
+        m_panel.add(new JLabel("", null, JLabel.CENTER));
         // 1. Zeile mit 1..width nummerieren
         for (int i = 0; i < m_width; ++i) {
-            m_panel.add(new JLabel(Integer.toString(i + 1)));
+            m_panel.add(new JLabel(Integer.toString(i + 1), null, JLabel.CENTER));
         }
 
+        // Design auf "flach" stellen
         Border line = new LineBorder(Color.BLACK);
         Border margin = new EmptyBorder(5, 15, 5, 15);
         Border compound = new CompoundBorder(line, margin);
@@ -65,7 +76,7 @@ public class CPlayingFieldPanel {
             // Buchstaben versehen
             if (i % m_width == 0) {
                 // Buchstaben zeichnen
-                m_panel.add(new JLabel(String.valueOf(row)));
+                m_panel.add(new JLabel(String.valueOf(row), null, JLabel.CENTER));
                 // Naechsten Buchstaben auswaehlen
                 row++;
             }
@@ -73,10 +84,24 @@ public class CPlayingFieldPanel {
         }
     }
 
+    /**
+     * Setzt den Status und damit sein Design eines spezifischen Buttons
+     *
+     * @param x Buttonkoordinate
+     * @param y
+     * @param s Neuer Status
+     * @throws CPlayingFieldControllerException
+     */
     public void setState(int x, int y, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
         applyButtonDesign(x, y, s);
     }
 
+    /**
+     * Setzt den Status und damit das Design des gesamten Spielfelds
+     *
+     * @param stateArray    Array mit den neuen Buttonzustaenden
+     * @throws CPlayingFieldControllerException
+     */
     public void setState(CPlayingFieldController.FieldState[] stateArray) throws CPlayingFieldControllerException {
         if (stateArray.length == m_width * m_height) {
             int i = 0;
@@ -87,13 +112,36 @@ public class CPlayingFieldPanel {
         }
     }
 
-    protected void applyButtonDesign(int pos, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
+    /**
+     * Setzt das Design eines spezifischen Buttons. Die Angabe des spezifischen
+     * Buttons erfolgt durch die Angabe in der Arrayoisition.
+     *
+     * @param pos   Arrayposition
+     * @param s     Neuer Zustand
+     * @throws CPlayingFieldControllerException
+     */
+    private void applyButtonDesign(int pos, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
         int y = pos / m_width;
         int x = pos - y * m_width;
         applyButtonDesign(x, y, s);
     }
 
-    protected void applyButtonDesign(int x, int y, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
+    /**
+     * Setzt den Status bzw. das Design eines spezifischen Buttons, der durch
+     * seine x/y Koordinaten angegeben wird.
+     * Unbekannte Felder werden in hellem grau dargestellt.
+     * Wasser -> blau
+     * Schiff -> grau
+     * Treffer -> rot
+     * Wasser (eigenes Feld) -> hellblau
+     * Zerstoert -> schwarz
+     *
+     * @param x Koordinate des Buttons
+     * @param y
+     * @param s Neuer Buttonstatus
+     * @throws CPlayingFieldControllerException
+     */
+    private void applyButtonDesign(int x, int y, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
         if (y >= m_height || x >= m_width || x < 0 || y < 0) {
             throw new CPlayingFieldControllerException("Coordinates ("+ x + "/" + y +") out of range");
         }
@@ -138,12 +186,22 @@ public class CPlayingFieldPanel {
         }
     }
 
+    /**
+     * Aktiviert einen spezifischen Button
+     * @param x
+     * @param y
+     */
     public void enable(int x, int y) {
         if (y * m_width + x < m_button.length) {
             m_button[y * m_width + x].setEnabled(true);
         }
     }
 
+    /**
+     * Deaktiviert das gesamte Spielfeld und aktualisiert die Zustaende
+     * @param states Spielfeldstatus
+     * @throws CPlayingFieldControllerException
+     */
     public void disable(CPlayingFieldController.FieldState[] states) throws CPlayingFieldControllerException {
         setState(states);
         for (int i = 0; i < m_button.length; ++i) {
@@ -151,6 +209,10 @@ public class CPlayingFieldPanel {
         }
     }
 
+    /**
+     * Gibt das Panel zwecks Anzeige zurueck
+     * @return
+     */
     public JPanel getPanel() {
         return m_panel;
     }
