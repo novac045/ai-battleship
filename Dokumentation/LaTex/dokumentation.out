@@ -1,7 +1,9 @@
 \BOOKMARK [1][-]{section.1}{Dummysection}{}% 1
-\BOOKMARK [1][-]{section.2}{Spielregeln}{}% 2
-\BOOKMARK [1][-]{section.3}{Kommunikationsmodell}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Spielserver}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{Client - Java}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{Client - Prolog}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Literatur}{}% 7
+\BOOKMARK [1][-]{section.2}{Einleitung}{}% 2
+\BOOKMARK [1][-]{section.3}{Spielregeln}{}% 3
+\BOOKMARK [1][-]{section.4}{Kommunikationsmodell}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Spielserver}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Client - Java}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Client - Prolog}{section.4}% 7
+\BOOKMARK [1][-]{section.5}{Evaluation}{}% 8
+\BOOKMARK [1][-]{section.6}{Literatur}{}% 9
