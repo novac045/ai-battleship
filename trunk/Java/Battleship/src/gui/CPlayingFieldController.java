@@ -1,5 +1,6 @@
 package gui;
 
+import common.CMessageGenerator;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -13,6 +14,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Die Klasse CPlayingFieldController beinhaltet die gesamte Spiellogik und den
+ * aktuellen Status eines laufenden Spiels.
+ * Der Spielstatus wird mittels eines Enumerationarrays vom Typ FieldState abgebildet.
+ * Der Spielstatus hingegen mit der Enumeration GameState.
+ * Die Klasse CPlayingFieldController beinhaltet des Weiteren Objekte zur Kommunikation
+ * ueber Sockets mit dem CCommunicationServer.
  *
  * @author victorapostel
  */
@@ -39,20 +46,36 @@ public class CPlayingFieldController extends Thread {
     // - STARTGAME:         Startsignal, zur Synchronisation beider Clients
     public enum CommandState {UNKNOWN, ATTACK, ATTACKRESPONSE, ATTACKFIRST, DEFENDFIRST, STARTGAME};
     public enum GameState {INITIALIZATION, RUNNING, WON, LOST};
-    
+
+    // Abbildung des aktuellen Spielstatus
     private FieldState[] m_enemyState = null;
     private FieldState[] m_ownState = null;
+    // Spielfeldgroesse
     private int m_width = 0;
     private int m_height = 0;
+    // Streams zur Kommunikation mit dem Server
     private BufferedReader m_inStream = null;
     private BufferedWriter m_outStream = null;
     private Socket m_socket = null;
+    // Verbindungsdaten
     private int m_port = 54321;
     private String m_host = "127.0.0.1";
+    // Variablen zur Signalisierung von aktualisierten Daten, die von der GUI
+    // abgeholt werden koennen
     private boolean m_updateAvailable = true;
     private boolean m_itsMyTurn = true;
+    // Aktueller Spielstatus
     private GameState m_gameState = GameState.INITIALIZATION;
 
+    /**
+     * Konstruktor, der den Aufbau der Spielfelder uebernimmt und die eigenen
+     * Schiffe platziert
+     * 
+     * @param width Spielfeldbreite
+     * @param height Spielfeldhoehe
+     * @param host  Adresse zum CCommunicationServer
+     * @param port  Port des CCommunicationServers
+     */
     public CPlayingFieldController(int width, int height, String host, int port) {
         m_port = port;
         m_host = host;
@@ -69,26 +92,53 @@ public class CPlayingFieldController extends Thread {
         initShips();
     }
 
+    /**
+     * Schiffe mithilfe der CShipPlacementController Klasse plazieren
+     */
     private void initShips() {
         CShipPlacementController shipPlacer = new CShipPlacementController(m_width, m_height);
         m_ownState = shipPlacer.getNewBoard();
     }
 
+    /**
+     * Get Methode zum Abrufen des aktuellen Spielstatus
+     * @return
+     */
     public synchronized GameState getGameState() {
         return m_gameState;
     }
 
+    /**
+     * Get Methode zum Abrufen des gegnerischen Spielfelds
+     * @return
+     */
     public FieldState[] getEnemyStateVec() {
         return m_enemyState;
     }
 
+    /**
+     * get Methode zum Abrufen des eigenen Spielfelds
+     * @return
+     */
     public FieldState[] getOwnStateVec() {
         return m_ownState;
     }
 
+    /**
+     * Hauptthread, der die Nachrichten des Servers entgegennimmt.
+     * Eingangs wird die Verbindung zum Server hergestellt.
+     * Anschliessend werden zwei Nachrichten empfangen.
+     * Die erste gibt an, welcher Client anfaengt. Die zweite stellt
+     * das Startsignal dar.
+     *
+     * In der Hauptschleife wird stets die Methode defend aufgerufen.
+     * Sollte sich der Client im Zustand attack befinden, blockiert diese Methode
+     * und der Thread wird schlafen gelegt.
+     */
     @Override
     public void run() {
         try {
+            // Verbindung herstellen
             m_socket = new Socket(m_host, m_port);
             m_inStream = new BufferedReader(new InputStreamReader(m_socket.getInputStream()));
             m_outStream = new BufferedWriter(new OutputStreamWriter(m_socket.getOutputStream()));
@@ -123,6 +173,11 @@ public class CPlayingFieldController extends Thread {
         }
     }
 
+    /**
+     * Prueft, ob noch Felder mit der Enumeration SHIP uebrig geblieben sind.
+     * Ist dies nicht der Fall, wird false zurueckgegeben, andernfalls true
+     * @return true, wenn noch Felder mit dem Status SHIP existieren
+     */
     private synchronized boolean areAnyShipsLefts() {
         for (int i = 0; i < m_ownState.length; ++i) {
             if (m_ownState[i] == FieldState.SHIP) {
@@ -132,7 +187,24 @@ public class CPlayingFieldController extends Thread {
         return false;
     }
 
-    // Zellen auswerten
+    /**
+     * Wurde ein Schiff getroffen, muss geprueft werden, ob das ganze Schiff versenkt wurde.
+     * Dies erfolgt mit Hilfe dieser rekursiven Methode. Ausgehend von einer Schiffskoordinate,
+     * die mit den Parametern x/y angegeben wird, werden die Nachbarfelder untersucht.
+     * Ein Schiff wird als versenkt deklariert, wenn kein benachbartes und zusammenhaengendes
+     * Feld mit dem Status SHIP gefunden wird.
+     * Die Untersuchung findet in einer 4er Nachbarschaft statt, da diagonale Schiffe nicht erlaubt sind.
+     * Um eine rekursive Endlosschleife zu vermeiden, werden ebenfalls die alten Koordinaten
+     * uebermittelt. Die Schleife endet ebenfalls, wenn das untersuchte Feld nicht vom Typ HIT ist.
+     *
+     *
+     * @param x Aktuelle x Koordinate, die untersucht werden soll
+     * @param y Aktuelle y Koordinate, die untersucht werden soll
+     * @param board Zu untersuchendes Spielfeld
+     * @param oldX  Vorangegangene x Koordiante
+     * @param oldY  Vorangegangene y Koordiante
+     * @return  true, wenn kein Feld mit dem Status SHIP gefunden wurde
+     */
     private synchronized boolean isShipCompletlyDestroyed(int x, int y, FieldState[] board, int oldX, int oldY) {
         boolean north = true;
         boolean south = true;
@@ -163,6 +235,16 @@ public class CPlayingFieldController extends Thread {
         }
     }
 
+    /**
+     * Sollte festgestellt werden, dass ein Schiff gaenzlich zerstoert wurde, so
+     * muss dies im Spielfeld auch gespeichert werden. Mit Hilfe dieser rekursiven
+     * Methode werden alle benachbarten Felder, die den Status HIT aufweisen mit
+     * dem neuen Status DESTROYED versehen.
+     *
+     * @param x Aktuelle x Koordinate
+     * @param y Aktuelle y Koordinate
+     * @param board Zu aktualisierendes Spielfeld
+     */
     private synchronized void markWholeShipAsDestroyed(int x, int y, FieldState[] board) {
         // Pruefe, ob wir uns noch im Spielfeld befinden
         if (x < 0 || x >= m_width || y < 0 || y >= m_height) {
@@ -180,12 +262,24 @@ public class CPlayingFieldController extends Thread {
         markWholeShipAsDestroyed(x, y-1, board);
     }
 
+    /**
+     * Wurde eine Nachricht empfangen, die angibt, dass das eigene Spielfeld angegriffen
+     * wird, so wird diese Methode aufgerufen. Sie ueberprueft die uebergebene Koordinate
+     * und gibt an, ob sich auf dem eigenen Spielfeld an dieser Position ein Schiff befand.
+     * Das Ergebnis wird in Form eines Strings zurueckgegeben.
+     *
+     * @param paramList Kodierte Parameterliste in der Form X,Y
+     * @return  Kodierter String mit dem Ergebnis des Angriffs.
+     * @throws CPlayingFieldControllerException
+     */
     private synchronized String handleOp1(String paramList) throws CPlayingFieldControllerException {
+        // Parameterliste dekodieren
         System.out.println("Parameterlist: " + paramList);
         String[] xy = paramList.split(",");
         //System.out.println("Arraylength: " + xy.length);
         int x = Integer.parseInt(xy[0]);
         int y = Integer.parseInt(xy[1]);
+        // Pruefen, ob die Koordinaten sich innerhalb des Spielfelds befinden
         if (y >= m_height || x >= m_width || x < 0 || y < 0) {
             throw new CPlayingFieldControllerException("Coordinates (" + x + "/" + y +") out of range");
         }
@@ -194,10 +288,12 @@ public class CPlayingFieldController extends Thread {
         FieldState s = FieldState.UNKNOWN;
         FieldState ownFieldState = m_ownState[y * m_width + x];
         switch(ownFieldState) {
+            // Der Gegner hat Wasser getroffen.
             case WATER:
                 s = FieldState.WATER;
                 m_ownState[y * m_width + x] = FieldState.MISSED;
                 break;
+            // Der Gegner hat ein Schiff getroffen
             case SHIP:
                 m_ownState[y * m_width + x] = FieldState.HIT;
                 // pruefen, ob das Schiff gaenzlich versenkt wurde
@@ -223,37 +319,61 @@ public class CPlayingFieldController extends Thread {
             default:
                 throw new CPlayingFieldControllerException("Illegal field state: " + ownFieldState + " at (" + x + "/" + y +")");
         }
+        // Aus dem Status eine Nachricht erzeugen
         String out = CMessageGenerator.getInstance().respondAttack(x, y, s);
         return out;
     }
 
+    /**
+     * Wenn ein eigener Angriff erfolgt ist, muss die Antwort des Gegenspielers ausgewertet
+     * werden. Dies erfolgt mit Hilfe dieser Methode. Neben den Nachrichten "getroffen" und
+     * "Wasser" koennen ebenfalls die Meldungen "versenkt" und "letztes Schiff versenkt"
+     * ankommen.
+     * In diesen beiden letzten Faellen werden alle Felder des Schiffes als zerstoert markiert
+     * bzw. zusaetlich noch der Spielzustand auf gewonnen geaendert.
+     * 
+     * @param paramList
+     * @return Leerer String
+     * @throws CPlayingFieldControllerException
+     */
     private synchronized String handleOp2(String paramList) throws CPlayingFieldControllerException {
+        // Nachicht dekodieren
         System.out.println("Parameterlist: " + paramList);
         String[] xy = paramList.split(",");
         int x = Integer.parseInt(xy[0]);
         int y = Integer.parseInt(xy[1]);
+        // Pruefen, ob die Koordinate sich im Spielfeld befindet.
         if (y >= m_height || x >= m_width || x < 0 || y < 0) {
             throw new CPlayingFieldControllerException("Coordinates (" + x + "/" + y +") out of range");
         }
+        // Status decodieren
         //System.out.println("X: " + x + " Y:" + y);
         int stateInt = Integer.parseInt(xy[2]);
         // stateInt in FieldState umkonvertieren
         FieldState s = CMessageGenerator.getInstance().parseState(stateInt);
         switch (s) {
+            // Ein gegnerisches Schiff wurde getroffen
             case HIT:
                 m_enemyState[y * m_width + x] = FieldState.HIT;
                 break;
+            // Der Schuss ging ins Wasser
             case WATER:
                 m_enemyState[y * m_width + x] = FieldState.WATER;
                 break;
+            // Das letzte gegnerische Schiff wurde versenkt
+            // Den Spielstatus auf gewonnen setzen und zusaetlich die
+            // Aktionen von DESTROYED ausfuehren
             case LASTSHIPDESTROYED:
                 // Spiel als gewonnen deklarieren
                 m_gameState = GameState.WON;
+            // Ein Schiff wurde zerstoert
+            // Markiere alle Schiffsfelder mit DESTROYED
             case DESTROYED:
                 m_enemyState[y * m_width + x] = FieldState.HIT;
                 // ganzes Schiff als zerstoert markieren
                 markWholeShipAsDestroyed(x, y, m_enemyState);
                 break;
+            // Unbekannter Status wurde uebermittelt
             default:
                 throw new CPlayingFieldControllerException("Unknown state received in Opcode 2: " + s);
         }
@@ -261,6 +381,15 @@ public class CPlayingFieldController extends Thread {
         return "";
     }
 
+    /**
+     * Diese Methode analysiert die eingehende Nachricht anhand des Opcodes, der
+     * durch die erste Ziffer in der Nachricht repraesentiert wird. Diese
+     * Decodierung findet mittels eines regulaeren Ausdrucks statt.
+     *
+     * @param message
+     * @return
+     * @throws CPlayingFieldControllerException
+     */
     private synchronized String handleIncomingMessage(String message) throws CPlayingFieldControllerException {
         // Messages:
         // - Attack Response XY State
@@ -280,14 +409,20 @@ public class CPlayingFieldController extends Thread {
         //   Im Falle eines Java Clients:   (OPCODE,[PARAM1,PARAM2,PARAM3])
         //                                  (OPCODE,[PARAM1,PARAM2])
         //                                  (OPCODE,[])
+
+        // Nachricht mittels regulaeren Ausdrucks decodieren
         Pattern p = Pattern.compile("^\\(?(\\d+),\\[(.*)\\]\\)?");
         Matcher m = p.matcher(message);
         boolean found = m.find();
+        // Opcode extrahieren
         String code = m.group(1);
         System.out.println("Opcode: " + code);
+        
         if (found) {
+            // Opcode in Integer und anschliessend in Enumeration umwandeln
             int iCode = Integer.parseInt(code);
             CommandState s = CMessageGenerator.getInstance().parseCommand(iCode);
+            // Opcode einer Aktion zuweisen
             switch(s) {
                 // Ich werde angegriffen
                 case ATTACK:
@@ -317,6 +452,16 @@ public class CPlayingFieldController extends Thread {
         return out;
     }
 
+    /**
+     * Auf den Angriff eines Gegners reagieren.
+     * Der Gegner uebermittelt eine Nachricht mit dem Opcode 1 und den Koordinaten.
+     * Diese Nachricht wird hier empfangen und eine Antwort wird generiert.
+     * Anschliessend werden alle GUI Threads benachrichtigt, dass die Statusfelder
+     * aktualisiert worden sind.
+     *
+     * @throws InterruptedException
+     * @throws IOException
+     */
     private synchronized void defend() throws InterruptedException, IOException {
         // Verhindere das Schlafenlegen, wenn das Spiel beendet ist, damit die GUI
         // nicht einfriert.
@@ -346,6 +491,17 @@ public class CPlayingFieldController extends Thread {
         notifyAll();
     }
 
+    /**
+     * Diese Methode wird aufgerufen, wenn der Spieler auf der GUI einen Button
+     * drueckt und somit einen Angriff ausfuehrt. Sollte der Spieler nicht am
+     * Zug sein, wird eine Interaktion verhindert, indem das Flag itsMyTurn geprueft
+     * wird. Die Nachricht wird in dieser Methode gemaess Konvention kodiert und uebermittelt.
+     * Anschliessend wird auf die Reaktion des Gegners gewartet und entsprechend verwertet.
+     *
+     * @param x Angriffskoordinaten
+     * @param y
+     * @throws InterruptedException
+     */
     public synchronized void attack(int x, int y) throws InterruptedException {
         // Verhindere das Schlafenlegen, wenn das Spiel beendet ist, damit die GUI
         // nicht einfriert.
@@ -375,6 +531,12 @@ public class CPlayingFieldController extends Thread {
         notifyAll();
     }
 
+    /**
+     * Uebertraegt die Nachricht an den Server
+     * 
+     * @param msg   Zu uebertragende Nachricht
+     * @throws IOException
+     */
     private synchronized void send(String msg) throws IOException {
         if (m_outStream != null) {
             System.out.print("CPlayingFieldController::send: ");
@@ -384,14 +546,29 @@ public class CPlayingFieldController extends Thread {
         }
     }
 
+    /**
+     * Get Methode zum Abrufen der Spielfeldbreite
+     * @return
+     */
     public int getWidth() {
         return m_width;
     }
 
+    /**
+     * Get Methode zum Abrufen der Spielfeldhoehe
+     * @return
+     */
     public int getHeight() {
         return m_height;
     }
 
+    /**
+     * Methode die beide Spielfelder in Listenform an eine Consumer zurueckgibt.
+     * Das erste Feld der Liste ist immer das gegnerische Feld, das zweite immer
+     * das eigene
+     * @return Liste mit dem gegnerischen und dem eigenen Spielfeldern
+     * @throws InterruptedException
+     */
     public synchronized List<FieldState[]> getUpdatedFields() throws InterruptedException {
         List<FieldState[]> states = new LinkedList<FieldState[]>();
         while (!m_updateAvailable) {

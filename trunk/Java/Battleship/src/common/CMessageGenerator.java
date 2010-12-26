@@ -1,15 +1,28 @@
-package gui;
+package common;
 
 import gui.CPlayingFieldController.CommandState;
 import gui.CPlayingFieldController.FieldState;
+import gui.CPlayingFieldControllerException;
 
 /**
+ * Diese Klasse bildet die Konvention zur Kommunikation zwischen Teilnehmern ab.
+ * Der Aufbau erfolgt stets nach dem gleichen Muster:
+ * MSG := (OPCODE,[PARAMS]).
+ * OPCODE := Ziffer
+ * PARAMS := leer oder Ziffer oder Ziffer,Ziffer oder Ziffer,Ziffer,Ziffer
+ * 
+ * Da diese Klasse lediglich eine Hilfe zur Erzeugung von Nachrichten darstellen
+ * soll, wurde sie gemaess dem Singleton Design Pattern entworfen.
  *
  * @author Victor Apostel
  */
 public class CMessageGenerator {
     private static CMessageGenerator m_me = null;
 
+    /**
+     * Methode zum Zugriff auf die Singletonklasse
+     * @return Objekt vom Typ CMessageGenerator
+     */
     public static CMessageGenerator getInstance() {
         if (m_me == null) {
             m_me = new CMessageGenerator();
@@ -17,13 +30,30 @@ public class CMessageGenerator {
         return m_me;
     }
 
+    /**
+     * Leerer Standardkonstruktor
+     */
     private CMessageGenerator() {
     }
 
+    /**
+     * Erzeuge eine Nachricht zum Angriff auf ein Feld
+     * @param x Feldkoordinaten
+     * @param y
+     * @return  Kodierte Nachricht (1,[X,Y]).
+     */
     public String attack(int x, int y) {
         return "(" + parseCommand(CommandState.ATTACK) + ",[" + x + "," + y + "]).";
     }
 
+    /**
+     * Reagiere auf den Angriff auf ein Feld
+     * @param x Koordinaten des Felds
+     * @param y
+     * @param s Feldstatus
+     * @return Kodierte Nachricht (2,[X,Y,Status]).
+     * @throws CPlayingFieldControllerException
+     */
     public String respondAttack(int x, int y, FieldState s) throws CPlayingFieldControllerException {
         int stateCode = -1;
         // Nur WATER, HIT und DESTORYED sind als Antwort erlaubt
@@ -36,18 +66,35 @@ public class CMessageGenerator {
         return "(" + parseCommand(CommandState.ATTACKRESPONSE) + ",[" + x + "," + y + "," + stateCode + "]).";
     }
 
+    /**
+     * Nachricht, dass der Spieler zuerst in den DEFENCE Status gehen soll
+     * @return Kodierte Nachricht (3,[]).
+     */
     public String defendFirst() {
         return "(" + parseCommand(CommandState.DEFENDFIRST) + ",[]).";
     }
 
+    /**
+     * Nachricht, dass der Spieler zuerst in den ATTACK Status gehen soll
+     * @return Kodierte Nachricht (4,[]).
+     */
     public String attackFirst() {
         return "(" + parseCommand(CommandState.ATTACKFIRST) + ",[]).";
     }
 
+    /**
+     * Startsignal, zur Synchronisation beider Clients
+     * @return Kodierte Nachricht (5,[]).
+     */
     public String generateStartSignal() {
         return "(" + parseCommand(CommandState.STARTGAME) + ",[]).";
     }
 
+    /**
+     * Hilfsmethode, die einen int code in einen Feldstatus umwandelt
+     * @param code
+     * @return Feldstatus
+     */
     public FieldState parseState(int code) {
         FieldState out = FieldState.UNKNOWN;
         switch (code) {
@@ -79,6 +126,11 @@ public class CMessageGenerator {
         return out;
     }
 
+    /**
+     * Hilfsmethode, die einen Feldstatus in einen int code umwandeln soll
+     * @param s
+     * @return int code
+     */
     public int parseState(FieldState s) {
         int out = -1;
         switch (s) {
@@ -110,6 +162,11 @@ public class CMessageGenerator {
         return out;
     }
 
+    /**
+     * Hilfsmethode, die den OPCODE in eine Kommandoenumeration umwandelt
+     * @param code
+     * @return Kommando
+     */
     public CommandState parseCommand(int code) {
         CommandState out = CommandState.UNKNOWN;
         switch (code) {
@@ -135,6 +192,11 @@ public class CMessageGenerator {
         return out;
     }
 
+    /**
+     * Hilfsmethode, die eine Kommandoenumeration in einen OPCODE umwandelt
+     * @param s
+     * @return OPCODE
+     */
     public int parseCommand(CommandState s) {
         int out = 0;
         switch (s) {

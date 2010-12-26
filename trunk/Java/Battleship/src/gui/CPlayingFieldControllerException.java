@@ -1,11 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package gui;
 
 /**
+ * Eigene Exceptionklasse zum Signalisieren von Fehlern im Spielverlauf
  *
  * @author Victor Apostel
  */
