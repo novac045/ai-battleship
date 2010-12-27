@@ -1,10 +1,9 @@
 \select@language {ngerman}
-\contentsline {section}{\numberline {1}Dummysection}{3}{section.1}
-\contentsline {section}{\numberline {2}Einleitung}{3}{section.2}
-\contentsline {section}{\numberline {3}Spielregeln}{3}{section.3}
-\contentsline {section}{\numberline {4}Kommunikationsmodell}{3}{section.4}
-\contentsline {subsection}{\numberline {4.1}Spielserver}{3}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Client - Java}{3}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Client - Prolog}{3}{subsection.4.3}
-\contentsline {section}{\numberline {5}Evaluation}{3}{section.5}
-\contentsline {section}{\numberline {6}Literatur}{4}{section.6}
+\contentsline {section}{\numberline {1}Einleitung}{3}{section.1}
+\contentsline {section}{\numberline {2}Spielregeln}{3}{section.2}
+\contentsline {section}{\numberline {3}Kommunikationsprotokoll}{3}{section.3}
+\contentsline {section}{\numberline {4}Softwarearchitektur}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}Spielserver}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Client - Java}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Client - Prolog}{8}{subsection.4.3}
+\contentsline {section}{\numberline {5}Evaluation}{8}{section.5}
