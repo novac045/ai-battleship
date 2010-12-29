@@ -30,11 +30,11 @@ public class CShipPlacementController {
     // Anzahl und Groesse der zu platzierenden Schiffe
     private int m_numBattleship = 1;
     private int m_BattleshipSize = 5;
-    private int m_numCruiser = 2;
+    private int m_numCruiser = 1;
     private int m_CruiserSize = 4;
-    private int m_numDestroyer = 3;
+    private int m_numDestroyer = 2;
     private int m_DestroyerSize = 3;
-    private int m_numSubmarines = 4;
+    private int m_numSubmarines = 1;
     private int m_SubmarineSize = 2;
 
     /**

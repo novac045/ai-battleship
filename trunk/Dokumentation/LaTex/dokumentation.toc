@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {3}Kommunikationsprotokoll}{3}{section.3}
 \contentsline {section}{\numberline {4}Softwarearchitektur}{5}{section.4}
 \contentsline {subsection}{\numberline {4.1}Spielserver}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Client - Java}{9}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Client - Prolog}{9}{subsection.4.3}
-\contentsline {section}{\numberline {5}Evaluation}{9}{section.5}
-\contentsline {section}{\numberline {6}Literatur}{10}{section.6}
+\contentsline {subsection}{\numberline {4.2}Client - Java}{10}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Client - Prolog}{10}{subsection.4.3}
+\contentsline {section}{\numberline {5}Evaluation}{10}{section.5}
+\contentsline {section}{\numberline {6}Literatur}{11}{section.6}

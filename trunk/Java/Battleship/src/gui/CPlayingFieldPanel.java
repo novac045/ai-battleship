@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -59,9 +60,14 @@ public class CPlayingFieldPanel {
         // 1. Buchstabe für die Spalten
         char row = 'A';
         // Hauptfeld initialisieren
+
+        int buttonSize = 50;
         for (int i = 0; i < m_width * m_height; ++i) {
             m_button[i] = new JButton();
-            m_button[i].setSize(10, 10);
+            m_button[i].setSize(buttonSize, buttonSize);
+            m_button[i].setMinimumSize(new Dimension(buttonSize ,buttonSize));
+            m_button[i].setMaximumSize(new Dimension(buttonSize ,buttonSize));
+            m_button[i].setPreferredSize(new Dimension(buttonSize ,buttonSize));
             m_button[i].addActionListener(al);
             m_button[i].setBorder(compound);
             int y = i / m_width;
