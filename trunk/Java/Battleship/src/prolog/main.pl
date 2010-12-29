@@ -1,7 +1,7 @@
 /* consults */
-consult('initModule.pl').
-consult('attackModule.pl').
-cunsult('defendModule.pl').
+:- consult('initModule.pl').
+:- consult('attackModule.pl').
+:- consult('defendModule.pl').
 
 /* connection handling */
 connect(Port) :- 
@@ -34,16 +34,15 @@ attack :-
     write('    Attack'), nl,
     connectedReadStream(IStream),
     connectedWriteStream(OStream),
-	/* DoAttack(), r�ckgabe von X, Y */
-    X is 1,
-    Y is 2,
+	/* angreifen */
+	doAttack(X, Y),
     write(OStream,(1,[X,Y])),
     nl(OStream),
     flush_output(OStream),
     flush_output,
     write('    - Waiting for response'), nl,
     read(IStream,(2,[U,V,State])),
-	/* AttackResponse(State), keine r�ckgabe */
+	attackResponse(U, V, State),
     write('    - Received: '), write('State: '), write(U), write(', '), write(V), write(', '), write(State), nl.
 
 /* startgame */
