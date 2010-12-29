@@ -2,6 +2,8 @@
 :- consult('initModule.pl').
 :- consult('attackModule.pl').
 :- consult('defendModule.pl').
+:- consult('outputModule.pl').
+
 
 /* connection handling */
 connect(Port) :- 
@@ -17,13 +19,13 @@ connect(Port) :-
 
 /* defend handling */
 defend :-
-    write('    Defend'), nl,
+    /*write('    KI is defending'), nl,*/
     connectedReadStream(IStream),
     connectedWriteStream(OStream),
     write('    - Waiting for input'), nl,
     read(IStream,(1,[X,Y])),
-    write('    - Received: '), write(X), write(', '), write(Y), nl,
     doDefend(X, Y, State),
+    write('    - KI got attacked at: '), write(X), write(', '), write(Y), write(' -> ') , write(State) ,nl,
     write(OStream,(2,[X,Y,State])),
     nl(OStream),
     flush_output(OStream),
@@ -31,7 +33,7 @@ defend :-
 
 /* attack handling */
 attack :-
-    write('    Attack'), nl,
+    /*write('    KI is attacking'), nl,*/
     connectedReadStream(IStream),
     connectedWriteStream(OStream),
 	/* angreifen */
@@ -40,10 +42,11 @@ attack :-
     nl(OStream),
     flush_output(OStream),
     flush_output,
-    write('    - Waiting for response'), nl,
+    /*write('    - Waiting for response'), nl,*/
     read(IStream,(2,[U,V,State])),
 	attackResponse(U, V, State),
-    write('    - Received: '), write('State: '), write(U), write(', '), write(V), write(', '), write(State), nl.
+    write('    - KI attacked        : '), write('State: '), write(U), write(', '), write(V), write(' and hit: '), write(State), nl,
+	printEnemyField.
 
 /* startgame */
 defendFirst :-
@@ -76,6 +79,7 @@ main :-
     connectedReadStream(IStream),
     read(IStream,(OPCODE,[])),
 	initPrologClient,
+	printMyField,
     mainInit(OPCODE),
     defendFirst.
 
