@@ -20,7 +20,6 @@ outputField([_/_/State | T]) :-
 	printField(State),
 	outputField(T).
 	
-
 printMyField :-
 	myField(Field),
 	outputField(Field).

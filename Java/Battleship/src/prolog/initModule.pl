@@ -9,6 +9,7 @@ initPrologClient :-
 /* praedikat initMyField() */
 initMyField      :- 
 	retractall(myField(_)),
+	/* init myField with Water: 1 */
 	generateField(99, 1, [], Field),
 /* currently with dummy ships */
 	fillWithDummies(Field, DummyField),
@@ -18,6 +19,7 @@ initMyField      :-
 /* praedikat initEnemyField() */
 initEnemyField   :- 
 	retractall(enemyField(_)),
+	/* init enemyField with unknown: 0 */
 	generateField(99, 0, [], Field),
 	assert(enemyField(Field)).
 
