@@ -1,2 +1,2 @@
-swipl.exe -f main.prolog
+swipl.exe -f main.pl
 pause
