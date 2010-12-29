@@ -391,6 +391,9 @@ public class CPlayingFieldController extends Thread {
      * @throws CPlayingFieldControllerException
      */
     private synchronized String handleIncomingMessage(String message) throws CPlayingFieldControllerException {
+        if (message == null) {
+            throw new CPlayingFieldControllerException("Empty message string");
+        }
         // Messages:
         // - Attack Response XY State
         // - Attack XY
