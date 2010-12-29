@@ -1,3 +1,9 @@
+/* consults */
+consult('initModule.pl').
+consult('attackModule.pl').
+cunsult('defendModule.pl').
+
+/* connection handling */
 connect(Port) :- 
     tcp_socket(Socket),
     gethostname(Host),  % local host
@@ -5,11 +11,11 @@ connect(Port) :-
     tcp_open_socket(Socket,INs,OUTs),
     assert(connectedReadStream(INs)),
     assert(connectedWriteStream(OUTs)),
-    write('Connected'), nl
-    .
+    write('Connected'), nl.
 
 :- connect(54321).
 
+/* defend handling */
 defend :-
     write('    Defend'), nl,
     connectedReadStream(IStream),
@@ -21,9 +27,9 @@ defend :-
     write(OStream,(2,[X,Y,State])),
     nl(OStream),
     flush_output(OStream),
-    flush_output
-    .
+    flush_output.
 
+/* attack handling */
 attack :-
     write('    Attack'), nl,
     connectedReadStream(IStream),
@@ -38,42 +44,39 @@ attack :-
     write('    - Waiting for response'), nl,
     read(IStream,(2,[U,V,State])),
 	/* AttackResponse(State), keine r�ckgabe */
-    write('    - Received: '), write('State: '), write(U), write(', '), write(V), write(', '), write(State), nl
-    .
+    write('    - Received: '), write('State: '), write(U), write(', '), write(V), write(', '), write(State), nl.
 
+/* startgame */
 defendFirst :-
     write('Iterating ... '), nl,
     defend,
     attack,
-    defendFirst
-    .
+    defendFirst.
 
 attackFirst :-
     write('Iterating ... '), nl,
     attack,
     defend,
-    attackFirst
-    .
+    attackFirst.
 
 mainInit(OPCODE) :-
     OPCODE =:= 3,
     connectedReadStream(IStream),
     read(IStream,(5,[])),
     write('Received start signal'), nl,
-    defendFirst
-    .
+    defendFirst.
 
 mainInit(OPCODE) :-
     OPCODE =:= 4,
     connectedReadStream(IStream),
     read(IStream,(5,[])),
     write('Received start signal'), nl,
-    attackFirst
-    .
+    attackFirst.
 
 main :-
     connectedReadStream(IStream),
     read(IStream,(OPCODE,[])),
+	initPrologClient,
     mainInit(OPCODE),
     defendFirst.
 
