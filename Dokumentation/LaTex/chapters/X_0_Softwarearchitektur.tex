@@ -48,6 +48,16 @@ Im Rahmen dieses Kontexts wechselt der Spielzustand in \emph{WON} bzw. \emph{LOS
   \label{fig:SubClientstates}
 \end{figure}
 
+Die vorgesehene Kommunikationsabfolge wird ebenfalls in Abbildung \ref{fig:Kommunikationssequenz} in Form eines Sequenzdiagramms dargestellt.
+Der Client, der sich zuerst mit dem Server verbindet, beginnt per Konvention im Verteidungsmodus und der zweite verbundene Client startet im Angriffsmodus.
+Erst wenn sich zwei Teilnehmer am Server verbunden haben, sendet dieser das Startsignal an alle Clients.
+
+Die Spielphase wird durch eine Schleife bestimmt, in der die Teilnehmer von den Angriffs- in den Verteidigungszustand wechseln und umgekehrt.
+Die dabei übertragenen Nachrichten werden stets an den Server übertragen, der diese an den zweiten Client weiterleitet.
+Dadurch kommt keine direkte Verbindung beider Spieler zustande.
+
+Das Programmende aus Sicht der Kommunikation wird erreicht, wenn ein Spieler die Nachricht überträgt, dass er über keine Schiffe mehr verfügt.
+In diesem Fall werden die Verbindungen getrennt und der Server kann neue Verbindungen von Spielern zum Ausrichten eines neuen Spiels annehmen.
 
 \begin{figure}[H]
   \centering
