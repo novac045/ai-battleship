@@ -23,7 +23,7 @@ defend :-
     write('    - Waiting for input'), nl,
     read(IStream,(1,[X,Y])),
     write('    - Received: '), write(X), write(', '), write(Y), nl,
-    State is 8, /* Aufruf einer Attacke, R�ckgabe eines State */
+    doDefend(X, Y, State),
     write(OStream,(2,[X,Y,State])),
     nl(OStream),
     flush_output(OStream),
