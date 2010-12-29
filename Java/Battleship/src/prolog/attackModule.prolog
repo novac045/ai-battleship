@@ -1,1 +1,0 @@
-/* prädikat doAttack(X, Y) *//* prädikat attackResponse( State ) */
