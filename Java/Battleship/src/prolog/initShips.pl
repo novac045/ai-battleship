@@ -8,16 +8,13 @@ ship_type(1,battleship):-
 	true
 . 
 ship_type(S,cruiser):-
-	between(2,3,S),
-	!
+	between(2,3,S)
 .
 ship_type(S,destroyer):-
-	between(4,6,S),
-	!
+	between(4,6,S)
 .
 ship_type(S,submarine):- 
-	between(7,10,S),
-	!
+	between(7,10,S)
 .
 slength(battleship,4):-
 	true
@@ -46,7 +43,8 @@ domy(Y):-
 	between(1,10,X)
 .
 test1:-
-	findall(S,(ship(S),ship_length(S,Length), between(1,Length,Part)),Liste)
+	findall((X/Y),(ship(S),ship_length(S,Length), between(1,Length,Part), ship(S,Part,X,Y)),Liste),
+	Liste
 /*
 	forall(
 			(ship(S),ship_length(S,Length), between(1,Length,Part))
