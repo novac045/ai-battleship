@@ -1,7 +1,5 @@
 package common;
 
-import gui.CPlayingFieldController.CommandState;
-import gui.CPlayingFieldController.FieldState;
 import gui.CPlayingFieldControllerException;
 
 /**
@@ -17,6 +15,27 @@ import gui.CPlayingFieldControllerException;
  * @author Victor Apostel
  */
 public class CMessageGenerator {
+    // Statusbeschreibung fuer Felder:
+    // - ERROR:             Ein Fehler ist aufgetreten
+    // - UNKNOWN:           Der Feldstatus ist unbekannt.
+    //                      Nur fuer die Repraesentation des gegnerischen Spielfelds gedacht
+    // - WATER:             Das Feld beinhaltet Wasser
+    // - HIT:               Ein Schiff wurde getroffen, aber noch nicht versenkt
+    // - DESTROYED:         Ein Schiff wurde versenkt
+    // - LASTSHIPDESTROYED: Signal, dass das letzte Schiff versenkt wurde
+    // - SHIP:              Auf dem Feld befindet sich ein Schiff.
+    //                      Nur fuer die Repraesentation des eigenen Spielfelds gedacht
+    // - MISSED:            Der Gegner startete einen Angriff auf das Feld, aber hat nichts getroffen.
+    //                      Nur fuer die Repraesentation des eigenen Spielfelds gedacht
+    public enum FieldState {ERROR, UNKNOWN, WATER, HIT, DESTROYED, LASTSHIPDESTROYED, SHIP, MISSED};
+    // Statusbeschreibung fuer eingehende Nachrichten
+    // - UNKNOWN:           Eine Nachricht, die keinem der Status zugeordnet werden konnte
+    // - ATTACK:            Angriff auf uebergebene Koordinate
+    // - ATTACKRESPONSE:    Antwort auf Angriff
+    // - ATTACKFIRST:       Der Spieler, der diese Nachricht empfaengt, faengt an
+    // - DEFENDFIRST:       Der Spieler, der diese Nachricht empfaengt, wartet auf den Gegenspieler
+    // - STARTGAME:         Startsignal, zur Synchronisation beider Clients
+    public enum CommandState {UNKNOWN, ATTACK, ATTACKRESPONSE, ATTACKFIRST, DEFENDFIRST, STARTGAME};
     private static CMessageGenerator m_me = null;
 
     /**

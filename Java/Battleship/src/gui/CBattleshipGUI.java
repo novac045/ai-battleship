@@ -1,6 +1,6 @@
 package gui;
 
-import gui.CPlayingFieldController.FieldState;
+import common.CMessageGenerator.FieldState;
 import gui.CPlayingFieldController.GameState;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -130,7 +130,7 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
      * @param stateVec  Array mit dem neuen Status des gegnerischen Spielfelds
      * @throws CPlayingFieldControllerException
      */
-    public void setEnemyPlayingField(CPlayingFieldController.FieldState[] stateVec) throws CPlayingFieldControllerException {
+    public void setEnemyPlayingField(FieldState[] stateVec) throws CPlayingFieldControllerException {
         m_enemy.setState(stateVec);
     }
 
@@ -139,7 +139,7 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
      * @param stateVec  Array mit dem neuen Status des eigenen Spielfelds
      * @throws CPlayingFieldControllerException
      */
-    public void setOwnPlayingField(CPlayingFieldController.FieldState[] stateVec) throws CPlayingFieldControllerException {
+    public void setOwnPlayingField(FieldState[] stateVec) throws CPlayingFieldControllerException {
         m_own.setState(stateVec);
     }
 

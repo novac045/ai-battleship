@@ -1,6 +1,6 @@
 package gui;
 
-import gui.CPlayingFieldController.FieldState;
+import common.CMessageGenerator.FieldState;
 import java.util.Random;
 
 /**

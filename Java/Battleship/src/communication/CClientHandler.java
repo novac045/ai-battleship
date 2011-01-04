@@ -94,14 +94,11 @@ public class CClientHandler extends Thread {
      * @throws IOException
      */
     private synchronized void notifyAllOtherClients(String msg) throws IOException {
-        System.out.print("Forwarding message: " + msg);
         for (CClientHandler handle : m_otherClients) {
             if (handle != this) {
-                System.out.print(" _");
                 handle.send(msg);
             }
         }
-        System.out.println("");
     }
 
     /**
@@ -113,6 +110,7 @@ public class CClientHandler extends Thread {
      * @throws IOException
      */
     public void send(String msg) throws IOException {
+        System.out.println("" + this + ": Sending message: " + msg);
         m_outStream.write(msg + "\r");
         m_outStream.flush();
     }
