@@ -155,11 +155,11 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
             String[] xy = command.split(",");
             final int x = Integer.parseInt(xy[0]);
             final int y = Integer.parseInt(xy[1]);
+            // Angriffskommando an den Controller uebermitteln
+            m_control.attack(x, y);
             // Spielfeld aktualisieren und deaktivieren, da der Spielstatus
             // von attack auf defend wechselt.
             m_enemy.disable(m_control.getEnemyStateVec());
-            // Angriffskommando an den Controller uebermitteln
-            m_control.attack(x, y);
         } catch (InterruptedException ex) {
             System.out.println("CBattleshipGUI::actionPerformed - InterruptedException");
             System.out.println(ex.toString());
