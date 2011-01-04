@@ -1,5 +1,6 @@
 package gui;
 
+import common.CMessageGenerator.FieldState;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -98,7 +99,7 @@ public class CPlayingFieldPanel {
      * @param s Neuer Status
      * @throws CPlayingFieldControllerException
      */
-    public void setState(int x, int y, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
+    public void setState(int x, int y, FieldState s) throws CPlayingFieldControllerException {
         applyButtonDesign(x, y, s);
     }
 
@@ -108,10 +109,10 @@ public class CPlayingFieldPanel {
      * @param stateArray    Array mit den neuen Buttonzustaenden
      * @throws CPlayingFieldControllerException
      */
-    public void setState(CPlayingFieldController.FieldState[] stateArray) throws CPlayingFieldControllerException {
+    public void setState(FieldState[] stateArray) throws CPlayingFieldControllerException {
         if (stateArray.length == m_width * m_height) {
             int i = 0;
-            for (CPlayingFieldController.FieldState s : stateArray) {
+            for (FieldState s : stateArray) {
                 applyButtonDesign(i, s);
                 ++i;
             }
@@ -126,7 +127,7 @@ public class CPlayingFieldPanel {
      * @param s     Neuer Zustand
      * @throws CPlayingFieldControllerException
      */
-    private void applyButtonDesign(int pos, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
+    private void applyButtonDesign(int pos, FieldState s) throws CPlayingFieldControllerException {
         int y = pos / m_width;
         int x = pos - y * m_width;
         applyButtonDesign(x, y, s);
@@ -147,7 +148,7 @@ public class CPlayingFieldPanel {
      * @param s Neuer Buttonstatus
      * @throws CPlayingFieldControllerException
      */
-    private void applyButtonDesign(int x, int y, CPlayingFieldController.FieldState s) throws CPlayingFieldControllerException {
+    private void applyButtonDesign(int x, int y, FieldState s) throws CPlayingFieldControllerException {
         if (y >= m_height || x >= m_width || x < 0 || y < 0) {
             throw new CPlayingFieldControllerException("Coordinates ("+ x + "/" + y +") out of range");
         }
@@ -208,7 +209,7 @@ public class CPlayingFieldPanel {
      * @param states Spielfeldstatus
      * @throws CPlayingFieldControllerException
      */
-    public void disable(CPlayingFieldController.FieldState[] states) throws CPlayingFieldControllerException {
+    public void disable(FieldState[] states) throws CPlayingFieldControllerException {
         setState(states);
         for (int i = 0; i < m_button.length; ++i) {
             m_button[i].setEnabled(false);

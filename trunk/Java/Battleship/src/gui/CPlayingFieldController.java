@@ -1,6 +1,8 @@
 package gui;
 
 import common.CMessageGenerator;
+import common.CMessageGenerator.CommandState;
+import common.CMessageGenerator.FieldState;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -24,29 +26,7 @@ import java.util.regex.Pattern;
  * @author victorapostel
  */
 public class CPlayingFieldController extends Thread {
-    // Statusbeschreibung fuer Felder:
-    // - ERROR:             Ein Fehler ist aufgetreten
-    // - UNKNOWN:           Der Feldstatus ist unbekannt.
-    //                      Nur fuer die Repraesentation des gegnerischen Spielfelds gedacht
-    // - WATER:             Das Feld beinhaltet Wasser
-    // - HIT:               Ein Schiff wurde getroffen, aber noch nicht versenkt
-    // - DESTROYED:         Ein Schiff wurde versenkt
-    // - LASTSHIPDESTROYED: Signal, dass das letzte Schiff versenkt wurde
-    // - SHIP:              Auf dem Feld befindet sich ein Schiff.
-    //                      Nur fuer die Repraesentation des eigenen Spielfelds gedacht
-    // - MISSED:            Der Gegner startete einen Angriff auf das Feld, aber hat nichts getroffen.
-    //                      Nur fuer die Repraesentation des eigenen Spielfelds gedacht
-    public enum FieldState {ERROR, UNKNOWN, WATER, HIT, DESTROYED, LASTSHIPDESTROYED, SHIP, MISSED};
-    // Statusbeschreibung fuer eingehende Nachrichten
-    // - UNKNOWN:           Eine Nachricht, die keinem der Status zugeordnet werden konnte
-    // - ATTACK:            Angriff auf uebergebene Koordinate
-    // - ATTACKRESPONSE:    Antwort auf Angriff
-    // - ATTACKFIRST:       Der Spieler, der diese Nachricht empfaengt, faengt an
-    // - DEFENDFIRST:       Der Spieler, der diese Nachricht empfaengt, wartet auf den Gegenspieler
-    // - STARTGAME:         Startsignal, zur Synchronisation beider Clients
-    public enum CommandState {UNKNOWN, ATTACK, ATTACKRESPONSE, ATTACKFIRST, DEFENDFIRST, STARTGAME};
     public enum GameState {INITIALIZATION, RUNNING, WON, LOST};
-
     // Abbildung des aktuellen Spielstatus
     private FieldState[] m_enemyState = null;
     private FieldState[] m_ownState = null;
@@ -354,6 +334,7 @@ public class CPlayingFieldController extends Thread {
         switch (s) {
             // Ein gegnerisches Schiff wurde getroffen
             case HIT:
+            case SHIP:
                 m_enemyState[y * m_width + x] = FieldState.HIT;
                 break;
             // Der Schuss ging ins Wasser
