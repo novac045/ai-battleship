@@ -1,3 +1,7 @@
+/* for usage of substitute */
+:- use_module(library(dialect/sicstus/lists)).
+
+:- dynamic myField/1.
 
 /* ---------------------------------------------- */	
 doDefend(X, Y, NewState) :-
@@ -41,11 +45,13 @@ completelyDestroyed(X, Y, _, _) :-
 	Y < 0; Y >= 10.
 
 /* not destroyed if there is State SHIP: 6        */
-completelyDestroyed(X, Y, _, _) :-
+/*completelyDestroyed(X, Y, _, _) :-
 	myField(MyField),
 	member(X/Y/6, MyField),
+	write('still a part of the ship there'),
 	!,
 	fail.
+*/
 
 /* recursion if state is HIT: 2                   */
 completelyDestroyed(X, Y, OldX, OldY) :-
@@ -55,33 +61,48 @@ completelyDestroyed(X, Y, OldX, OldY) :-
 	destroyedEast(X, Y, OldX, OldY),
 	destroyedWest(X, Y, OldX, OldY),
 	destroyedNorth(X, Y, OldX, OldY),
-	destroyedSouth(X, Y, OldX, OldY).
+	destroyedSouth(X, Y, OldX, OldY),
+	!.
+
+/* termination condition for State WATER: 1 */
+completelyDestroyed(X, Y, _, _) :-
+	myField(MyField),
+	member(X/Y/1, MyField),
+	!.	
 	
-/* ---------------------------------------------- */		
+/* ---------------------------------------------- */
+/* avoid endless loop with already checked values */		
 destroyedEast(X, _, OldX, _) :-
 	NewX is X+1,
 	NewX =:= OldX.
-destroyedEast(X, Y, OldX, OldY) :-
+/* check East Neighbour                           */
+destroyedEast(X, Y, _, OldY) :-
 	NewX is X+1,
 	completelyDestroyed(NewX, Y, X, OldY).
 
+/* avoid endless loop with already checked values */		
 destroyedWest(X, _, OldX, _) :-
 	NewX is X-1,
 	NewX =:= OldX.
-destroyedWest(X, Y, OldX, OldY) :-
+/* check West Neighbour                           */
+destroyedWest(X, Y, _, OldY) :-
 	NewX is X-1,
 	completelyDestroyed(NewX, Y, X, OldY).
 
+/* avoid endless loop with already checked values */		
 destroyedNorth( _, Y, _, OldY) :-
 	NewY is Y-1,
 	NewY =:= OldY.
-destroyedNorth( X, Y, OldX, OldY) :-
+/* check North Neighbour                          */
+destroyedNorth( X, Y, OldX, _) :-
 	NewY is Y-1,
 	completelyDestroyed(X, NewY, OldX, Y).
 	
+/* avoid endless loop with already checked values */		
 destroyedSouth( _, Y, _, OldY) :-
 	NewY is Y+1,
 	NewY =:= OldY.
-destroyedSouth( X, Y, OldX, OldY) :-
+/* check South Neighbour                          */
+destroyedSouth( X, Y, OldX, _) :-
 	NewY is Y+1,
 	completelyDestroyed(X, NewY, OldX, Y).
