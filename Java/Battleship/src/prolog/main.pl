@@ -5,6 +5,7 @@
 :- consult('outputModule.pl').
 
 
+/* ---------------------------------------------- */	
 /* connection handling */
 connect(Port) :- 
     tcp_socket(Socket),
@@ -17,6 +18,7 @@ connect(Port) :-
 
 :- connect(54321).
 
+/* ---------------------------------------------- */	
 /* defend handling */
 defend(State) :-
     write('    KI is defending'), nl,
@@ -32,6 +34,7 @@ defend(State) :-
     flush_output,
 	!.
 
+/* ---------------------------------------------- */	
 /* attack handling */
 attack(State) :-
     write('    KI is attacking'), nl,
@@ -50,6 +53,8 @@ attack(State) :-
 	printEnemyField,
 	!.
 
+/* ---------------------------------------------- */	
+/* Checks for Win or Loss                         */
 lost(4).
 won(4).	
 
@@ -61,7 +66,8 @@ writeIfWon(4) :-
 	write('KI wins.'), nl.
 writeIfWon(_).
 	
-/* startgame */
+/* ---------------------------------------------- */	
+/* start game defending                           */
 defendFirst :-
     write('Iterating ... '), nl,
     defend(MyState),
@@ -74,6 +80,8 @@ defendFirst :-
 /* end game without warning */
 defendFirst.
 
+/* ---------------------------------------------- */	
+/* start game attacking                           */
 attackFirst :-
     write('Iterating ... '), nl,
     attack(EnemyState),
@@ -86,6 +94,8 @@ attackFirst :-
 /* end game without warning */
 attackFirst.
 
+/* ---------------------------------------------- */	
+/* main                                           */
 mainInit(3) :-
     connectedReadStream(IStream),
     read(IStream,(5,[])),

@@ -1,7 +1,8 @@
 /* for usage of substitute */
 :- use_module(library(dialect/sicstus/lists)).
 
-/* initialise prolog client */
+/* ---------------------------------------------- */	
+/* initialise prolog client                       */
 initPrologClient :- 
 	initMyField,
 	initEnemyField.
@@ -24,7 +25,8 @@ initEnemyField   :-
 	assert(enemyField(Field)).
 
 
-/* Logic for field generation */
+/* ---------------------------------------------- */	
+/* Logic for field generation                     */
 generateField(-1, _, R, R) :- !.
 
 generateField(Count, InitVal, OldField, NewField) :-
