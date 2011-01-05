@@ -58,22 +58,30 @@ completelyDestroyed(X, Y, OldX, OldY) :-
 	destroyedSouth(X, Y, OldX, OldY).
 	
 /* ---------------------------------------------- */		
+destroyedEast(X, _, OldX, _) :-
+	NewX is X+1,
+	NewX =:= OldX.
 destroyedEast(X, Y, OldX, OldY) :-
 	NewX is X+1,
-	NewX =/= OldX,
 	completelyDestroyed(NewX, Y, X, OldY).
 
+destroyedWest(X, _, OldX, _) :-
+	NewX is X-1,
+	NewX =:= OldX.
 destroyedWest(X, Y, OldX, OldY) :-
 	NewX is X-1,
-	NewX =/= OldX,
 	completelyDestroyed(NewX, Y, X, OldY).
 
+destroyedNorth( _, Y, _, OldY) :-
+	NewY is Y-1,
+	NewY =:= OldY.
 destroyedNorth( X, Y, OldX, OldY) :-
 	NewY is Y-1,
-	NewY =/= OldY,
 	completelyDestroyed(X, NewY, OldX, Y).
 	
+destroyedSouth( _, Y, _, OldY) :-
+	NewY is Y+1,
+	NewY =:= OldY.
 destroyedSouth( X, Y, OldX, OldY) :-
 	NewY is Y+1,
-	NewY =/= OldY,
 	completelyDestroyed(X, NewY, OldX, Y).
