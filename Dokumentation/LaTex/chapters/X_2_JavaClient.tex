@@ -88,7 +88,7 @@ Der Vorgang zum Platzieren eines Schiffes ist dabei von seinem Typ und somit sei
 	\item Generiere zufällig die x/y Position, sowie die Orientierung, in der das Schiff platziert werden soll.
 	\item Prüfe ob diese Position belegt ist, oder ob sich in der direkten 8er Nachbarschaft ein Schiff befindet. 
 	Es gilt ebenfalls die Spielfeldgrenzen zu berücksichtigen.
-	\item Wiederholen den vorherigen Schritt rekursiv an der nächsten Position in angegebener Orientierung. 
+	\item Wiederhole den vorherigen Schritt rekursiv an der nächsten Position in angegebener Orientierung. 
 	Die Schiffsgröße wird mit jedem Rekursionsschritt um 1 verringert, sodass aus dieser Angabe die Abbruchbedingung erzeugt werden kann.
 	\item Wurde in keinem Feld rekursiv eine Behinderung festgestellt, werden die Felder mit der Schiffskennung versehen.
 \end{enumerate}
