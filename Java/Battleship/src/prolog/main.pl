@@ -19,7 +19,7 @@ connect(Port) :-
 
 /* defend handling */
 defend :-
-    /*write('    KI is defending'), nl,*/
+    write('    KI is defending'), nl,
     connectedReadStream(IStream),
     connectedWriteStream(OStream),
     write('    - Waiting for input'), nl,
@@ -33,7 +33,7 @@ defend :-
 
 /* attack handling */
 attack :-
-    /*write('    KI is attacking'), nl,*/
+    write('    KI is attacking'), nl,
     connectedReadStream(IStream),
     connectedWriteStream(OStream),
 	/* angreifen */
@@ -42,7 +42,7 @@ attack :-
     nl(OStream),
     flush_output(OStream),
     flush_output,
-    /*write('    - Waiting for response'), nl,*/
+    write('    - Waiting for response'), nl,
     read(IStream,(2,[U,V,State])),
 	attackResponse(U, V, State),
     write('    - KI attacked        : '), write('State: '), write(U), write(', '), write(V), write(' and hit: '), write(State), nl,
