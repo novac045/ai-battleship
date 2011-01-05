@@ -52,28 +52,28 @@ completelyDestroyed(X, Y, OldX, OldY) :-
 	myField(MyField),
 	member(X/Y/2, MyField),
 	
-	east(X, Y, OldX, OldY),
-	west(X, Y, OldX, OldY),
-	north(X, Y, OldX, OldY),
-	south(X, Y, OldX, OldY).
+	destroyedEast(X, Y, OldX, OldY),
+	destroyedWest(X, Y, OldX, OldY),
+	destroyedNorth(X, Y, OldX, OldY),
+	destroyedSouth(X, Y, OldX, OldY).
 	
-	
-east(X, _, X, _).
-east(X, Y, OldX, OldY) :-
+/* ---------------------------------------------- */		
+destroyedEast(X, _, X, _).
+destroyedEast(X, Y, OldX, OldY) :-
 	NewX is X+1,
 	completelyDestroyed(NewX, Y, X, OldY).
 
-west(X, _, X, _).
-west(X, Y, OldX, OldY) :-
+destroyedWest(X, _, X, _).
+destroyedWest(X, Y, OldX, OldY) :-
 	NewX is X-1,
 	completelyDestroyed(NewX, Y, X, OldY).
 
-north(_, Y, _, Y).
-north( X, Y, OldX, OldY) :-
+destroyedNorth(_, Y, _, Y).
+destroyedNorth( X, Y, OldX, OldY) :-
 	NewY is Y-1,
 	completelyDestroyed(X, NewY, OldX, Y).
 	
-south(_, Y, _, Y).
-south( X, Y, OldX, OldY) :-
+destroyedSouth(_, Y, _, Y).
+destroyedSouth( X, Y, OldX, OldY) :-
 	NewY is Y+1,
 	completelyDestroyed(X, NewY, OldX, Y).
