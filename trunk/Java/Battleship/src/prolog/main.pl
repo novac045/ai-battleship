@@ -18,7 +18,7 @@ connect(Port) :-
 :- connect(54321).
 
 /* defend handling */
-defend :-
+defend(State) :-
     write('    KI is defending'), nl,
     connectedReadStream(IStream),
     connectedWriteStream(OStream),
@@ -29,10 +29,11 @@ defend :-
     write(OStream,(2,[X,Y,State])),
     nl(OStream),
     flush_output(OStream),
-    flush_output.
+    flush_output,
+	!.
 
 /* attack handling */
-attack :-
+attack(State) :-
     write('    KI is attacking'), nl,
     connectedReadStream(IStream),
     connectedWriteStream(OStream),
@@ -46,34 +47,58 @@ attack :-
     read(IStream,(2,[U,V,State])),
 	attackResponse(U, V, State),
     write('    - KI attacked        : '), write('State: '), write(U), write(', '), write(V), write(' and hit: '), write(State), nl,
-	printEnemyField.
+	printEnemyField,
+	!.
 
+lost(4).
+won(4).	
+
+writeIfLost(4) :-
+	write('KI looses.'), nl.
+writeIfLost(_).
+
+writeIfWon(4) :-
+	write('KI wins.'), nl.
+writeIfWon(_).
+	
 /* startgame */
 defendFirst :-
     write('Iterating ... '), nl,
-    defend,
-    attack,
-    defendFirst.
+    defend(MyState),
+	writeIfLost(MyState),
+	\+ lost(MyState),
+    attack(EnemyState),
+	\+ won(EnemyState),
+    defendFirst,
+	!.
+/* end game without warning */
+defendFirst.
 
 attackFirst :-
     write('Iterating ... '), nl,
-    attack,
-    defend,
-    attackFirst.
+    attack(EnemyState),
+	\+ won(EnemyState),
+    defend(MyState),
+	writeIfLost(MyState),
+	\+ lost(MyState),
+    attackFirst,
+	!.
+/* end game without warning */
+attackFirst.
 
-mainInit(OPCODE) :-
-    OPCODE =:= 3,
+mainInit(3) :-
     connectedReadStream(IStream),
     read(IStream,(5,[])),
     write('Received start signal'), nl,
-    defendFirst.
+    defendFirst,
+	!.
 
-mainInit(OPCODE) :-
-    OPCODE =:= 4,
+mainInit(4) :-
     connectedReadStream(IStream),
     read(IStream,(5,[])),
     write('Received start signal'), nl,
-    attackFirst.
+    attackFirst,
+	!.
 
 main :-
     connectedReadStream(IStream),
@@ -81,6 +106,6 @@ main :-
 	initPrologClient,
 	printMyField,
     mainInit(OPCODE),
-    defendFirst.
+	write('End of Game.'), nl.
 
 :- main.

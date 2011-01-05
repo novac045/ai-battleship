@@ -23,8 +23,10 @@ outputField([_/_/State | T]) :-
 	
 printMyField :-
 	myField(Field),
-	outputField(Field).
+	outputField(Field),
+	!.
 	
 printEnemyField :-
 	enemyField(Field),
-	outputField(Field).
+	outputField(Field),
+	!.
