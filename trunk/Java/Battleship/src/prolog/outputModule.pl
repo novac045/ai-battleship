@@ -4,9 +4,9 @@
 printField(0) :- write(' U '). /* unknown */
 printField(1) :- write(' W '). /* water */
 printField(2) :- write(' X '). /* hit */
-printField(3) :- write(' - '). /* destroyed */
-printField(4) :- write(' error '). /* last ship destroyed */
-printField(5) :- write(' eeeee '). /* missed */
+printField(3) :- write(' X '). /* destroyed */
+printField(4) :- write(' X '). /* last ship destroyed */
+printField(5) :- write(' error '). /* missed */
 printField(6) :- write(' o '). /* ship */
 
 outputField([]) :-

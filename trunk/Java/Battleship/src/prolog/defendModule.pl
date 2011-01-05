@@ -44,15 +44,6 @@ completelyDestroyed(X, Y, _, _) :-
 	X < 0; X >= 10;
 	Y < 0; Y >= 10.
 
-/* not destroyed if there is State SHIP: 6        */
-/*completelyDestroyed(X, Y, _, _) :-
-	myField(MyField),
-	member(X/Y/6, MyField),
-	write('still a part of the ship there'),
-	!,
-	fail.
-*/
-
 /* recursion if state is HIT: 2                   */
 completelyDestroyed(X, Y, OldX, OldY) :-
 	myField(MyField),
@@ -71,6 +62,7 @@ completelyDestroyed(X, Y, _, _) :-
 	!.	
 	
 /* ---------------------------------------------- */
+/* Check neighbours                               */
 /* avoid endless loop with already checked values */		
 destroyedEast(X, _, OldX, _) :-
 	NewX is X+1,
