@@ -15,9 +15,6 @@ updateMyField(X, Y, 6) :-
 	substitute(X/Y/6, OldField, X/Y/2, NewField),
 	retractall(myField(_)),
 	asserta(myField(NewField)).
-
-shipState(X, Y	
-	
 	
 /* water */
 returnValue(_, _, 1, _, 1). 
