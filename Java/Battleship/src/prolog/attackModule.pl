@@ -5,8 +5,8 @@
 
 /* praedikat doAttack(X, Y) */
 doAttack(X, Y) :-
-	zufallsWert(X),
-	zufallsWert(Y),
+	randValue(X),
+	randValue(Y),
 	enemyField(Field),
 	member(X/Y/0, Field), !.
 
@@ -17,5 +17,5 @@ attackResponse(X, Y, State) :-
 	retractall(enemyField(_)),
 	asserta(enemyField(NewField)), !.
 
-zufallsWert(X) :-
-	random(1, 11, X).
+randValue(X) :-
+	random(0, 10, X).

@@ -9,7 +9,8 @@ printField(4) :- write(' error '). /* last ship destroyed */
 printField(5) :- write(' eeeee '). /* missed */
 printField(6) :- write(' o '). /* ship */
 
-outputField([]).
+outputField([]) :-
+	flush_output.
 	
 outputField([9/_/State | T]) :-
 	printField(State),
@@ -27,6 +28,3 @@ printMyField :-
 printEnemyField :-
 	enemyField(Field),
 	outputField(Field).
-
-	
-	
