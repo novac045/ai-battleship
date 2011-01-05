@@ -37,8 +37,8 @@ updateShips(_, _, 2).
 /* ---------------------------------------------- */	
 /* do not regard field borders                    */
 completelyDestroyed(X, Y, _, _) :-
-	(X < 0; X >= 10),
-	(Y < 0; Y >= 10).
+	X < 0; X >= 10;
+	Y < 0; Y >= 10.
 
 /* not destroyed if there is State SHIP: 6        */
 completelyDestroyed(X, Y, _, _) :-
@@ -58,22 +58,22 @@ completelyDestroyed(X, Y, OldX, OldY) :-
 	destroyedSouth(X, Y, OldX, OldY).
 	
 /* ---------------------------------------------- */		
-destroyedEast(X, _, X, _).
 destroyedEast(X, Y, OldX, OldY) :-
 	NewX is X+1,
+	NewX =/= OldX,
 	completelyDestroyed(NewX, Y, X, OldY).
 
-destroyedWest(X, _, X, _).
 destroyedWest(X, Y, OldX, OldY) :-
 	NewX is X-1,
+	NewX =/= OldX,
 	completelyDestroyed(NewX, Y, X, OldY).
 
-destroyedNorth(_, Y, _, Y).
 destroyedNorth( X, Y, OldX, OldY) :-
 	NewY is Y-1,
+	NewY =/= OldY,
 	completelyDestroyed(X, NewY, OldX, Y).
 	
-destroyedSouth(_, Y, _, Y).
 destroyedSouth( X, Y, OldX, OldY) :-
 	NewY is Y+1,
+	NewY =/= OldY,
 	completelyDestroyed(X, NewY, OldX, Y).
