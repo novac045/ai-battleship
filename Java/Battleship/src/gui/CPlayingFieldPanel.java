@@ -62,7 +62,7 @@ public class CPlayingFieldPanel {
         char row = 'A';
         // Hauptfeld initialisieren
 
-        int buttonSize = 50;
+        int buttonSize = 30;
         for (int i = 0; i < m_width * m_height; ++i) {
             m_button[i] = new JButton();
             m_button[i].setSize(buttonSize, buttonSize);
@@ -77,7 +77,7 @@ public class CPlayingFieldPanel {
             m_button[i].setActionCommand(command);
            
             // Debug Info
-            m_button[i].setText(command);
+            //m_button[i].setText(command);
 
             // Der Anfang einer jeden neuen Zeile wird mit einem neuen
             // Buchstaben versehen
@@ -188,7 +188,7 @@ public class CPlayingFieldPanel {
                     m_button[pos].setEnabled(false);
                     break;
             }
-            m_button[pos].setText(content);
+            //m_button[pos].setText(content);
             m_button[pos].setBackground(c);
         }
     }
