@@ -32,7 +32,6 @@ printEnemyField :-
 	!.
 
 printOpenList :-
-	write('hugo: '),
 	openList(OpenList),
 	write(OpenList), nl.
 	
