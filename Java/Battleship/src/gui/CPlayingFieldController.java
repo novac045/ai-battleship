@@ -41,9 +41,6 @@ public class CPlayingFieldController extends Observable implements Runnable {
     // Verbindungsdaten
     private int m_port = 54321;
     private String m_host = "127.0.0.1";
-    // Variablen zur Signalisierung von aktualisierten Daten, die von der GUI
-    // abgeholt werden koennen
-    //private boolean m_updateAvailable = true;
     private boolean m_itsMyTurn = true;
     // Aktueller Spielstatus
     private GameState m_gameState = GameState.INITIALIZATION;
@@ -462,9 +459,13 @@ public class CPlayingFieldController extends Observable implements Runnable {
         // nicht einfriert.
         while(m_itsMyTurn && m_gameState == GameState.RUNNING) {
             System.out.println("CPlayingFieldController::defend - waiting for remote turn");
+            super.setChanged();
+            super.notifyObservers();
             wait();
         }
         if (m_gameState != GameState.RUNNING) {
+            super.setChanged();
+            super.notifyObservers();
             notifyAll();
             return;
         }
@@ -504,13 +505,16 @@ public class CPlayingFieldController extends Observable implements Runnable {
         // nicht einfriert.
         while (!m_itsMyTurn && m_gameState == GameState.RUNNING) {
             System.out.println("CPlayingFieldController::attack - waiting for my turn");
+            super.setChanged();
+            super.notifyObservers();
             wait();
         }
         if (m_gameState != GameState.RUNNING) {
+            super.setChanged();
+            super.notifyObservers();
             notifyAll();
             return;
         }
-        m_itsMyTurn = false;
         String msg = CMessageGenerator.getInstance().attack(x, y);
         try {
             send(msg);
@@ -524,7 +528,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
             System.out.println("CPlayingFieldController::attack - CPlayingFieldControllerException");
             System.out.println(ex.toString());
         }
-        //m_updateAvailable = true;
+        m_itsMyTurn = false;
         super.setChanged();
         super.notifyObservers();
         notifyAll();
@@ -538,8 +542,8 @@ public class CPlayingFieldController extends Observable implements Runnable {
      */
     private synchronized void send(String msg) throws IOException {
         if (m_outStream != null) {
-            System.out.print("CPlayingFieldController::send: ");
-            System.out.println(msg);
+            //System.out.print("CPlayingFieldController::send: ");
+            //System.out.println(msg);
             m_outStream.write(msg + "\r");
             m_outStream.flush();
         }
