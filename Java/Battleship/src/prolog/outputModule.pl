@@ -30,3 +30,11 @@ printEnemyField :-
 	enemyField(Field),
 	outputField(Field),
 	!.
+
+printOpenList :-
+	write('hugo: '),
+	openList(OpenList),
+	write(OpenList), nl.
+	
+printOpenList.
+	
