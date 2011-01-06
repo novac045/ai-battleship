@@ -205,6 +205,15 @@ public class CPlayingFieldPanel {
     }
 
     /**
+     * Aktiviert das gesamte Spielfeld und aktualisiert die Zustaende
+     * @param states Spielfeldstatus
+     * @throws CPlayingFieldControllerException
+     */
+    public void enable(FieldState[] states) throws CPlayingFieldControllerException {
+        setState(states);
+    }
+
+    /**
      * Deaktiviert das gesamte Spielfeld und aktualisiert die Zustaende
      * @param states Spielfeldstatus
      * @throws CPlayingFieldControllerException
