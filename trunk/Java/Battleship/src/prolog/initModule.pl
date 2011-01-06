@@ -4,6 +4,7 @@
 /* ---------------------------------------------- */	
 /* initialise prolog client                       */
 initPrologClient :- 
+	assert(openList([])),
 	initMyField,
 	initEnemyField.
 

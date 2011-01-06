@@ -51,6 +51,7 @@ attack(State) :-
 	attackResponse(U, V, State),
     write('    - KI attacked        : '), write('State: '), write(U), write(', '), write(V), write(' and hit: '), write(State), nl,
 	printEnemyField,
+	printOpenList,
 	!.
 
 /* ---------------------------------------------- */	
