@@ -12,6 +12,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Observable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,9 +24,9 @@ import java.util.regex.Pattern;
  * Die Klasse CPlayingFieldController beinhaltet des Weiteren Objekte zur Kommunikation
  * ueber Sockets mit dem CCommunicationServer.
  *
- * @author victorapostel
+ * @author Victor Apostel
  */
-public class CPlayingFieldController extends Thread {
+public class CPlayingFieldController extends Observable implements Runnable {
     public enum GameState {INITIALIZATION, RUNNING, WON, LOST};
     // Abbildung des aktuellen Spielstatus
     private FieldState[] m_enemyState = null;
@@ -42,7 +43,7 @@ public class CPlayingFieldController extends Thread {
     private String m_host = "127.0.0.1";
     // Variablen zur Signalisierung von aktualisierten Daten, die von der GUI
     // abgeholt werden koennen
-    private boolean m_updateAvailable = true;
+    //private boolean m_updateAvailable = true;
     private boolean m_itsMyTurn = true;
     // Aktueller Spielstatus
     private GameState m_gameState = GameState.INITIALIZATION;
@@ -57,6 +58,7 @@ public class CPlayingFieldController extends Thread {
      * @param port  Port des CCommunicationServers
      */
     public CPlayingFieldController(int width, int height, String host, int port) {
+        super();
         m_port = port;
         m_host = host;
         m_width = width;
@@ -70,6 +72,8 @@ public class CPlayingFieldController extends Thread {
         }
 
         initShips();
+        super.setChanged();
+        super.notifyObservers();
     }
 
     /**
@@ -126,9 +130,16 @@ public class CPlayingFieldController extends Thread {
             // Wer beginnt?
             String whoIsDefending = m_inStream.readLine();
             handleIncomingMessage(whoIsDefending);
+
+            super.setChanged();
+            super.notifyObservers();
+
             // Startsignal empfangen
             String startSignal = m_inStream.readLine();
             handleIncomingMessage(startSignal);
+
+            super.setChanged();
+            super.notifyObservers();
 
             while(m_gameState == GameState.RUNNING) {
                 try {
@@ -471,7 +482,9 @@ public class CPlayingFieldController extends Thread {
             System.out.println(ex.toString());
         }
         m_itsMyTurn = (m_gameState == GameState.RUNNING);
-        m_updateAvailable = true;
+        //m_updateAvailable = true;
+        super.setChanged();
+        super.notifyObservers();
         notifyAll();
     }
 
@@ -511,7 +524,9 @@ public class CPlayingFieldController extends Thread {
             System.out.println("CPlayingFieldController::attack - CPlayingFieldControllerException");
             System.out.println(ex.toString());
         }
-        m_updateAvailable = true;
+        //m_updateAvailable = true;
+        super.setChanged();
+        super.notifyObservers();
         notifyAll();
     }
 
@@ -555,13 +570,15 @@ public class CPlayingFieldController extends Thread {
      */
     public synchronized List<FieldState[]> getUpdatedFields() throws InterruptedException {
         List<FieldState[]> states = new LinkedList<FieldState[]>();
+        /*
         while (!m_updateAvailable) {
             System.out.println("CPlayingFieldController::getUpdatedFields - waiting for status update");
             wait();
         }
+         */
         states.add(m_enemyState);
         states.add(m_ownState);
-        m_updateAvailable = false;
+        //m_updateAvailable = false;
         return states;
     }
 
