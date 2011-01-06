@@ -88,7 +88,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
      * Get Methode zum Abrufen des aktuellen Spielstatus
      * @return
      */
-    public synchronized GameState getGameState() {
+    public GameState getGameState() {
         return m_gameState;
     }
 
@@ -169,7 +169,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
      * Ist dies nicht der Fall, wird false zurueckgegeben, andernfalls true
      * @return true, wenn noch Felder mit dem Status SHIP existieren
      */
-    private synchronized boolean areAnyShipsLefts() {
+    private boolean areAnyShipsLefts() {
         for (int i = 0; i < m_ownState.length; ++i) {
             if (m_ownState[i] == FieldState.SHIP) {
                 return true;
@@ -196,7 +196,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
      * @param oldY  Vorangegangene y Koordiante
      * @return  true, wenn kein Feld mit dem Status SHIP gefunden wurde
      */
-    private synchronized boolean isShipCompletlyDestroyed(int x, int y, FieldState[] board, int oldX, int oldY) {
+    private boolean isShipCompletlyDestroyed(int x, int y, FieldState[] board, int oldX, int oldY) {
         boolean north = true;
         boolean south = true;
         boolean west = true;
@@ -236,7 +236,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
      * @param y Aktuelle y Koordinate
      * @param board Zu aktualisierendes Spielfeld
      */
-    private synchronized void markWholeShipAsDestroyed(int x, int y, FieldState[] board) {
+    private void markWholeShipAsDestroyed(int x, int y, FieldState[] board) {
         // Pruefe, ob wir uns noch im Spielfeld befinden
         if (x < 0 || x >= m_width || y < 0 || y >= m_height) {
             return;
@@ -263,7 +263,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
      * @return  Kodierter String mit dem Ergebnis des Angriffs.
      * @throws CPlayingFieldControllerException
      */
-    private synchronized String handleOp1(String paramList) throws CPlayingFieldControllerException {
+    private String handleOp1(String paramList) throws CPlayingFieldControllerException {
         // Parameterliste dekodieren
         System.out.println("Parameterlist: " + paramList);
         String[] xy = paramList.split(",");
@@ -327,7 +327,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
      * @return Leerer String
      * @throws CPlayingFieldControllerException
      */
-    private synchronized String handleOp2(String paramList) throws CPlayingFieldControllerException {
+    private String handleOp2(String paramList) throws CPlayingFieldControllerException {
         // Nachicht dekodieren
         System.out.println("Parameterlist: " + paramList);
         String[] xy = paramList.split(",");
@@ -382,7 +382,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
      * @return
      * @throws CPlayingFieldControllerException
      */
-    private synchronized String handleIncomingMessage(String message) throws CPlayingFieldControllerException {
+    private String handleIncomingMessage(String message) throws CPlayingFieldControllerException {
         if (message == null) {
             throw new CPlayingFieldControllerException("Empty message string");
         }
@@ -568,7 +568,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
      * @return Liste mit dem gegnerischen und dem eigenen Spielfeldern
      * @throws InterruptedException
      */
-    public synchronized List<FieldState[]> getUpdatedFields() throws InterruptedException {
+    public List<FieldState[]> getUpdatedFields() throws InterruptedException {
         List<FieldState[]> states = new LinkedList<FieldState[]>();
         /*
         while (!m_updateAvailable) {
@@ -582,7 +582,7 @@ public class CPlayingFieldController extends Observable implements Runnable {
         return states;
     }
 
-    public synchronized boolean isItMyTurn() {
+    public boolean isItMyTurn() {
         return m_itsMyTurn;
     }
 }
