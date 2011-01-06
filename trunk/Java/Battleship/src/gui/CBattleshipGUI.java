@@ -119,14 +119,8 @@ public class CBattleshipGUI extends JFrame implements ActionListener, Observer {
             final int y = Integer.parseInt(xy[1]);
             // Angriffskommando an den Controller uebermitteln
             m_control.attack(x, y);
-            // Spielfeld aktualisieren und deaktivieren, da der Spielstatus
-            // von attack auf defend wechselt.
-            m_enemy.disable(m_control.getEnemyStateVec());
         } catch (InterruptedException ex) {
             System.out.println("CBattleshipGUI::actionPerformed - InterruptedException");
-            System.out.println(ex.toString());
-        } catch (CPlayingFieldControllerException ex) {
-            System.out.println("CBattleshipGUI::actionPerformed - CPlayingFieldControllerException");
             System.out.println(ex.toString());
         }
     }
@@ -134,18 +128,23 @@ public class CBattleshipGUI extends JFrame implements ActionListener, Observer {
     public void update(Observable o, Object o1) {
         try {
             List<FieldState[]> states = m_control.getUpdatedFields();
-            boolean isItMyTurn = m_control.isItMyTurn();
             GameState gameState = m_control.getGameState();
-            System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - status update received");
-            setEnemyPlayingField(states.get(0));
+            System.out.println("CBattleshipGUI::update - status update received");
+            boolean isItMyTurn = m_control.isItMyTurn();
+            setOwnPlayingField(states.get(1));
             if (!isItMyTurn) {
                 m_statusMsg.setText("Gegner ist am Zug");
-                m_enemy.disable(m_control.getEnemyStateVec());
+                System.out.println("disabling");
+                m_enemy.disable(states.get(0));
             } else {
                 m_statusMsg.setText("Sie sind am Zug");
+                System.out.println("enabling");
+                m_enemy.enable(states.get(0));
+                System.out.println("repaint");
+                m_enemy.getPanel().repaint();
+                this.repaint();
             }
-            setOwnPlayingField(states.get(1));
-            // Wenn das Spiel beendet ist, wird der Kommunikationsthread mit dem Controller beendet
+
             if (gameState == GameState.WON) {
                 m_statusMsg.setText("Sie haben das Spiel gewonnen!");
             } else if (gameState == GameState.LOST) {
