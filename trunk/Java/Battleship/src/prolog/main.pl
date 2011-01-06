@@ -69,11 +69,12 @@ writeIfWon(_).
 /* ---------------------------------------------- */	
 /* start game defending                           */
 defendFirst :-
-    write('Iterating ... '), nl,
+    /*write('Iterating ... '), nl,*/
     defend(MyState),
 	writeIfLost(MyState),
 	\+ lost(MyState),
     attack(EnemyState),
+	writeIfWon(EnemyState),
 	\+ won(EnemyState),
     defendFirst,
 	!.
@@ -83,8 +84,9 @@ defendFirst.
 /* ---------------------------------------------- */	
 /* start game attacking                           */
 attackFirst :-
-    write('Iterating ... '), nl,
+    /*write('Iterating ... '), nl,*/
     attack(EnemyState),
+	writeIfWon(EnemyState),
 	\+ won(EnemyState),
     defend(MyState),
 	writeIfLost(MyState),
