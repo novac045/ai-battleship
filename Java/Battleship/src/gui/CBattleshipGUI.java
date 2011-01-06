@@ -7,6 +7,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,7 +27,7 @@ import javax.swing.JPanel;
  *
  * @author Victor Apostel
  */
-public class CBattleshipGUI extends JFrame implements ActionListener {
+public class CBattleshipGUI extends JFrame implements ActionListener, Observer {
     // Die beiden Spielfelder
     protected CPlayingFieldPanel m_enemy = null;
     protected CPlayingFieldPanel m_own = null;
@@ -40,7 +42,6 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
     // Verweis zum Controller mit der Spiellogik
     private CPlayingFieldController m_control = null;
     // Thread zur Ueberwachung des Controllers
-    private Thread m_controllerListener = null;
     // Label, das den aktuellen Spielstatus anzeigt
     private JLabel m_statusMsg = new JLabel("");
 
@@ -52,6 +53,7 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
     public CBattleshipGUI(CPlayingFieldController control) {
         setLayout(m_windowLayout);
         m_control = control;
+        m_control.addObserver(this);
         int width = m_control.getWidth();
         int height = m_control.getHeight();
         m_enemy = new CPlayingFieldPanel(width, height, this);
@@ -63,45 +65,6 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
 
         m_panel.add(m_enemy.getPanel());
         m_panel.add(m_own.getPanel());
-
-        m_controllerListener = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    while (true) {
-                        List<FieldState[]> states = m_control.getUpdatedFields();
-                        boolean isItMyTurn = m_control.isItMyTurn();
-                        GameState gameState = m_control.getGameState();
-                        System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - status update received");
-                        setEnemyPlayingField(states.get(0));
-                        if (!isItMyTurn) {
-                            m_statusMsg.setText("Gegner ist am Zug");
-                            m_enemy.disable(m_control.getEnemyStateVec());
-                        } else {
-                            m_statusMsg.setText("Sie sind am Zug");
-                        }
-                        setOwnPlayingField(states.get(1));
-                        // Wenn das Spiel beendet ist, wird der Kommunikationsthread mit dem Controller beendet
-                        if (gameState == GameState.WON) {
-                            m_statusMsg.setText("Sie haben das Spiel gewonnen!");
-                            this.interrupt();
-                        } else if (gameState == GameState.LOST) {
-                            m_statusMsg.setText("Sie haben das Spiel leider verloren!");
-                            this.interrupt();
-                        } else if (gameState == GameState.INITIALIZATION) {
-                            m_statusMsg.setText("Auf das Startsignal warten");
-                        }
-                    }
-                } catch (InterruptedException ex) {
-                    System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - InterruptedException");
-                    System.out.println(ex.toString());
-                } catch (CPlayingFieldControllerException ex) {
-                    System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - CPlayingFieldControllerException");
-                    System.out.println(ex.toString());
-                }
-            }
-        };
-
         // Spielfelder zentriert platzieren
         getContentPane().add(m_panel, BorderLayout.CENTER);
         // Statusfeld am unteren Rand platzieren
@@ -119,7 +82,6 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
         // Fenster automatisch justieren, sodass alle Elemente
         // sichtbar sind
         pack();
-        m_controllerListener.start();
         setVisible(true);
     }
 
@@ -165,6 +127,37 @@ public class CBattleshipGUI extends JFrame implements ActionListener {
             System.out.println(ex.toString());
         } catch (CPlayingFieldControllerException ex) {
             System.out.println("CBattleshipGUI::actionPerformed - CPlayingFieldControllerException");
+            System.out.println(ex.toString());
+        }
+    }
+
+    public void update(Observable o, Object o1) {
+        try {
+            List<FieldState[]> states = m_control.getUpdatedFields();
+            boolean isItMyTurn = m_control.isItMyTurn();
+            GameState gameState = m_control.getGameState();
+            System.out.println("CBattleshipGUI::CBattleshipGUI::Thread - status update received");
+            setEnemyPlayingField(states.get(0));
+            if (!isItMyTurn) {
+                m_statusMsg.setText("Gegner ist am Zug");
+                m_enemy.disable(m_control.getEnemyStateVec());
+            } else {
+                m_statusMsg.setText("Sie sind am Zug");
+            }
+            setOwnPlayingField(states.get(1));
+            // Wenn das Spiel beendet ist, wird der Kommunikationsthread mit dem Controller beendet
+            if (gameState == GameState.WON) {
+                m_statusMsg.setText("Sie haben das Spiel gewonnen!");
+            } else if (gameState == GameState.LOST) {
+                m_statusMsg.setText("Sie haben das Spiel leider verloren!");
+            } else if (gameState == GameState.INITIALIZATION) {
+                m_statusMsg.setText("Auf das Startsignal warten");
+            }
+        } catch (InterruptedException ex) {
+            System.out.println("CBattleshipGUI::update - InterruptedException");
+            System.out.println(ex.toString());
+        } catch (CPlayingFieldControllerException ex) {
+            System.out.println("CBattleshipGUI::update - CPlayingFieldControllerException");
             System.out.println(ex.toString());
         }
     }
