@@ -60,8 +60,8 @@ Sollte der Gegner am Zug sein, so wird gleichzeitig das gesamte Spielfeld deakti
 
 Die Klasse \texttt{CPlayingFieldController} ist das zentrale Element der Spielsteuerung und wertet die eingehenden Nachrichten und Signale aus.
 Des Weiteren beinhaltet diese Klasse auch die Model-Komponente in Form zweier Arrays, die die Spielfelder repräsentieren.
-Der Abruf dieser Daten orientiert sich am Consumer-Producer Entwurfsmuster.
-Jede Änderung an diesen Arrays wird mittels der javaeigenen Methode \texttt{notifyAll()} den Beobachtern mitgeteilt.
+Der Abruf dieser Daten orientiert sich am Observer Entwurfsmuster.
+Jede Änderung an diesen Arrays wird mittels der javaeigenen Methode \texttt{notifyAllObservers()} den Beobachtern mitgeteilt.
 
 Der Controller-Anteil wird durch die Erzeugung eines Threads realisiert, der eingehende Netzwerknachrichten annimmt und auswertet.
 Zur Generierung ausgehender Nachrichten, die einen Angriff signalisieren, dient die Methode \texttt{attack(int x, int y)} und wird durch die Interaktion mit der GUI aufgerufen.
@@ -85,7 +85,7 @@ In der Initialisierungphase ruft der Controller die Klasse \texttt{CShipPlacemen
 Diese Klasse ist für die regelkonforme Platzierung der Schiffe auf dem Spielbrett zuständig.
 Der Vorgang zum Platzieren eines Schiffes ist dabei von seinem Typ und somit seiner Größe unabhängig und kann wie folgt beschrieben werden:
 \begin{enumerate}
-	\item Generiere zufällig die x/y Position, sowie die Orientierung, in der das Schiff platziert werden soll.
+	\item Generiere zufällig die $x/y$ Position, sowie die Orientierung, in der das Schiff platziert werden soll.
 	\item Prüfe ob diese Position belegt ist, oder ob sich in der direkten 8er Nachbarschaft ein Schiff befindet. 
 	Es gilt ebenfalls die Spielfeldgrenzen zu berücksichtigen.
 	\item Wiederhole den vorherigen Schritt rekursiv an der nächsten Position in angegebener Orientierung. 
