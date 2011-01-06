@@ -163,27 +163,27 @@ public class CPlayingFieldPanel {
                     m_button[pos].setEnabled(true);
                     break;
                 case WATER:
-                    c = Color.BLUE;
+                    c = new Color(42, 121, 238);
                     content = "~";
                     m_button[pos].setEnabled(false);
                     break;
                 case SHIP:
-                    c = Color.GRAY;
+                    c = new Color(161, 164, 170);
                     content = "S";
                     m_button[pos].setEnabled(false);
                     break;
                 case MISSED:
-                    c = Color.CYAN;
+                    c = new Color(23, 85, 208);
                     content = "~";
                     m_button[pos].setEnabled(false);
                     break;
                 case HIT:
-                    c = Color.RED;
+                    c = new Color(195, 20, 20);
                     content = "x";
                     m_button[pos].setEnabled(false);
                     break;
                 case DESTROYED:
-                    c = Color.BLACK;
+                    c = new Color(51, 50, 50);
                     content = "#";
                     m_button[pos].setEnabled(false);
                     break;
