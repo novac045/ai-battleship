@@ -8,23 +8,23 @@
 
 \subsubsection{Hauptmodul}
 	Das Hauptmodul \texttt{main.pl} wird beim starten des Clients aufgerufen. Das Modul initialisiert zunächst die Verbindung zum
-	Spielserver. Anschließend werden Spielvorbereitungen über das Prädikat \texttt{initPrologClient} aus dem 
+	Spielserver. Anschließend werden Spielvorbereitungen über das Prädikat \texttt{initPrologClient/0} aus dem 
 	Initialisierungsmodul getroffen (siehe Abschnitt \ref{sec:initModule}).
 	
-	Je nachdem ob der Client im Angriffs- oder Verteidigungsmodus startet, werden die Prädikate \texttt{attackFirst} oder
-	\texttt{defendFirst} aufgerufen. Nach Empfang des Startsignals beginnt der Client dann mit einem Angriff oder Verteidigung.
+	Je nachdem ob der Client im Angriffs- oder Verteidigungsmodus startet, werden die Prädikate \texttt{attackFirst/0} oder
+	\texttt{defendFirst/0} aufgerufen. Nach Empfang des Startsignals beginnt der Client dann mit einem Angriff oder Verteidigung.
 	
-	Ein Angriff verwendet die Prädikate \texttt{doAttack} und \texttt{attackResponse} des Angriffsmoduls (siehe Abschnitt
+	Ein Angriff verwendet die Prädikate \texttt{doAttack/2} und \texttt{attackResponse/3} des Angriffsmoduls (siehe Abschnitt
 	\ref{sec:attackModule}).
-	Das Prädikat \texttt{doAttack} liefert den Punkt auf dem gegnerischen Spielfeld der angegriffen werden soll.
+	Das Prädikat \texttt{doAttack/2} liefert den Punkt auf dem gegnerischen Spielfeld der angegriffen werden soll.
 	Die so erhaltenen X-Y-Koordinaten gibt das Hauptmodul an den Server weiter und wartet anschließend auf eine Antwort des 
 	Gegners (über den Server). 
-	Nach Erhalt dieser Antwort verwendet das Hauptmodul das Prädikat \texttt{attackResponse}, um die Antwort zu verarbeiten.
+	Nach Erhalt dieser Antwort verwendet das Hauptmodul das Prädikat \texttt{attackResponse/3}, um die Antwort zu verarbeiten.
 	Mit Abschluss der Verarbeitung ist der Angriff beendet.
 	
-	Die Verteidigung verwendet das Prädikat \texttt{doDefend} des Verteidigungsmoduls (siehe Abschnitt \ref{sec:defendModule}).
+	Die Verteidigung verwendet das Prädikat \texttt{doDefend/3} des Verteidigungsmoduls (siehe Abschnitt \ref{sec:defendModule}).
 	Zu Beginn der Verteidigung wartet das Hauptmodul zunächst auf den Angriff des Gegners. Die so erhaltenen Koordinaten
-	werden an das Prädikat \texttt{doDefend} übergeben. Als Resultat liefert dieses Prädikat die entsprechende Antwort für den
+	werden an das Prädikat \texttt{doDefend/3} übergeben. Als Resultat liefert dieses Prädikat die entsprechende Antwort für den
 	Gegner. Das Hauptmodul sendet die Antwort gemäß dem Kommunikationsprotokoll an den Server. Damit ist die Verteidigung 
 	beendet.
 	
@@ -35,7 +35,7 @@
 
 \subsubsection{Initialisierungsmodul} \label{sec:initModule}
 	Die Aufgaben des Initialisierungsmoduls \texttt{initModule.pl} sind das initialisieren der Spielfelder, darunter auch
-	das Platzieren der eigenen Schiffe. Hierzu werden die Prädikate \texttt{initMyField} und \texttt{initEnemyField} verwendet.
+	das Platzieren der eigenen Schiffe. Hierzu werden die Prädikate \texttt{initMyField/0} und \texttt{initEnemyField/0} verwendet.
 	
 	Die verwendeten Spielfelder werden global in den dynamischen Prädikaten \texttt{myField/1} und \texttt{enemyField/1}
 	gespeichert, um einen einfachen Zugriff von jedem Modul zu ermöglichen. 
@@ -44,7 +44,27 @@
 	die vom Strategiemodul verwendet wird (siehe Abschnitt \ref{sec:strategy}). 
 
 \subsubsection{Verteidigungsmodul} \label{sec:defendModule}
+	Die Aufgabe des Verteidigungsmoduls \texttt{defendModule.pl} ist es einen Angriff des Gegners zu verarbeiten.
+	Zum einen muss dabei der Status des eigenen Feldes aktualisiert und zum anderen die Antwort für den Gegner bestimmt werden.
+	
+	Hat der Gegner ins Wasser geschossen, so ist keine Änderung des eigenen Feldes notwendig. Trifft der Gegner jedoch ein Schiff,
+	so muss ermittelt werden, ob dieser Treffer das Schiff lediglich getroffen oder sogar versenkt hat. Außerdem ändert sich die Antwort
+	für den Gegner, wenn das letzte Schiff versenkt wurde.
+	
+	Die Überprüfung, ob ein Schiff vollständig versenkt wurde, erfolgt über eine rekursive Überprüfung der benachbarten Felder.
+	Dabei erhöht sich die Rekursionstiefe, wenn ein Nachbarfeld ebenfalls als getroffen markiert ist. 
+	Da in den Regeln festgelegt ist, dass Schiffe sich nicht berühren dürfen, kann mit diesem Vorgehen festgestellt werden, ob ein Schiff
+	vollständig versenkt wurde, oder sich unter den Nachbarn noch ungetroffene Teile befinden.
+	
+	\todo{Ne schöne Grafik?}
+	
+	
 \subsubsection{Angriffsmodul} \label{sec:attackModule}
+
+
 \subsubsection{Strategiemodul} \label{sec:strategy}
+
+
 \subsubsection{Ausgabemodul}
+
 
