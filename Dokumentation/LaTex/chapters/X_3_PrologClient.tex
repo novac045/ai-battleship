@@ -1,2 +1,50 @@
-\subsection{Client - Prolog}
-\label{sec:Prologclient}
+\subsection{Client - Prolog} \label{sec:Prologclient}
+	Die Aufgaben des Prolog-Clients sind in verschiedene Module unterteilt, um die verschiedenen Teile austauschbar zu halten. 
+	Im Folgenden werden die Aufgaben und die Funktionsweise dieser Module erläutert.
+	
+	\todo{Gesamtübersicht - Bild - Modulzusammenspiel?}
+
+
+
+\subsubsection{Hauptmodul}
+	Das Hauptmodul \texttt{main.pl} wird beim starten des Clients aufgerufen. Das Modul initialisiert zunächst die Verbindung zum
+	Spielserver. Anschließend werden Spielvorbereitungen über das Prädikat \texttt{initPrologClient} aus dem 
+	Initialisierungsmodul getroffen (siehe Abschnitt \ref{sec:initModule}).
+	
+	Je nachdem ob der Client im Angriffs- oder Verteidigungsmodus startet, werden die Prädikate \texttt{attackFirst} oder
+	\texttt{defendFirst} aufgerufen. Nach Empfang des Startsignals beginnt der Client dann mit einem Angriff oder Verteidigung.
+	
+	Ein Angriff verwendet die Prädikate \texttt{doAttack} und \texttt{attackResponse} des Angriffsmoduls (siehe Abschnitt
+	\ref{sec:attackModule}).
+	Das Prädikat \texttt{doAttack} liefert den Punkt auf dem gegnerischen Spielfeld der angegriffen werden soll.
+	Die so erhaltenen X-Y-Koordinaten gibt das Hauptmodul an den Server weiter und wartet anschließend auf eine Antwort des 
+	Gegners (über den Server). 
+	Nach Erhalt dieser Antwort verwendet das Hauptmodul das Prädikat \texttt{attackResponse}, um die Antwort zu verarbeiten.
+	Mit Abschluss der Verarbeitung ist der Angriff beendet.
+	
+	Die Verteidigung verwendet das Prädikat \texttt{doDefend} des Verteidigungsmoduls (siehe Abschnitt \ref{sec:defendModule}).
+	Zu Beginn der Verteidigung wartet das Hauptmodul zunächst auf den Angriff des Gegners. Die so erhaltenen Koordinaten
+	werden an das Prädikat \texttt{doDefend} übergeben. Als Resultat liefert dieses Prädikat die entsprechende Antwort für den
+	Gegner. Das Hauptmodul sendet die Antwort gemäß dem Kommunikationsprotokoll an den Server. Damit ist die Verteidigung 
+	beendet.
+	
+	Nach jedem Angriff überprüft der Client, ob er das Spiel gewonnen hat. Gleichermaßen überprüft er nach jeder Verteidigung, 
+	ob er das Spiel verloren hat. Tritt einer der beiden Fälle in Kraft, so beendet sich der Client mit einer der beiden Ausgaben
+	\textit{KI wins. End of game.} oder \textit{KI looses. End of game.}.
+	
+
+\subsubsection{Initialisierungsmodul} \label{sec:initModule}
+	Die Aufgaben des Initialisierungsmoduls \texttt{initModule.pl} sind das initialisieren der Spielfelder, darunter auch
+	das Platzieren der eigenen Schiffe. Hierzu werden die Prädikate \texttt{initMyField} und \texttt{initEnemyField} verwendet.
+	
+	Die verwendeten Spielfelder werden global in den dynamischen Prädikaten \texttt{myField/1} und \texttt{enemyField/1}
+	gespeichert, um einen einfachen Zugriff von jedem Modul zu ermöglichen. 
+	
+	Das Initialisierungsmodul initialisiert außerdem die ebenfalls global gespeicherte Openlist, 
+	die vom Strategiemodul verwendet wird (siehe Abschnitt \ref{sec:strategy}). 
+
+\subsubsection{Verteidigungsmodul} \label{sec:defendModule}
+\subsubsection{Angriffsmodul} \label{sec:attackModule}
+\subsubsection{Strategiemodul} \label{sec:strategy}
+\subsubsection{Ausgabemodul}
+
