@@ -9,9 +9,13 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  * Die Klasse CBattleshipGUI ist die Hauptanzeige und gleichzeitig die
@@ -51,6 +55,17 @@ public class CBattleshipGUI extends JFrame implements ActionListener, Observer {
      * @param control Verweis zum Controllerobjekt
      */
     public CBattleshipGUI(CPlayingFieldController control) {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CBattleshipGUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(CBattleshipGUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(CBattleshipGUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(CBattleshipGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         setLayout(m_windowLayout);
         m_control = control;
         m_control.addObserver(this);
