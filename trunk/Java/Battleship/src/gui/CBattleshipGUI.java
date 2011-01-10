@@ -55,6 +55,8 @@ public class CBattleshipGUI extends JFrame implements ActionListener, Observer {
      * @param control Verweis zum Controllerobjekt
      */
     public CBattleshipGUI(CPlayingFieldController control) {
+		// Erzwinge den plattformunabhängigen Stil, damit die Darstellungsfehler bei Verwendung
+		// eines Macs behoben werden.
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
