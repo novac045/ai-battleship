@@ -81,33 +81,18 @@ itShips([S|Others]):-
 	subtract(Template,OneShip,Temp2),
 	union(Elem,Temp2,Temp3),
 	retractall(template(_)),
-	assert(template(Temp3))%,
-	% nl,write(Template),nl
+	assert(template(Temp3))
 .
 
 
 place(Position) :-
 	randseq(5,5,Ships),
-	write(Ships),nl,
+	%write(Ships),nl,
 	itShips(Ships),
 	template(Tmp),
 	Position = Tmp,
-	write(Tmp),
+	%write(Tmp),
 	length(Tmp,X),
-	nl,write(X)
-	/*get_time(D1),
-	findall(S,(template(S),initShips(S,Xseq,Yseq)),Liste),
-	get_time(D2),
-	D is D2-D1,
-	length(Liste,X),
-	write('länge:'),write(X),nl,
-	Rand is random(X),
-	write('random:'),write(Rand),nl,
-	nth1(Rand, Liste, Element),
-	length(Element,Length),
-	write('listen länge: '), write(Length), nl,
-	write(Element),nl,
-	sort(Liste, Pruned),
-	length(Pruned,PL),
-	write('länge:'),write(PL)*/
+	write(Position),nl
+	%nl,write(X)
 .
