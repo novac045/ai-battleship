@@ -12,11 +12,11 @@ doDefend(X, Y, NewState) :-
 	!.
 
 /* ---------------------------------------------- */	
-/* water was hit - nothing to do */
-/*               - state MISSED??! */
+/* water was hit - nothing to do                  */
+/*               - state MISSED??!                */
 updateMyField(_, _, 1, 1).
 
-/* ship was hit - state hit:       2 */
+/* ship was hit - state hit: 2                    */
 updateMyField(X, Y, 6, NewState) :-
 	myField(OldField),
 	substitute(X/Y/6, OldField, X/Y/2, NewField),
@@ -31,11 +31,11 @@ updateShips(_, _, 4) :-
 	myField(MyField),
 	\+ member(_/_/6, MyField).
 
-/* ship was hit - state whole destroyed: 3 */
+/* ship was hit - state whole destroyed: 3        */
 updateShips(X, Y, 3) :-
 	completelyDestroyed(X, Y, X, Y).
 	
-/* else         - just a normal hit */
+/* else         - just a normal hit               */
 updateShips(_, _, 2).
 
 /* ---------------------------------------------- */	

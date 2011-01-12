@@ -14,8 +14,10 @@ getPointOfAttack(X, Y) :-
 
 /* if open list is empty, take random values      */
 getPointOfAttack(X, Y) :-
-	random(0, 10, X),
-	random(0, 10, Y).
+	X is random(10),
+	Y is random(10).
+	/*random(0, 10, X),
+	random(0, 10, Y).*/
 	
 /* ---------------------------------------------- */
 /* helper predicate to set the open list          */
