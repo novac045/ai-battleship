@@ -118,6 +118,6 @@ main :-
 	initPrologClient,
 	printMyField,
     mainInit(OPCODE),
-	write('End of Game.'), nl.
+	write('End of game.'), nl.
 
 :- main.
