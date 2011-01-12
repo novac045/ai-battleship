@@ -136,10 +136,12 @@ public class CShipPlacementController {
                     markBusy(x+1, y);
                     markBusy(x, y-1);
                     markBusy(x, y+1);
+                    /*
                     markBusy(x-1, y-1);
                     markBusy(x-1, y+1);
                     markBusy(x+1, y-1);
                     markBusy(x+1, y+1);
+                    */
                 }
             }
         }

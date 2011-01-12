@@ -55,7 +55,7 @@ public class CBattleshipGUI extends JFrame implements ActionListener, Observer {
      * @param control Verweis zum Controllerobjekt
      */
     public CBattleshipGUI(CPlayingFieldController control) {
-		// Erzwinge den plattformunabhängigen Stil, damit die Darstellungsfehler bei Verwendung
+		// Erzwinge den plattformunabhï¿½ngigen Stil, damit die Darstellungsfehler bei Verwendung
 		// eines Macs behoben werden.
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
@@ -151,13 +151,13 @@ public class CBattleshipGUI extends JFrame implements ActionListener, Observer {
             setOwnPlayingField(states.get(1));
             if (!isItMyTurn) {
                 m_statusMsg.setText("Gegner ist am Zug");
-                System.out.println("disabling");
+                //System.out.println("disabling");
                 m_enemy.disable(states.get(0));
             } else {
                 m_statusMsg.setText("Sie sind am Zug");
-                System.out.println("enabling");
+                //System.out.println("enabling");
                 m_enemy.enable(states.get(0));
-                System.out.println("repaint");
+                //System.out.println("repaint");
                 m_enemy.getPanel().repaint();
                 this.repaint();
             }

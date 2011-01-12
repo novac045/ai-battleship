@@ -72,20 +72,26 @@ public class CClientHandler extends Thread {
             System.out.println("CClientHandler::run() - IOException");
             System.out.println(ex.toString());
         } finally {
-            // Wenn ein Spieler die Verbindung verliert, dann werden alle
-            // Verbindungen getrennt. Dadurch wird eine komplizierte
-            // Verarbeitung des anfaenglichen Verteidigungsstatus vermieden
-            for (CClientHandler handle : m_otherClients) {
-                try {
-                    handle.close();
-                } catch (IOException ex) {
-                    System.out.println("CClientHandler::run()::finally - IOException");
-                    System.out.println(ex.toString());
-                }
-            }
-            m_otherClients.clear();
-            System.out.println("Disconnected all clients");
+            disconnectAllClients();
         }
+    }
+
+    /**
+     * Wenn ein Spieler die Verbindung verliert, dann werden alle
+     * Verbindungen getrennt. Dadurch wird eine komplizierte
+     * Verarbeitung des anfaenglichen Verteidigungsstatus vermieden
+     */
+    private synchronized void disconnectAllClients() {
+        for (CClientHandler handle : m_otherClients) {
+            try {
+                handle.close();
+            } catch (IOException ex) {
+                System.out.println("CClientHandler::run()::finally - IOException");
+                System.out.println(ex.toString());
+            }
+        }
+        m_otherClients.clear();
+        System.out.println("Disconnected all clients");
     }
 
     /**
