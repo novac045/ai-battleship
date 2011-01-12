@@ -4,9 +4,36 @@
 :- consult('defendModule.pl').
 :- consult('outputModule.pl').
 
+/* ---------------------------------------------- */	
+/* handling for multiple games                    */
+numberOfGames(3).
+
+decreaseNumberOfGames :-
+	numberOfGames(Num),
+	Num >= 0,
+	NewNum is Num -1,
+	retractall(numberOfGames(_)),
+	assert(numberOfGames(NewNum)).
+	
+
+numberOfWins(0).
+
+increaseNumberOfWins :-
+	numberOfWins(Num),
+	NewNum is Num +1,
+	retractall(numberOfWins(_)),
+	assert(numberOfWins(NewNum)).
+
+numberOfLosses(0).
+
+increaseNumberOfLosses :-
+	numberOfLosses(Num),
+	NewNum is Num +1,
+	retractall(numberOfLosses(_)),
+	assert(numberOfLosses(NewNum)).
 
 /* ---------------------------------------------- */	
-/* connection handling */
+/* connection handling                            */
 connect(Port) :- 
     tcp_socket(Socket),
     gethostname(Host),  % local host
@@ -55,8 +82,10 @@ attack(State) :-
 
 /* ---------------------------------------------- */	
 /* Checks for Win or Loss                         */
-lost(4).
-won(4).	
+lost(4) :-
+	increaseNumberOfLosses.
+won(4) :-
+	increaseNumberOfWins.	
 
 writeIfLost(4) :-
 	write('KI looses.'), nl.
@@ -112,12 +141,22 @@ mainInit(4) :-
     attackFirst,
 	!.
 
+/* in-game predicate                               */
 main :-
+	decreaseNumberOfGames,
     connectedReadStream(IStream),
     read(IStream,(OPCODE,[])),
 	initPrologClient,
 	printMyField,
     mainInit(OPCODE),
-	write('End of game.'), nl.
+	main.
+
+/* predicate for end of game                      */
+main :-
+	write('End of game.'), nl,
+	numberOfWins(X),
+	numberOfLosses(Y),
+	write('KI won '), write(X), write(' times and lost '), 
+	write(Y), write(' times.'), nl.
 
 :- main.
