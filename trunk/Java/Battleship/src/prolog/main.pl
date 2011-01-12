@@ -5,34 +5,6 @@
 :- consult('outputModule.pl').
 
 /* ---------------------------------------------- */	
-/* handling for multiple games                    */
-numberOfGames(3).
-
-decreaseNumberOfGames :-
-	numberOfGames(Num),
-	Num >= 0,
-	NewNum is Num -1,
-	retractall(numberOfGames(_)),
-	assert(numberOfGames(NewNum)).
-	
-
-numberOfWins(0).
-
-increaseNumberOfWins :-
-	numberOfWins(Num),
-	NewNum is Num +1,
-	retractall(numberOfWins(_)),
-	assert(numberOfWins(NewNum)).
-
-numberOfLosses(0).
-
-increaseNumberOfLosses :-
-	numberOfLosses(Num),
-	NewNum is Num +1,
-	retractall(numberOfLosses(_)),
-	assert(numberOfLosses(NewNum)).
-
-/* ---------------------------------------------- */	
 /* connection handling                            */
 connect(Port) :- 
     tcp_socket(Socket),
@@ -81,21 +53,6 @@ attack(State) :-
 	!.
 
 /* ---------------------------------------------- */	
-/* Checks for Win or Loss                         */
-lost(4) :-
-	increaseNumberOfLosses.
-won(4) :-
-	increaseNumberOfWins.	
-
-writeIfLost(4) :-
-	write('KI looses.'), nl.
-writeIfLost(_).
-
-writeIfWon(4) :-
-	write('KI wins.'), nl.
-writeIfWon(_).
-	
-/* ---------------------------------------------- */	
 /* start game defending                           */
 defendFirst :-
     /*write('Iterating ... '), nl,*/
@@ -125,6 +82,42 @@ attackFirst :-
 /* end game without warning */
 attackFirst.
 
+/* ---------------------------------------------- */	
+/* handling for multiple games                    */
+decreaseNumberOfGames :-
+	numberOfGames(Num),
+	Num > 0,
+	NewNum is Num -1,
+	retractall(numberOfGames(_)),
+	assert(numberOfGames(NewNum)).
+	
+increaseNumberOfWins :-
+	numberOfWins(Num),
+	NewNum is Num +1,
+	retractall(numberOfWins(_)),
+	assert(numberOfWins(NewNum)).
+
+increaseNumberOfLosses :-
+	numberOfLosses(Num),
+	NewNum is Num +1,
+	retractall(numberOfLosses(_)),
+	assert(numberOfLosses(NewNum)).
+
+/* ---------------------------------------------- */	
+/* Checks for Win or Loss                         */
+lost(4).
+won(4).	
+
+writeIfLost(4) :-
+	increaseNumberOfLosses,
+	write('KI looses.'), nl.
+writeIfLost(_).
+
+writeIfWon(4) :-
+	increaseNumberOfWins,
+	write('KI wins.'), nl.
+writeIfWon(_).
+	
 /* ---------------------------------------------- */	
 /* main                                           */
 mainInit(3) :-
@@ -159,4 +152,10 @@ main :-
 	write('KI won '), write(X), write(' times and lost '), 
 	write(Y), write(' times.'), nl.
 
-:- main.
+firststart :- 	
+	assert(numberOfGames(1)),
+	assert(numberOfWins(0)),
+	assert(numberOfLosses(0)),
+	main.
+
+:- firststart.	
