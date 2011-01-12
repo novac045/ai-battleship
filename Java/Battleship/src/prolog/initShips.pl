@@ -24,6 +24,7 @@
 	5/2/X51/Y51,
 	5/1/X52/Y52])
 ).
+:-assert(positions([])).
 connectedHV(S1,P1,X1,Y1,S2,P2,X2,Y2):-
 	S1 == S2,
 	P1 \== P2,
@@ -67,21 +68,28 @@ itShips([S|Others]):-
 	itShips(Others),
 	% random X and Y Domain for one ship ...
 	template(Template),
+	write(Template),nl,
 	randseq(10,10,Xseq),
 	randseq(10,10,Yseq),
-	% template for one ship ....
+	% template for one ship ...
 	findall((S/P/X/Y),member(S/P/X/Y,Template),OneShip),
-	% all possible positions for one ship
-	findall(OneShip,initShips(OneShip,Xseq,Yseq),Rpl),
+	positions(Posis),
+	union(OneShip,Posis,TShips),
+	% all possible positions for one ship ... TODO: AND THE ALREADY SET SHIPS!!!
+	findall(TShips,initShips(TShips,Xseq,Yseq),Rpl),
 	% random position for one ship
 	length(Rpl,RplLength),
 	RplRand is random(RplLength),
 	nth0(RplRand,Rpl,Elem),
 	% replacement of ships position in template
+	subtract(Posis,Oneship,TPos),
 	subtract(Template,OneShip,Temp2),
-	union(Elem,Temp2,Temp3),
+	union(Elem,TPos,TPos2),
+	union(Elem,Temp2,Temp3),	
 	retractall(template(_)),
-	assert(template(Temp3))
+	assert(template(Temp3)),
+	retractall(positions(_)),
+	assert(positions(TPos2))
 .
 
 
