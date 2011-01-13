@@ -14,13 +14,12 @@ initMyField      :-
 	retractall(myField(_)),
 	/* init myField with Water: 1 */
 	generateField(99, 1, [], Field),
-	assert(myField(Field)),
-/* currently with dummy ships */
-	place(Ships),
-	fillWithShips(Ships)
-	%fillWithDummies(Field, DummyField),
-	%assert(myField(DummyField)).
-	%write(FilledField)
+	/* currently with dummy ships */
+	place(Ships),%SBog
+	fillWithShips(Ships,Field,FilledField),%SBog
+	%fillWithDummies(Field, DummyField),%SRit
+	assert(myField(FilledField))%SBog
+	%assert(myField(DummyField))%SRit
 	.
 
 
@@ -59,15 +58,12 @@ fillWithDummies(Field, DummyField) :-
 	substitute(0/5/1, F8, 0/5/State, DummyField).
 	
 /* Ships: _W/_W/X/Y */
-/* Field X/Y/6      */
-fillWithShips([]).
-fillWithShips([_/_/Xi/Yi|Others]):-
-	fillWithShips(Others),
-	myField(TmpField),
-	retractall(myField(_)),
+/* Field X/Y/6 */     
+fillWithShips([],A,A).
+fillWithShips([_/_/Xi/Yi|Others], InitialField, FilledField):-
+	fillWithShips(Others, InitialField, TmpField),
 	State is 6,
 	X is Xi-1,
 	Y is Yi-1,
-	substitute(X/Y/1, TmpField, X/Y/State, FilledField),
-	assert(myField(FilledField))
+	substitute(X/Y/1, TmpField, X/Y/State, FilledField)
 .
