@@ -2,7 +2,7 @@
 	Die Aufgaben des Prolog-Clients sind in verschiedene Module unterteilt, um die verschiedenen Teile austauschbar zu halten. 
 	Im Folgenden werden die Aufgaben und die Funktionsweise dieser Module erläutert.
 	
-	\todo{Gesamtübersicht - Bild - Modulzusammenspiel?}
+	\todoin{Gesamtübersicht - Bild - Modulzusammenspiel?}
 
 
 
@@ -43,8 +43,10 @@
 	Das Initialisierungsmodul initialisiert außerdem die ebenfalls global gespeicherte Openlist, 
 	die vom Strategiemodul verwendet wird (siehe Abschnitt \ref{sec:strategy}). 
 
+	\todoin{Bogi - dein initships modul einbringen}
+
 \subsubsection{Modul zur Plazierung von Schiffen} \label{sec:initships}	
-	\todo{TODO for Bogi}
+	\todoin{Bogi - TODO}
 	
 \subsubsection{Verteidigungsmodul} \label{sec:defendModule}
 	Die Aufgabe des Verteidigungsmoduls \texttt{defendModule.pl} ist es einen Angriff des Gegners zu verarbeiten.
@@ -54,12 +56,14 @@
 	so muss ermittelt werden, ob dieser Treffer das Schiff lediglich getroffen oder sogar versenkt hat. Außerdem ändert sich die Antwort
 	für den Gegner, wenn das letzte Schiff versenkt wurde.
 	
+	
+	
 	Die Überprüfung, ob ein Schiff vollständig versenkt wurde, erfolgt über eine rekursive Überprüfung der benachbarten Felder.
 	Dabei erhöht sich die Rekursionstiefe, wenn ein Nachbarfeld ebenfalls als getroffen markiert ist. 
 	Da in den Regeln festgelegt ist, dass Schiffe sich nicht berühren dürfen, kann mit diesem Vorgehen festgestellt werden, ob ein Schiff
 	vollständig versenkt wurde, oder sich unter den Nachbarn noch ungetroffene Teile befinden.
 	
-	\todo{Ne schöne Grafik?}
+	\todoin{Ne schöne Grafik?}
 	
 	
 \subsubsection{Angriffsmodul} \label{sec:attackModule}
