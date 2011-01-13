@@ -7,16 +7,16 @@
 :- use_module(library(dialect/sicstus/lists)).
 
 /* ---------------------------------------------- */	
-/* praedikat doAttack(X, Y) */
+/* predicate doAttack(X, Y)                       */
 doAttack(X, Y) :-
 	getPointOfAttack(A, B),
-    /*write('Random: '), write(A), write(','), write(B), nl,*/
-	doAttackCheck(A, B, XVerified, YVerified),
+ 	doAttackCheck(A, B, XVerified, YVerified),
     X is XVerified,
     Y is YVerified,
     !.
 
-/* ---------------------------------------------- */	
+/* ---------------------------------------------- */
+/*	check if coordinates have unknown state       */
 doAttackCheck(X, Y, XVerified, YVerified) :-
 	enemyField(Field),
 	member(X/Y/0, Field),
@@ -33,7 +33,7 @@ doAttackCheck(X, Y, XVerified, YVerified) :-
     !.
 
 /* ---------------------------------------------- */	
-/* praedikat attackResponse(X, Y, State )         */
+/* predicate attackResponse(X, Y, State )         */
 attackResponse(X, Y, State) :-
 	updateEnemyField(X, Y, State),
 	updateOpenList(X, Y, State).
