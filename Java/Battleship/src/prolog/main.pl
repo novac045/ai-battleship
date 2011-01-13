@@ -95,12 +95,11 @@ attack(State) :-
 
 /* ---------------------------------------------- */	
 /* Checks for Win or Loss                         */
-lost(4) :-
-	increaseNumberOfLosses.
-won(4) :-
-	increaseNumberOfWins.	
+lost(4).
+won(4).	
 
 writeIfLost(4) :-
+
 	increaseNumberOfLosses,
 	write('KI looses.'), nl.
 writeIfLost(_).
@@ -137,6 +136,7 @@ attackFirst :-
 	\+ lost(MyState),
     attackFirst,
 	!.
+	
 /* end game without warning */
 attackFirst.
 
@@ -158,8 +158,8 @@ mainInit(4) :-
 
 /* in-game predicate                               */
 main :-
-	connect(54321),
 	decreaseNumberOfGames,
+	connect(54321),
 	initPrologClient,
     connectedReadStream(IStream),
     read(IStream,(OPCODE,[])),
@@ -177,7 +177,7 @@ main :-
 	write(Y), write(' times.'), nl.
 
 firststart :- 	
-	assert(numberOfGames(1)),
+	assert(numberOfGames(50)),
 	assert(numberOfWins(0)),
 	assert(numberOfLosses(0)),
 	main.
