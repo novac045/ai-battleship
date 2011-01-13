@@ -3,6 +3,7 @@ import common.CMessageGenerator;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,7 +28,8 @@ import java.util.List;
 public class CCommunicationServer extends Thread {
     private ServerSocket m_server = null;
     private int m_port = 0;
-    private List m_clients = new LinkedList<CClientHandler>();
+    // Fifo Liste mit Clients, die sich verbunden haben, aber noch nicht bedient werden koennen
+    private List<Socket> m_pending = Collections.synchronizedList(new LinkedList<Socket>());
 
     /**
      * Konstruktor, dem man den Serverport angeben muss.
@@ -52,27 +54,15 @@ public class CCommunicationServer extends Thread {
 
             // Hauptschleife
             while (true) {
-                // wenn 2 Teilnehmer verbunden sind, wird ein Startsignal an beide
-                // verschickt
-                if (m_clients.size() == 2) {
-                    generateStart();
-                }
                 // Neue Teilnehmer akzeptieren
-                Socket socket = m_server.accept();
-                System.out.println("Client conntected: " + socket.toString());
-                // Dem ersten Teilnehmer eine Nachricht mit DEFENDFIRST schicken
-                boolean initDefend = m_clients.isEmpty();
-                // Verhindere, dass sich mehr als 2 Clients verbinden können
-                if (m_clients.size() <= 2) {
-                    // Thread fuer jeden Client starten
-                    CClientHandler cHandle = new CClientHandler(m_clients, socket, initDefend);
-                    // Und in Clientliste eintragen
-                    m_clients.add(cHandle);
-                    cHandle.start();
-                } else {
-                    socket = null;
-                    System.out.println("connection refused");
+                if (m_pending.size() <= 2) {
+                    Socket socket = null;
+                    socket = m_server.accept();
+                    m_pending.add(socket);
+                    System.out.println("Client conntected: " + socket.toString());
                 }
+                // Dem ersten Teilnehmer eine Nachricht mit DEFENDFIRST schicken
+                setUpGame(m_pending);
             }
 
         } catch (IOException ex) {
@@ -82,15 +72,37 @@ public class CCommunicationServer extends Thread {
     }
 
     /**
-     * Diese Methode erzeugt fuer jeden Client ein Startsignal
-     * @throws IOException
+     * Erzeugt ein Spiel, sobald sich zwei Clients verbunden haben.
+     *
+     * @param clients   Liste mit Clients, die auf ein Spiel warten
      */
-    private synchronized void generateStart() throws IOException {
-        // Startsignal erzeugen
-        String msg = CMessageGenerator.getInstance().generateStartSignal();
-        // An alle Teilnehmer verschicken
-        for (int i = 0; i < m_clients.size(); ++i) {
-            ((CClientHandler)m_clients.get(i)).send(msg);
+    public synchronized void setUpGame(List<Socket> clients) {
+        if (clients.size() >= 2) {
+            try {
+                List<CClientHandler> participants = new LinkedList<CClientHandler>();
+                // Die Sockets der Clients holen und loeschen
+                Socket s1 = clients.get(0);
+                Socket s2 = clients.get(1);
+                clients.remove(s1);
+                clients.remove(s2);
+                // Daraus Objekte erzeugen
+                CClientHandler cHandle1 = new CClientHandler(participants, s1, true);
+                CClientHandler cHandle2 = new CClientHandler(participants, s2, false);
+                // Clients in die lokale temporaere Liste eintragen, die die Spielteilnehmer
+                // identifiziert
+                participants.add(cHandle1);
+                participants.add(cHandle2);
+                // Clients starten
+                cHandle1.start();
+                cHandle2.start();
+                // und das Startsignal versenden
+                String startSignal = CMessageGenerator.getInstance().generateStartSignal();
+                cHandle1.send(startSignal);
+                cHandle2.send(startSignal);
+            } catch (IOException ex) {
+                System.out.println("CCommunicationServer::setUpGame() - IOException");
+                System.out.println(ex.toString());
+            }
         }
     }
 }
