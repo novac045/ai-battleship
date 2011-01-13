@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>LaTex/chapters/X_0_Einleitung.tex</string>
+	<string>LaTex/chapters/X_3_PrologClient.tex</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,12 +21,40 @@
 	<integer>200</integer>
 	<key>metaData</key>
 	<dict>
+		<key>LaTex/chapters/0_deckblatt.tex</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>4</integer>
+				<key>line</key>
+				<integer>21</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>LaTex/chapters/1_chapter.tex</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>24</integer>
+				<key>line</key>
+				<integer>12</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>LaTex/chapters/X_0_Einleitung.tex</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>25</integer>
+				<integer>73</integer>
 				<key>line</key>
 				<integer>2</integer>
 			</dict>
@@ -42,7 +70,7 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>1</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -68,28 +96,60 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>26</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>5</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>24</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>26</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
 		</dict>
 		<key>LaTex/chapters/X_0_Spielregeln.tex</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>7</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>22</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>7</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
 		</dict>
 		<key>LaTex/chapters/X_1_Server.tex</key>
 		<dict>
@@ -124,6 +184,48 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
+				<integer>66</integer>
+				<key>line</key>
+				<integer>68</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>30</integer>
+		</dict>
+		<key>LaTex/dokumentation.tex</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>23</integer>
+				<key>line</key>
+				<integer>20</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>LaTex/header.tex</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>12</integer>
+				<key>line</key>
+				<integer>144</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>124</integer>
+		</dict>
+		<key>LaTex/make.bat</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
 				<integer>0</integer>
@@ -144,10 +246,13 @@
 		<string>LaTex/chapters/X_1_Server.tex</string>
 		<string>LaTex/chapters/X_2_JavaClient.tex</string>
 		<string>LaTex/chapters/X_3_PrologClient.tex</string>
+		<string>LaTex/dokumentation.tex</string>
+		<string>LaTex/header.tex</string>
+		<string>LaTex/make.bat</string>
+		<string>LaTex/chapters/1_chapter.tex</string>
+		<string>LaTex/chapters/0_deckblatt.tex</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
-	<false/>
-	<key>showFileHierarchyPanel</key>
 	<true/>
 	<key>treeState</key>
 	<dict>
@@ -164,10 +269,17 @@
 					<key>subItems</key>
 					<dict/>
 				</dict>
+				<key>includes</key>
+				<dict>
+					<key>isExpanded</key>
+					<true/>
+					<key>subItems</key>
+					<dict/>
+				</dict>
 			</dict>
 		</dict>
 	</dict>
 	<key>windowFrame</key>
-	<string>{{0, 74}, {1440, 804}}</string>
+	<string>{{6, 74}, {1470, 954}}</string>
 </dict>
 </plist>

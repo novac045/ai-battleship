@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>Battleship/src/prolog/initShips.pl</string>
+	<string>Battleship/src/prolog/verbosity.pl</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -30,10 +30,26 @@
 				<key>line</key>
 				<integer>1</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>26</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
 		</dict>
 		<key>Battleship/src/prolog/defendModule.pl</key>
 		<dict>
@@ -54,9 +70,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>34</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>21</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -68,14 +84,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>50</integer>
+				<integer>1</integer>
 				<key>line</key>
-				<integer>49</integer>
+				<integer>61</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>13</integer>
+			<integer>24</integer>
 		</dict>
 		<key>Battleship/src/prolog/main.pl</key>
 		<dict>
@@ -84,21 +100,65 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>100</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>92</integer>
 		</dict>
 		<key>Battleship/src/prolog/outputModule.pl</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>13</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>Battleship/src/prolog/strategy.pl</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>34</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>130</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>30</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>37</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+		<key>Battleship/src/prolog/verbosity.pl</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>14</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -109,10 +169,12 @@
 	<key>openDocuments</key>
 	<array>
 		<string>Battleship/src/prolog/attackModule.pl</string>
+		<string>Battleship/src/prolog/strategy.pl</string>
 		<string>Battleship/src/prolog/defendModule.pl</string>
 		<string>Battleship/src/prolog/initModule.pl</string>
-		<string>Battleship/src/prolog/initShips.pl</string>
 		<string>Battleship/src/prolog/main.pl</string>
+		<string>Battleship/src/prolog/verbosity.pl</string>
+		<string>Battleship/src/prolog/initShips.pl</string>
 		<string>Battleship/src/prolog/outputModule.pl</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
@@ -126,18 +188,10 @@
 			<key>isExpanded</key>
 			<true/>
 			<key>subItems</key>
-			<dict>
-				<key>prolog</key>
-				<dict>
-					<key>isExpanded</key>
-					<true/>
-					<key>subItems</key>
-					<dict/>
-				</dict>
-			</dict>
+			<dict/>
 		</dict>
 	</dict>
 	<key>windowFrame</key>
-	<string>{{0, 74}, {1440, 804}}</string>
+	<string>{{-1440, 244}, {1230, 900}}</string>
 </dict>
 </plist>
