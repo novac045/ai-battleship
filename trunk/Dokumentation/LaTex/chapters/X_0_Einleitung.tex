@@ -1,3 +1,39 @@
 \section{Einleitung}
 \label{sec:Einleitung}
-	\todoin{Bogi - detaillierte Aufgabenbeschreibung}
+	\todoin {Sibille, bitte Rechtschreibung prüfen :-/ \newline Reicht das so!?}
+	Im Wahlpflichtfach "'Künstliche Intelligenz"' wurde während der Vorlesungen, den Vorlesungsbegleitenden Beispielen 
+	sowie in den Laboraufgaben ein solides Verständnis und Wissen über die Implementierung einer künstlichen Intelligenz 
+	mithilfe der Programmiersprache "'Prolog"' erarbeitet. Zum Ende der Veranstaltung soll das angeeignete Wissen nun in 
+	Form eines Projekts in Gruppenarbeit dargestellt und weiter vertieft werden.
+	
+	Die vorliegende Dokumentation beschreibt die Entwicklung des Spiels "'Schiffe-Versenken"' ("Battleship"), welches 
+	mithilfe der Programmiersprachen Java und Prolog implementiert wird.
+	
+	Ziel des Projekts ist es das Spiel gegen den "'Computer"' spielen zu können. Hierfür muss das Spiel mit allen Spielregeln 
+	in Prolog abgebildet werden. Ebenso muss eine Spielstrategie für den Computerspieler konzeptioniert und implementiert werden, 
+	welche dafür sorgt das die künstliche Intelligenz Siegesorientiert spielt. 
+	Eine Benutzungsfreundliche Oberfläche für menlische Spieler wird durch ein Java-Programm realisiert.
+	
+	\subsection{Anforderungen} % (fold)
+	\label{sub:anforderungen}
+		Von den Gruppenmitgliedern wurden die Folgenden Anforderungen für die Software definiert:
+		\begin{itemize}
+			\item Das Prolog Programm kommuniziert über Sockets mit der Java-Benutzerschnittstelle.
+			\item Prolog-Implementierungen von Modulen zum Regeln des/der:
+			\begin{itemize}
+				\item generellen Spielablaufs,
+				\item platzieren von Schiffen auf dem Spielfeld,
+				\item Antworten auf "'Angriffe"',
+				\item "'Angreifen"' des gegenspielers nach einer 
+				\item Siegstrategie.
+			\end{itemize}
+			\item Es soll möglich sein, selbst gegen die künstliche Intelligenz zu spielen.
+			\item Es soll möglich sein, dass zwei Instanzen der künstlichen Intelligenz eine bestimmte Anzahl von spielen gegeneinander 
+			austragen.
+		\end{itemize}
+		Neben diesen Anforderungen ist eine weitere, spezielle, Anforderung definiert:
+		
+		Da eine weitere Gruppe von Studenten des Moduls ebenfalls das Spiel "'Schiffe-Versenken"' als Projektthema wählten, soll 
+		es möglich sein, dass die künstlichen Intelligenzen beider Gruppen gegeneinander antreten können. 
+		Hierfür ist die Abstimmung eines Protokolls zur Kommunikation mit der anderen Gruppe notwendig.
+	% subsection anforderungen (end)
