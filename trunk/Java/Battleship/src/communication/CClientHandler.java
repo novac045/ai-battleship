@@ -82,16 +82,26 @@ public class CClientHandler extends Thread {
      * Verarbeitung des anfaenglichen Verteidigungsstatus vermieden
      */
     private synchronized void disconnectAllClients() {
-        for (CClientHandler handle : m_otherClients) {
+        try {
+            close();
+            m_otherClients.remove(this);
+            /*
+            for (CClientHandler handle : m_otherClients) {
             try {
-                handle.close();
+            handle.close();
             } catch (IOException ex) {
-                System.out.println("CClientHandler::run()::finally - IOException");
-                System.out.println(ex.toString());
+            System.out.println("CClientHandler::disconnectAllClients() - IOException");
+            System.out.println(ex.toString());
             }
+            }
+            m_otherClients.clear();
+             *
+             */
+            System.out.println("Disconnected myself");
+        } catch (IOException ex) {
+            System.out.println("CClientHandler::disconnectAllClients() - IOException");
+            System.out.println(ex.toString());
         }
-        m_otherClients.clear();
-        System.out.println("Disconnected all clients");
     }
 
     /**
@@ -125,7 +135,8 @@ public class CClientHandler extends Thread {
      * Schliessen der Verbindung
      * @throws IOException
      */
-    public void close() throws IOException {
+    public synchronized void close() throws IOException {
         m_socket.close();
+        m_socket = null;
     }
 }
