@@ -6,7 +6,7 @@
 
 
 
-\subsubsection{Hauptmodul}
+\subsubsection{Hauptmodul} \label{sec:hauptmodul}
 	Das Hauptmodul \texttt{main.pl} wird beim starten des Clients aufgerufen. Das Modul initialisiert zunächst die Verbindung zum
 	Spielserver. Anschließend werden Spielvorbereitungen über das Prädikat \texttt{initPrologClient/0} aus dem 
 	Initialisierungsmodul getroffen (siehe Abschnitt \ref{sec:initModule}).
@@ -66,7 +66,7 @@
 	welche die Regeln auf die Menge der Schiffe Anwenden um so mögliche Positionierungen dieser auf dem Spielfeld zu erzeugen.
 	
 	Das Prädikat \texttt{place/1} stößt die Erzeugung einer zufälligen Aufstellung aller Schiffe auf dem Spielfeld an und gibt diese als Liste der Form 
-	\texttt{Schiffs-ID/Teilnummer/X-Koordinate/Y-Koordinate} an. 
+	\newline \texttt{Schiffs-ID/Teilnummer/X-Koordinate/Y-Koordinate} an. 
 	
 \subsubsection{Verteidigungsmodul} \label{sec:defendModule}
 	Die Aufgabe des Verteidigungsmoduls \texttt{defendModule.pl} ist es einen Angriff des Gegners zu verarbeiten.
@@ -146,8 +146,31 @@
 
 \subsubsection{Ausgabemodul}
 	Das Ausgabemodul \texttt{outputModule.pl} beinhaltet Prädikate zur Ausgabe der \textit{globalen Variablen} \texttt{myField/1},
-	\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt auf der Standardausgabe und kann während des Spiels oder zu
+	\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt normalerweise auf der Standardausgabe und kann während des Spiels oder zu
 	Debugzwecken verwendet werden.
+	\todoin{Spellcheck from here -.-}
+	Um Eine Überflutung der Ausgabekonsole bei vielen automatisierten Spieldurchläufen (zum Beispiel: KI gegen KI, 1000 spiele) zu vermeiden, kann 
+	die Ausgabe über das Prädikat \texttt{verbose/1} gesteuert werden. Es sind drei verschiedene Ausgabeverhalten implementiert:
+	\begin{enumerate}
+		\item \texttt{verbose(0)} : Keinerlei Ausgabe während des Spiels.
+		\item \texttt{verbose(1)} : Ausgaben während des Spiels werden in eine Textdatei umgeleitet.
+		\item \texttt{verbose(2)} : Ausgaben während des Spiels erscheinen auf der Konsole.
+	\end{enumerate}
+	Bei allen Modi wird nach Beendigung aller konfigurierten Spiele, eine Zusammenfassung der Ergebnisse (siehe Abschnitt \ref{subssec:hauptmodul}) 
+	auf der Ausgabekonsole Ausgegeben.
 	
-	\todoin{Bogi - bitte vervollständigen, du wolltest da noch was adden (13.1.11)\newline ACK! Ich habe die Implementierung gemacht, Doku kommt.}
+	Zur Realisierung der verschiedenen Ausgabemodi wird der Standardausgabestrom der SWI-Prolog Umgebung über das Systemprädikat \texttt{set\_output/1} 
+	geändert. Die Implementierung von \texttt{verbose/1} findet sich in \texttt{verbosity.pl}. Hier wird je nach Argument ein anderer Ausgabestrom 
+	definiert und als Standardausgabestrom gesetzt:
+	\begin{itemize}
+		\item \texttt{verbose(0)} : erzeugen eines Null-Stroms per \texttt{open\_null\_stream/1}.
+		\item \texttt{verbose(1)} : erzeugen eines Ausgabestroms in die Datei "'Output.txt"' im Unterordner "'GameLogs"' per \texttt{open/3}.
+		\item \texttt{verbose(2)} : erzeugen eines Ausgabestroms auf die Ausgabekonsole per \texttt{user\_output/0}.
+	\end{itemize}
+	Nach dem erzeugen des jeweiligen Ausgabestroms wird dieser über das Systemprädikat \texttt{set\_output} gesetzt und der aktuelle Ausgabestrom 
+	im globalen Prädikat \texttt{currentStream/1} gesetzt, sodass er überall im Programm manipuliert werden kann.
+	Vor Ausgabe der Spielzusammenfassung wird der momentane Ausgabestrom über das oben beschriebene Prädikat \texttt{currentStream/1} geholt und 
+	über das Systemprädikat \texttt{close/1} geschlossen. Direkt danach wird \texttt{verbose(2)} gesetzt, sodass die Ausgabe der Zusammenfassung in jedem Fall 
+	auf der Ausgabekonsole erscheint.
+	
 
