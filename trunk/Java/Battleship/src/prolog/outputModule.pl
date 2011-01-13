@@ -24,6 +24,7 @@ outputField([_/_/State | T]) :-
 printMyField :-
 	myField(Field),
 	outputField(Field),
+	saveMyField(Field),
 	!.
 	
 printEnemyField :-
@@ -37,3 +38,8 @@ printOpenList :-
 	
 printOpenList.
 	
+saveMyField(Field) :-
+	append('MyField.txt'),
+	outputField(Field),nl,
+	told
+.
