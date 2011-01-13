@@ -1,9 +1,0 @@
-# Fdb version 2
-["latex"] 0 "1_chapter.tex" "1_chapter.dvi" "1_chapter" 
-  "1_chapter.tex" 1292419789 394 36dbbc684b7a5bc09d07e6e8f71ce4f3 ""
-["pdflatex"] 1292419791 "1_chapter.tex" "1_chapter.pdf" "1_chapter" 
-  "1_chapter.aux" 1292419791 8 a94a2480d3289e625eea47cd1b285758 ""
-  "1_chapter.tex" 1292419789 394 36dbbc684b7a5bc09d07e6e8f71ce4f3 ""
-  "e.g., `I\hbox'" 0 -1 0 ""
-  "e.g., `\hobx'" 0 -1 0 ""
-  "job aborted, no legal \end found" 0 -1 0 ""
