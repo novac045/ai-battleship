@@ -3,6 +3,7 @@
 :- consult('attackModule.pl').
 :- consult('defendModule.pl').
 :- consult('outputModule.pl').
+:- consult('verbosity').
 
 /* ---------------------------------------------- */	
 /* handling for multiple games                    */
@@ -170,16 +171,21 @@ main :-
 
 /* predicate for end of game                      */
 main :-
+	currentStream(OutputStream),
+	close(OutputStream),
+	verbose(2),
 	write('End of game.'), nl,
 	numberOfWins(X),
 	numberOfLosses(Y),
 	write('KI won '), write(X), write(' times and lost '), 
-	write(Y), write(' times.'), nl.
+	write(Y), write(' times.'), nl,nl.
 
 firststart :- 	
-	assert(numberOfGames(50)),
-	assert(numberOfWins(0)),
+	assert(numberOfGames(10)),
+	assert(numberOfWins(0)),	
 	assert(numberOfLosses(0)),
+	verbose(0), /*0: No Output, 1: Output to File, 2: Output to Console*/
+	tty_clear, /* clear screen*/
 	main.
 
 :- firststart.	
