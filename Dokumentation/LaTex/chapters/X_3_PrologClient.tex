@@ -43,11 +43,30 @@
 	
 	Das Initialisierungsmodul initialisiert außerdem die ebenfalls global gespeicherte Openlist, 
 	die vom Strategiemodul verwendet wird (siehe Abschnitt \ref{sec:strategy}). 
-
-	\todoin{Bogi - dein initships modul einbringen}
+	\todoin {Spellcheck from here, please.}
+	Zur Platzierung der eigenen Schiffe, verwendet das Initialisierungsmodul das Prädikat \texttt{place/1} aus der Implementierung 
+	der Schiffspositionierung in \texttt{initShips.pl}.
+	Die von \texttt{place/1} gelieferte Liste beinhaltet (unter anderem) die Koordinaten der Schiffe, welche durch das Prädikat 
+	\texttt{fillWithShips/3} im globalen, eigenen Spielfeld \texttt{myField/1} als belegt gekennzeichnet werden. Hierfür wird 
+	die von \texttt{place/1} bezogene Liste rekursiv abgearbeitet und die enthaltenen X-Y-Koordinaten in \texttt{MyField/1} mit dem 
+	Status 6 belegt, der aussagt dass hier ein Teil eines Schiffes steht.
+	
+	Die Listenelemente enhalten neben den Koordinaten noch eine Nummer zur Identifizierung des Schiffes, sowie die "'Teilenummer"' 
+	die angibt um den wievielten Teil eines Schiffes es sich handelt. Getrennt sind diese Komponenten durch einen Backslash. Somit 
+	stellt sich ein Listenelement wie folgt dar \texttt{Schiffs-ID/Teilnummer/X-Koordinate/Y-Koordinate}.
+	Die X- und Y-Koordinate müssen zur korrekten Verwendungen jeweils noch um Eins dekrementiert werden, weil in der \texttt{initShips.pl} von 
+	einem Koordinatensystem mit den Wertebereichen $1\le X/Y\le 10$ ausgegangen wird, während \texttt{myField/1} vom Wertebereich $0\le X/Y\le 9$ ausgeht.
+	\todoin {Sequenzdiagramm/Ablaufdiagramm, evtl.}
 
 \subsubsection{Modul zur Plazierung von Schiffen} \label{sec:initships}	
-	\todoin{Bogi - TODO}
+	\todoin{Bogi - TODO \newline ACK! Begonnen, Muse verloren. Später gehts weiter}
+	Die Aufgabe des Positionierungsmoduls \texttt{initShips.pl} ist es, die Schiffe der künstlichen Intelligenz auf dem Spielfeld zu platzieren.
+	Hierfür werden in diesem Modul die Regeln zur legalen Positionierung der Schiffe (vgl. \ref{sec:Spielregeln}) implementiert. Neben den Regeln 
+	zur Platzierung definiert \texttt{initShips.pl} auch die Anzahl und Länge der im Spiel genutzten Schiffe. Des weiteren wurden Prädikate implementiert, 
+	welche die Regeln auf die Menge der Schiffe Anwenden um so mögliche Positionierungen dieser auf dem Spielfeld zu erzeugen.
+	
+	Das Prädikat \texttt{place/1} stößt die Erzeugung einer zufälligen Aufstellung aller Schiffe auf dem Spielfeld an und gibt diese als Liste der Form 
+	\texttt{Schiffs-ID/Teilnummer/X-Koordinate/Y-Koordinate} an. 
 	
 \subsubsection{Verteidigungsmodul} \label{sec:defendModule}
 	Die Aufgabe des Verteidigungsmoduls \texttt{defendModule.pl} ist es einen Angriff des Gegners zu verarbeiten.
@@ -130,6 +149,5 @@
 	\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt auf der Standardausgabe und kann während des Spiels oder zu
 	Debugzwecken verwendet werden.
 	
-	\todoin{Bogi - bitte vervollständigen, du wolltest da noch was adden (13.1.11)}
-	\todoin{Alle - haben wir schon ne Lösung, um den Output komfortabel umzustellen, wenn wir 100x spiele gegen die andere KI machen?}
+	\todoin{Bogi - bitte vervollständigen, du wolltest da noch was adden (13.1.11)\newline ACK! Ich habe die Implementierung gemacht, Doku kommt.}
 
