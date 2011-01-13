@@ -50,28 +50,85 @@
 	
 \subsubsection{Verteidigungsmodul} \label{sec:defendModule}
 	Die Aufgabe des Verteidigungsmoduls \texttt{defendModule.pl} ist es einen Angriff des Gegners zu verarbeiten.
-	Zum einen muss dabei der Status des eigenen Feldes aktualisiert und zum anderen die Antwort für den Gegner bestimmt werden.
+	Zum einen muss dabei der Status des eigenen Feldes \texttt{myField/1} aktualisiert 
+	und zum anderen die Antwort für den Gegner bestimmt werden.
 	
 	Hat der Gegner ins Wasser geschossen, so ist keine Änderung des eigenen Feldes notwendig. Trifft der Gegner jedoch ein Schiff,
 	so muss ermittelt werden, ob dieser Treffer das Schiff lediglich getroffen oder sogar versenkt hat. Außerdem ändert sich die Antwort
 	für den Gegner, wenn das letzte Schiff versenkt wurde.
 	
+	Ob das letzte Schiff versenkt wurde, erfolgt mit Hilfe einer Abfrage nach verbleibenden Schiffen (Feldstatus 6) im Prädikat \texttt{myField/1}.
 	
-	
-	Die Überprüfung, ob ein Schiff vollständig versenkt wurde, erfolgt über eine rekursive Überprüfung der benachbarten Felder.
+	Die Überprüfung, ob ein Schiff vollständig versenkt wurde, erfolgt über eine rekursive Überprüfung der 4 benachbarten Felder.
 	Dabei erhöht sich die Rekursionstiefe, wenn ein Nachbarfeld ebenfalls als getroffen markiert ist. 
 	Da in den Regeln festgelegt ist, dass Schiffe sich nicht berühren dürfen, kann mit diesem Vorgehen festgestellt werden, ob ein Schiff
 	vollständig versenkt wurde, oder sich unter den Nachbarn noch ungetroffene Teile befinden.
+	
+	Schlägt die zuletzt erläuterte Überprüfung fehl, so wurde nur ein Teil eines Schiffes getroffen. Und die entsprechende Antwort wird zurück 
+	gegeben.
 	
 	\todoin{Ne schöne Grafik?}
 	
 	
 \subsubsection{Angriffsmodul} \label{sec:attackModule}
-
+	Die Aufgabe des Angriffsmoduls \texttt{attackModule.pl} ist es, eine Koordinate für den nächsten Angriff zu liefern und außerdem den 
+	Rückgabewert des Angriffs zu verarbeiten. 
+	Dafür werden die Prädikate \texttt{doAttack/2} und \texttt{attackResponse/3} verwendet. 
+	
+	Wird das Prädikat \texttt{doAttack} aufgerufen, so nutzt das Angriffsmodul zunächst das Prädikat \texttt{getPointOfAttack/2} des
+	Strategiemoduls, um den als nächstes zu attackierenden Punkt zu erhalten. Anschließend überprüft \texttt{doAttack/2} 
+	ob die erhaltene Koordinate im Feld des Gegners \texttt{enemyField/1} als unbekannt (Status 0) gilt (Prädikat \texttt{doAttackCheck}. 
+	Ist dies nicht der Fall, so wird eine neue Koordinate von \texttt{getPointOfAttack/2} angefordert. 
+	Gilt die Koordinate als unbekannt, so wird dieser Punkt als nächster Angriffspunkt zurück gegeben.
+	
+	Das Prädikat \texttt{attackResponse/3} verarbeitet die Antwort des Gegners auf einen Angriff. Zum einen wird das intern gehaltene, 
+	gegnerische Feld aktualisiert (\texttt{updateEnemyField/3}), zum anderen wird die Openlist für weitere Angriffe über 
+	das Prädikat \texttt{updateOpenList/3} aus dem Strategiemodul aktualisiert (siehe Abschnitt \ref{sec:strategy}).
+	
+	Zur Aktualisierung des gegnerischen Spielfeldes \texttt{enemyField/1} wird der vom Gegener erhaltene Status in das entsprechende 
+	Feld eingetragen. Eine Ausnahme besteht für die Antwort \textit{Schiff vollständig versenkt}, in diesem Fall wird das ensprechende
+	Feld lediglich mit dem Status \textit{Treffer} belegt, um die Handhabung des Spielfeldes zu erleichtern. 
 
 \subsubsection{Strategiemodul} \label{sec:strategy}
 
+	\begin{table}[H]
+	\centering
+		\begin{tabular} { | l | l |}
+		\hline
+		Prädikat & Verwendung \\
+		\hline
+		 &  \\
+		\hline
+		Schnittstellenprädikate & verwendet von \\
+		\hline
+		\end{tabular}
+	\end{table}
+	
+	Das Strategiemodul \texttt{strategy.pl} stellt das Prädikat zur Bestimmung des nächsten Angriffspunktes \texttt{getPointOfAttack/2}
+	zur Verfügung. Außerdem füllt dieses Modul die Liste der priorisiert anzugreifenden Punkte über das Prädikat \texttt{updateOpenList/3}. 
+	
+	Beim Aufruf von \texttt{getPointOfAttack/2} wird das erste Element der Openlist \texttt{openList/2} zurückgegeben.
+	Befinden sich keine Koordinaten in der Openlist \texttt{openList/1}, so gibt \texttt{getPointOfAttack/2} einen zufälligen Angriffspunkt zurück.
+	
+	Das Prädikat \texttt{updateOpenList/3} erhält die angegriffene Koordinate und den vom Gegner erhaltenen Rückgabewert. 
+	Traf der Angriff Wasser oder das letzte Schiff des Gegners, so erfolgt keine Änderung der Openlist.
+	
+	Wurde das gerade attackierte Schiff vollständig versenkt, so kann die aktuelle Openlist vollständig geleert werden, da stets nur ein 
+	Schiff attackiert wird. Außerdem werden die unmittelbar benachbarten Felder des versenkten Schiffes als \textit{Wasser} markiert, denn
+	Aufgrund der Spielregeln darf sich auf diesen Feldern kein weiteres Schiff befinden (Prädikat \texttt{surroundWithWater}). 
+	
+	Ist die Antwort des Gegeners \textit{Treffer}, so muss die OpenList aktualisiert werden. 
+	Dazu werden zunächst alle benachbarten Felder in die Openlist eingetragen, deren Status unbekannt ist 
+	(Prädikat \texttt{appendFreeFieldToList/2}). 
+	Anschließend wird mit dem Prädikat \texttt{checkHitDirection/2} überprüft, ob die Orientierung 
+	des attackierten Schiffes (horizontal oder vertikal) bereits durch frühere Treffer bekannt ist. 
+	Ist dies der Fall, so kann die Openlist entsprechend um auszuschließende Positionen verkürzt werden.
 
 \subsubsection{Ausgabemodul}
-
+	Das Ausgabemodul \texttt{outputModule.pl} beinhaltet Prädikate zur Ausgabe der \textit{globalen Variablen} \texttt{myField/1},
+	\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt auf der Standardausgabe und kann während des Spiels oder zu
+	Debugzwecken verwendet werden.
+	
+	\todoin{Bogi - bitte vervollständigen, du wolltest da noch was adden (13.1.11)}
+	\todoin{Alle - haben wir schon ne Lösung, um den Output komfortabel umzustellen, wenn wir 100x spiele gegen die andere KI machen?}
 
