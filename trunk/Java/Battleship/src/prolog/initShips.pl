@@ -1,30 +1,28 @@
 :-use_module(library(random)).
-
 :-assert(template(
 [
-	1/5/X11/Y11,
-	1/4/X12/Y12,
-	1/3/X13/Y13,
-	1/2/X14/Y14,
-	1/1/X15/Y15,
-	
-	2/4/X21/Y21,
-	2/3/X22/Y22,
-	2/2/X23/Y23,
-	2/1/X24/Y24,
-	
-	3/3/X31/Y31,
-	3/2/X32/Y32,
-	3/1/X33/Y33,
-	
-	4/3/X41/Y41,
-	4/2/X42/Y42,
-	4/1/X43/Y43,
-	
-	5/2/X51/Y51,
-	5/1/X52/Y52])
+	1/5/_X11/_Y11,
+	1/4/_X12/_Y12,
+	1/3/_X13/_Y13,
+	1/2/_X14/_Y14,
+	1/1/_X15/_Y15,
+
+	2/4/_X21/_Y21,
+	2/3/_X22/_Y22,
+	2/2/_X23/_Y23,
+	2/1/_X24/_Y24,
+
+	3/3/_X31/_Y31,
+	3/2/_X32/_Y32,
+	3/1/_X33/_Y33,
+
+	4/3/_X41/_Y41,
+	4/2/_X42/_Y42,
+	4/1/_X43/_Y43,
+
+	5/2/_X51/_Y51,
+	5/1/_X52/_Y52])
 ).
-:-assert(positions([])).
 connectedHV(S1,P1,X1,Y1,S2,P2,X2,Y2):-
 	S1 == S2,
 	P1 \== P2,
@@ -39,14 +37,20 @@ connectedHV(S1,P1,X1,Y1,S2,P2,X2,Y2):-
 	X1 == X2,
 	!
 .
-distance(S1,S2,X1,_Y1,X2,_Y2):-
+distance(S1,S2,X1,Y1,X2,Y2):-
 	S1 \== S2,
-	abs(X1-X2)>1,
+	((Y1 == Y2,
+	abs(X1-X2)>1);
+	(Y1 \== Y2,
+	abs(X1-X2)>=1)),
 	!
 .
-distance(S1,S2,_X1,Y1,_X2,Y2):-
+distance(S1,S2,X1,Y1,X2,Y2):-
 	S1 \== S2,
-	abs(Y1-Y2)>1,
+	((X1 == X2,
+	abs(Y1-Y2)>1);
+	(X1 \== X2,
+	abs(Y1-Y2)>=1)),
 	!
 .
 initShips([],_,_).
@@ -62,45 +66,23 @@ rules(S1/P1/X1/Y1,[S2/P2/X2/Y2|Others]):-
 	distance(S1,S2,X1,Y1,X2,Y2)),
 	rules(S1/P1/X1/Y1,Others)
 .
-itShips([]).
-itShips([S|Others]):-
-	% Fast rewind ...
-	itShips(Others),
-	% random X and Y Domain for one ship ...
-	template(Template),
-	write(Template),nl,
+itShips([],_,[]).
+itShips([Ship|OtherShips],Template,Positions):-
+	itShips(OtherShips,Template,TmpPositions),
+
 	randseq(10,10,Xseq),
 	randseq(10,10,Yseq),
-	% template for one ship ...
-	findall((S/P/X/Y),member(S/P/X/Y,Template),OneShip),
-	positions(Posis),
-	union(OneShip,Posis,TShips),
-	% all possible positions for one ship ... TODO: AND THE ALREADY SET SHIPS!!!
-	findall(TShips,initShips(TShips,Xseq,Yseq),Rpl),
-	% random position for one ship
-	length(Rpl,RplLength),
-	RplRand is random(RplLength),
-	nth0(RplRand,Rpl,Elem),
-	% replacement of ships position in template
-	subtract(Posis,Oneship,TPos),
-	subtract(Template,OneShip,Temp2),
-	union(Elem,TPos,TPos2),
-	union(Elem,Temp2,Temp3),	
-	retractall(template(_)),
-	assert(template(Temp3)),
-	retractall(positions(_)),
-	assert(positions(TPos2))
+	
+	findall((Ship/P/X/Y),member(Ship/P/X/Y,Template),OneRandomShip),
+	append(OneRandomShip,TmpPositions,TMP),
+	findall(TMP,initShips(TMP,Xseq,Yseq),AllPossiblePositions),
+	length(AllPossiblePositions,RandomMax),
+	RandomIndex is random(RandomMax),
+	
+	nth0(RandomIndex,AllPossiblePositions,Positions)
 .
-
-
-place(Position) :-
+place(Positions):-
+	template(Template),
 	randseq(5,5,Ships),
-	%write(Ships),nl,
-	itShips(Ships),
-	template(Tmp),
-	Position = Tmp,
-	%write(Tmp),
-	length(Tmp,X),
-	write(Position),nl
-	%nl,write(X)
+	itShips(Ships,Template,Positions)
 .
