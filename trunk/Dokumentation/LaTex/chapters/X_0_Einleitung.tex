@@ -1,39 +1,42 @@
 \section{Einleitung}
 \label{sec:Einleitung}
-	\todoin {Sibille, bitte Rechtschreibung prüfen :-/ \newline Reicht das so!?}
-	Im Wahlpflichtfach "'Künstliche Intelligenz"' wurde während der Vorlesungen, den Vorlesungsbegleitenden Beispielen 
-	sowie in den Laboraufgaben ein solides Verständnis und Wissen über die Implementierung einer künstlichen Intelligenz 
-	mithilfe der Programmiersprache "'Prolog"' erarbeitet. Zum Ende der Veranstaltung soll das angeeignete Wissen nun in 
-	Form eines Projekts in Gruppenarbeit dargestellt und weiter vertieft werden.
+	\todoin {Vic - Reicht das so!?}
+	Im Wahlpflichtfach \textit{Künstliche Intelligenz} wurde während der Vorlesungen und den vorlesungsbegleitenden Beispielen 
+	ein solides Verständnis und Wissen über die Implementierung einer künstlichen Intelligenz 
+	in Prolog erarbeitet. Zum Ende der Veranstaltung soll das angeeignete Wissen nun in 
+	Form eines Projektes angewendet und vertieft werden.
 	
-	Die vorliegende Dokumentation beschreibt die Entwicklung des Spiels "'Schiffe-Versenken"' ("Battleship"), welches 
-	mithilfe der Programmiersprachen Java und Prolog implementiert wird.
+	Die vorliegende Dokumentation beschreibt die Implementierung des Spiels Schiffe-Versenken (Battleship)
+	in Java und Prolog.
 	
-	Ziel des Projekts ist es das Spiel gegen den "'Computer"' spielen zu können. Hierfür muss das Spiel mit allen Spielregeln 
+	Ziel des Projektes ist es \textit{Schiffe-Versenken} gegen "'den Computer"' spielen zu können. Hierfür muss das Spiel mit allen Spielregeln 
 	in Prolog abgebildet werden. Ebenso muss eine Spielstrategie für den Computerspieler konzeptioniert und implementiert werden, 
 	welche dafür sorgt das die künstliche Intelligenz Siegesorientiert spielt. 
-	Eine Benutzungsfreundliche Oberfläche für menlische Spieler wird durch ein Java-Programm realisiert.
+	Eine Benutzungsfreundliche Oberfläche für menlische Spieler wird durch ein Java GUI realisiert.
+	
+	\todoin{Vic - hier auch den Server erwähnen?}
 	
 	\subsection{Anforderungen} % (fold)
 	\label{sub:anforderungen}
-		Von den Gruppenmitgliedern wurden die Folgenden Anforderungen für die Software definiert:
+		Die Software unterliegt den folgenden Anforderungen:
 		\begin{itemize}
-			\item Das Prolog Programm kommuniziert über Sockets mit der Java-Benutzerschnittstelle.
-			\item Prolog-Implementierungen von Modulen zum Regeln des/der:
+			\item Es gelten die allgemeinen Regeln des Spiels \textit{Schiffe-Versenken}, Besonderheiten werdnen in Abschnitt \ref{sec:Spielregeln} erläutert.
+			\item Der Prolog Client kommuniziert über Sockets mit dem zu entwickelnden Java Server.
+			\item Benötigte Module für den Prolog Client zum Regeln:
 			\begin{itemize}
-				\item generellen Spielablaufs,
-				\item platzieren von Schiffen auf dem Spielfeld,
-				\item Antworten auf "'Angriffe"',
-				\item "'Angreifen"' des gegenspielers nach einer 
+				\item des generellen Spielablaufs,
+				\item der Platzierung von Schiffen auf dem Spielfeld,
+				\item der Antworten auf gegnerische Angriffe,
+				\item der eigenen Angriffe nach einer 
 				\item Siegstrategie.
 			\end{itemize}
 			\item Es soll möglich sein, selbst gegen die künstliche Intelligenz zu spielen.
-			\item Es soll möglich sein, dass zwei Instanzen der künstlichen Intelligenz eine bestimmte Anzahl von spielen gegeneinander 
+			\item Es soll möglich sein, dass zwei Instanzen der künstlichen Intelligenz eine bestimmte Anzahl von Spielen gegen einander 
 			austragen.
 		\end{itemize}
 		Neben diesen Anforderungen ist eine weitere, spezielle, Anforderung definiert:
 		
-		Da eine weitere Gruppe von Studenten des Moduls ebenfalls das Spiel "'Schiffe-Versenken"' als Projektthema wählten, soll 
+		Da eine weitere Gruppe von Studenten dieses Moduls ebenfalls das Spiel \textit{Schiffe-Versenken} als Projektthema wählten, soll 
 		es möglich sein, dass die künstlichen Intelligenzen beider Gruppen gegeneinander antreten können. 
-		Hierfür ist die Abstimmung eines Protokolls zur Kommunikation mit der anderen Gruppe notwendig.
+		Hierfür wurde das, in Abschnitt \ref{sec:Kommunikationsmodell} dokumentierte Kommunikationsprotokoll unter beiden Gruppen vereinbart.
 	% subsection anforderungen (end)
