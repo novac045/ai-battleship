@@ -143,27 +143,28 @@
 	Feld eingetragen. Eine Ausnahme besteht für die Antwort \textit{Schiff vollständig versenkt}, in diesem Fall wird das ensprechende
 	Feld lediglich mit dem Status \textit{Treffer} belegt, um die Handhabung des Spielfeldes zu erleichtern. 
 
-\subsubsection{Strategiemodul} \label{sec:strategy}
+	\input{chapters/X_3_PrologClientStrategy}
+% \subsubsection{Strategiemodul} \label{sec:strategy}
 
-	Das Strategiemodul \texttt{strategy.pl} stellt das Prädikat zur Bestimmung des nächsten Angriffspunktes \texttt{getPointOfAttack/2}
-	zur Verfügung. Außerdem füllt dieses Modul die Liste der priorisiert anzugreifenden Punkte über das Prädikat \texttt{updateOpenList/3}. 
+	% Das Strategiemodul \texttt{strategy.pl} stellt das Prädikat zur Bestimmung des nächsten Angriffspunktes \texttt{getPointOfAttack/2}
+	% zur Verfügung. Außerdem füllt dieses Modul die Liste der priorisiert anzugreifenden Punkte über das Prädikat \texttt{updateOpenList/3}. 
 	
-	Beim Aufruf von \texttt{getPointOfAttack/2} wird das erste Element der Openlist \texttt{openList/2} zurückgegeben.
-	Befinden sich keine Koordinaten in der Openlist \texttt{openList/1}, so gibt \texttt{getPointOfAttack/2} einen zufälligen Angriffspunkt zurück.
+	% Beim Aufruf von \texttt{getPointOfAttack/2} wird das erste Element der Openlist \texttt{openList/2} zurückgegeben.
+	% Befinden sich keine Koordinaten in der Openlist \texttt{openList/1}, so gibt \texttt{getPointOfAttack/2} einen zufälligen Angriffspunkt zurück.
 	
-	Das Prädikat \texttt{updateOpenList/3} erhält die angegriffene Koordinate und den vom Gegner erhaltenen Rückgabewert. 
-	Traf der Angriff Wasser oder das letzte Schiff des Gegners, so erfolgt keine Änderung der Openlist.
+	% Das Prädikat \texttt{updateOpenList/3} erhält die angegriffene Koordinate und den vom Gegner erhaltenen Rückgabewert. 
+	% Traf der Angriff Wasser oder das letzte Schiff des Gegners, so erfolgt keine Änderung der Openlist.
 	
-	Wurde das gerade attackierte Schiff vollständig versenkt, so kann die aktuelle Openlist vollständig geleert werden, da stets nur ein 
-	Schiff attackiert wird. Außerdem werden die unmittelbar benachbarten Felder des versenkten Schiffes als \textit{Wasser} markiert, denn
-	Aufgrund der Spielregeln darf sich auf diesen Feldern kein weiteres Schiff befinden (Prädikat \texttt{surroundWithWater/4}). 
+	% Wurde das gerade attackierte Schiff vollständig versenkt, so kann die aktuelle Openlist vollständig geleert werden, da stets nur ein 
+	% Schiff attackiert wird. Außerdem werden die unmittelbar benachbarten Felder des versenkten Schiffes als \textit{Wasser} markiert, denn
+	% Aufgrund der Spielregeln darf sich auf diesen Feldern kein weiteres Schiff befinden (Prädikat \texttt{surroundWithWater/4}). 
 	
-	Ist die Antwort des Gegeners \textit{Treffer}, so muss die OpenList aktualisiert werden. 
-	Dazu werden zunächst alle benachbarten Felder in die Openlist eingetragen, deren Status unbekannt ist 
-	(Prädikat \texttt{appendFreeFieldToList/2}). 
-	Anschließend wird mit dem Prädikat \texttt{checkHitDirection/2} überprüft, ob die Orientierung 
-	des attackierten Schiffes (horizontal oder vertikal) bereits durch frühere Treffer bekannt ist. 
-	Ist dies der Fall, so kann die Openlist entsprechend um auszuschließende Positionen verkürzt werden.
+	% Ist die Antwort des Gegeners \textit{Treffer}, so muss die OpenList aktualisiert werden. 
+	% Dazu werden zunächst alle benachbarten Felder in die Openlist eingetragen, deren Status unbekannt ist 
+	% (Prädikat \texttt{appendFreeFieldToList/2}). 
+	% Anschließend wird mit dem Prädikat \texttt{checkHitDirection/2} überprüft, ob die Orientierung 
+	% des attackierten Schiffes (horizontal oder vertikal) bereits durch frühere Treffer bekannt ist. 
+	% Ist dies der Fall, so kann die Openlist entsprechend um auszuschließende Positionen verkürzt werden.
 
 \subsubsection{Ausgabemodul}
 		Das Ausgabemodul \texttt{outputModule.pl} beinhaltet Prädikate zur Ausgabe der \textit{globalen Variablen} \texttt{myField/1},
