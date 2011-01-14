@@ -1,8 +1,22 @@
-\section{Ausblick} \label{sec:Ausblick}
+\section{Fazit und Ausblick} \label{sec:Ausblick}
+	\todoin{was fehlt noch? bekannte Fehler?}
+	\todoin{Fazit der Teilnehmer??? vllt bzgl. Prolog?}
 
-		\todoin{Ausblick - was fehlt noch? bekannte Fehler, spätere Verbesserungen, Fazit der Teilnehmer}
-		\todoin{Ausblick: Überprüfung adden z.B. wenn 2er Versenkt, können alle 2er Lücken als Wasser markiert werden, etc.}
-		\todoin{Ausblick: Schachbrettangriff}
+	Das entwickelte Programm ermöglicht das Spielen von \textit{Schiffe-Versenken} unter anderem gegen \textit{den Computer}. 
+	Landet die entwickelte Intelligenz einen Treffer, so ist sie in der Lage das zugehörige Schiff vollständig zu versenken. 
+	Außerdem werden weitere Schüsse auf die unmittelbare Umgebung eines versenkten Schiffes verhindert, da sich hier auf keinen Fall ein
+	weiteres Schiff befinden kann.
+	
+	Als Erweiterung des Programms könnte man einige Felder für den Beschuss ausschließen, wenn die kleinen Schiffe bereits versenkt wurden.
+	Geht man beispielsweise davon aus, dass das kleinste Schiff (\textit{der 2er}) vollständig versenkt wurde, so kann man alle 
+	Lücken, die lediglich Platz für dieses kleinste Schiff bieten, von den weiteren Überlegungen ausnehmen. Somit reduziert sich die 
+	Anzahl der möglichen Felder für einen Beschuss und die Wahrscheinlichkeit für einen Treffer erhöht sich.
+
+	Als weitere Verbesserung ist es denkbar, die zufälligen Angriffe (bei leerer Openlist) durch ein strukturiertes Angreifen zu ersetzen.
+	Ein mögliches Vorgehen hierbei wäre es, jedes vierte gegnerische Feld anzugreifen und dieses Muster in jeder Zeile um ein Feld zu verschieben.  
+	Auf diese Weise ist das Treffen der beiden größten Schiffe garantiert. Trifft dieses Vorgehen durch Zufall nicht auch die anderen 
+	Schiffe, so wird beim weiteren Vorgehen jedes zweite gegenerische Feld attackiert. Auf diese Weise werden auch die übrigen Schiffe getroffen.
 		
+	\todoin{lernende software, analyse des gegners}
 
 
