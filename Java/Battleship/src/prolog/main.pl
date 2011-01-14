@@ -181,11 +181,11 @@ main :-
 	write(Y), write(' times.'), nl,nl.
 
 firststart :- 	
-	assert(numberOfGames(10)),
+	assert(numberOfGames(1)),
 	assert(numberOfWins(0)),	
 	assert(numberOfLosses(0)),
-	verbose(0), /*0: No Output, 1: Output to File, 2: Output to Console*/
-	tty_clear, /* clear screen*/
+	verbose(2), /*0: No Output, 1: Output to File, 2: Output to Console*/
+	%tty_clear, /* clear screen*/
 	main.
 
 :- firststart.	
