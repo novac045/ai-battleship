@@ -175,32 +175,37 @@
 	Ist dies der Fall, so kann die Openlist entsprechend um auszuschließende Positionen verkürzt werden.
 
 \subsubsection{Ausgabemodul}
-	Das Ausgabemodul \texttt{outputModule.pl} beinhaltet Prädikate zur Ausgabe der \textit{globalen Variablen} \texttt{myField/1},
-	\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt normalerweise auf der Standardausgabe und kann während des Spiels oder zu
-	Debugzwecken verwendet werden.
-	\todoin{Spellcheck from here -.-}
-	Um Eine Überflutung der Ausgabekonsole bei vielen automatisierten Spieldurchläufen (zum Beispiel: KI gegen KI, 1000 spiele) zu vermeiden, kann 
-	die Ausgabe über das Prädikat \texttt{verbose/1} gesteuert werden. Es sind drei verschiedene Ausgabeverhalten implementiert:
-	\begin{enumerate}
-		\item \texttt{verbose(0)} : Keinerlei Ausgabe während des Spiels.
-		\item \texttt{verbose(1)} : Ausgaben während des Spiels werden in eine Textdatei umgeleitet.
-		\item \texttt{verbose(2)} : Ausgaben während des Spiels erscheinen auf der Konsole.
-	\end{enumerate}
-	Bei allen Modi wird nach Beendigung aller konfigurierten Spiele, eine Zusammenfassung der Ergebnisse (siehe Abschnitt \ref{subssec:hauptmodul}) 
-	auf der Ausgabekonsole Ausgegeben.
-	
-	Zur Realisierung der verschiedenen Ausgabemodi wird der Standardausgabestrom der SWI-Prolog Umgebung über das Systemprädikat \texttt{set\_output/1} 
-	geändert. Die Implementierung von \texttt{verbose/1} findet sich in \texttt{verbosity.pl}. Hier wird je nach Argument ein anderer Ausgabestrom 
-	definiert und als Standardausgabestrom gesetzt:
-	\begin{itemize}
-		\item \texttt{verbose(0)} : erzeugen eines Null-Stroms per \texttt{open\_null\_stream/1}.
-		\item \texttt{verbose(1)} : erzeugen eines Ausgabestroms in die Datei "'Output.txt"' im Unterordner "'GameLogs"' per \texttt{open/3}.
-		\item \texttt{verbose(2)} : erzeugen eines Ausgabestroms auf die Ausgabekonsole per \texttt{user\_output/0}.
-	\end{itemize}
-	Nach dem erzeugen des jeweiligen Ausgabestroms wird dieser über das Systemprädikat \texttt{set\_output} gesetzt und der aktuelle Ausgabestrom 
-	im globalen Prädikat \texttt{currentStream/1} gesetzt, sodass er überall im Programm manipuliert werden kann.
-	Vor Ausgabe der Spielzusammenfassung wird der momentane Ausgabestrom über das oben beschriebene Prädikat \texttt{currentStream/1} geholt und 
-	über das Systemprädikat \texttt{close/1} geschlossen. Direkt danach wird \texttt{verbose(2)} gesetzt, sodass die Ausgabe der Zusammenfassung in jedem Fall 
-	auf der Ausgabekonsole erscheint.
+		Das Ausgabemodul \texttt{outputModule.pl} beinhaltet Prädikate zur Ausgabe der \textit{globalen Variablen} \texttt{myField/1},
+		\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt normalerweise auf der Standardausgabe und kann während des Spiels oder zu
+		Debugzwecken verwendet werden.
+
+		Um Eine Überflutung der Ausgabekonsole bei vielen automatisierten Spieldurchläufen (zum Beispiel: KI gegen KI, 1000 spiele) zu vermeiden, kann 
+		die Ausgabe über das Prädikat \texttt{verbose/1} gesteuert werden (siehe Abschnitt \ref{ssub:ausgabeverhalten}).
+\subsubsection{Ausgabeverhalten} % (fold)
+\label{ssub:ausgabeverhalten}
+		Das Modul \texttt{verbosity.pl} steuert den Ausgabekanal, auf dem während des Spielens Debug-Informationen dargestellt werden können. 
+		Es sind drei verschiedene Ausgabeverhalten implementiert:
+			\begin{enumerate}
+				\item \texttt{verbose(0)} : Keinerlei Ausgabe während des Spiels.
+				\item \texttt{verbose(1)} : Ausgaben während des Spiels werden in eine Textdatei umgeleitet.
+				\item \texttt{verbose(2)} : Ausgaben während des Spiels erscheinen auf der Konsole.
+			\end{enumerate}
+			Bei allen Modi wird nach Beendigung aller konfigurierten Spiele, eine Zusammenfassung der Ergebnisse (siehe Abschnitt \ref{subssec:hauptmodul}) 
+			auf der Ausgabekonsole Ausgegeben.
+
+			Zur Realisierung der verschiedenen Ausgabemodi wird der Standardausgabestrom der SWI-Prolog Umgebung über das Systemprädikat \texttt{set\_output/1} 
+			geändert. Die Implementierung von \texttt{verbose/1} findet sich in \texttt{verbosity.pl}. Hier wird je nach Argument ein anderer Ausgabestrom 
+			definiert und als Standardausgabestrom gesetzt:
+			\begin{itemize}
+				\item \texttt{verbose(0)} : erzeugen eines Null-Stroms per \texttt{open\_null\_stream/1}.
+				\item \texttt{verbose(1)} : erzeugen eines Ausgabestroms in die Datei "'Output.txt"' im Unterordner "'GameLogs"' per \texttt{open/3}.
+				\item \texttt{verbose(2)} : erzeugen eines Ausgabestroms auf die Ausgabekonsole per \texttt{user\_output/0}.
+			\end{itemize}
+			Nach dem erzeugen des jeweiligen Ausgabestroms wird dieser über das Systemprädikat \texttt{set\_output} gesetzt und der aktuelle Ausgabestrom 
+			im globalen Prädikat \texttt{currentStream/1} gesetzt, sodass er überall im Programm manipuliert werden kann.
+			Vor Ausgabe der Spielzusammenfassung wird der momentane Ausgabestrom über das oben beschriebene Prädikat \texttt{currentStream/1} geholt und 
+			über das Systemprädikat \texttt{close/1} geschlossen. Direkt danach wird \texttt{verbose(2)} gesetzt, sodass die Ausgabe 
+			der Zusammenfassung in jedem Fall auf der Ausgabekonsole erscheint.
+% subsubsection ausgabeverhalten (end)
 	
 
