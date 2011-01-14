@@ -1,10 +1,40 @@
 \subsection{Client - Prolog} \label{sec:Prologclient}
 	Die Aufgaben des Prolog-Clients sind in verschiedene Module unterteilt, um die verschiedenen Teile austauschbar zu halten. 
-	Im Folgenden werden die Aufgaben und die Funktionsweise dieser Module erläutert.
+	Abbildung \ref{fig:prologmodule} zeigt das Zusammenspiel der Module. Dabei stellt ein Pfeil die Verwendung eines Prädikates aus
+	dem jeweiligen Modul dar. Die im Diagramm dargestellten Pfeile stellen somit die Schnittstellen zwischen den Modulen dar.
 	
-	\todoin{Gesamtübersicht - Bild - Modulzusammenspiel?}
+	\todoin{Bogi - Bild zum Modulzusammenspiel zusammenklickern ;)} \label{fig:prologmodule}
 
-
+	Des Weiteren arbeiten einige der Module gemeinsam auf \textit{globalen} Spielvariablen, die mit Hilfe von dynamischen Prädikaten
+	gespeichert werden. Tabelle \ref{tbl:globalevariablen} zeigt diese Variablen, ihren Zweck sowie ihre Verwendung auf.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|p{6cm}|p{5cm}|}
+			\hline
+			Prädikat & Verwendung & Verwendet von \\
+			\hline
+			\hline
+			\texttt{myField/1} & Zustand des eigenen Spielfeldes & Initialisierungsmodul, Verteidigungsmodul, Ausgabemodul \\
+			\hline
+			\texttt{enemyField/1} & Zustand des gegnerischen Spielfeldes & Initialisierungsmodul, Strategiemodul, Angriffsmodul, Ausgabemodul \\
+			\hline
+			\texttt{openList/1} & Liste der bevorzugt anzugreifenden, gegnerischen Felder & Initialisierungsmodul, Strategiemodul, Ausgabemodul \\
+			\hline
+			\texttt{numberOfGames/1} & Verbleibende Anzahl von Spieldurchgängen (für aufeinander folgende Durchgänge) & Hauptmodul \\
+			\hline
+			\texttt{numberOfWins/1} & Anzahl der bisher gewonnenen Spiele (für aufeinander folgende Durchgänge) & Hauptmodul \\
+			\hline
+			\texttt{numberOfLosses/1} & Anzahl der bisher verlorenen Spiele (für aufeinander folgende Durchgänge) & Hauptmodul \\
+			\hline
+			\texttt{currentStream/1} & Aktuell gesetzter Ausgabestrom (Konsole, Datei, keiner) & Hauptmodul, Ausgabemodul \\
+			\hline
+		\end{tabular}
+		\caption{Prädikate für globale Spielvariablen}
+		\label{tbl:globalevariablen}
+	\end{table}
+	
+	Im Folgenden werden die Aufgaben und die Funktionsweise der verschiedenen Module erläutert.
 
 \subsubsection{Hauptmodul} \label{sec:hauptmodul}
 	Das Hauptmodul \texttt{main.pl} wird beim starten des Clients aufgerufen. Das Modul initialisiert zunächst die Verbindung zum
