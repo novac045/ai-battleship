@@ -8,36 +8,42 @@
 	Des Weiteren arbeiten einige der Module gemeinsam auf \textit{globalen} Spielvariablen, die mit Hilfe von dynamischen Prädikaten
 	gespeichert werden. Tabelle \ref{tbl:globalevariablen} zeigt diese Variablen, ihren Zweck sowie ihre Verwendung auf.
 	
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{|l|p{6cm}|p{5cm}|}
+	%\begin{table}[H]
+	%	\centering
+		\begin{longtable}{|l|p{6cm}|p{5cm}|}
 			\hline
-			Prädikat & Verwendung & Verwendet von \\
+			Prädikat & Zweck & Verwendet von \\ 
+			\hline 
+			\hline \endhead
+			\texttt{myField/1} & Speichert Zustand des eigenen Spielfeldes & Initialisierungsmodul, Verteidigungsmodul, Ausgabemodul \\
 			\hline
+			\texttt{enemyField/1} & Speichert Zustand des gegnerischen Spielfeldes & Initialisierungsmodul, Strategiemodul, Angriffsmodul, Ausgabemodul \\
 			\hline
-			\texttt{myField/1} & Zustand des eigenen Spielfeldes & Initialisierungsmodul, Verteidigungsmodul, Ausgabemodul \\
+			\texttt{openList/1} & Speichert Liste der bevorzugt anzugreifenden, gegnerischen Felder & Initialisierungsmodul, Strategiemodul, Ausgabemodul \\
 			\hline
-			\texttt{enemyField/1} & Zustand des gegnerischen Spielfeldes & Initialisierungsmodul, Strategiemodul, Angriffsmodul, Ausgabemodul \\
+			\texttt{numberOfGames/1} & Speichert Verbleibende Anzahl von Spieldurchgängen (für aufeinander folgende Durchgänge) & Hauptmodul \\
 			\hline
-			\texttt{openList/1} & Liste der bevorzugt anzugreifenden, gegnerischen Felder & Initialisierungsmodul, Strategiemodul, Ausgabemodul \\
+			\texttt{numberOfWins/1} & Speichert die Anzahl der bisher gewonnenen Spiele (für aufeinander folgende Durchgänge) & Hauptmodul \\
 			\hline
-			\texttt{numberOfGames/1} & Verbleibende Anzahl von Spieldurchgängen (für aufeinander folgende Durchgänge) & Hauptmodul \\
+			\texttt{numberOfLosses/1} & Speichert die Anzahl der bisher verlorenen Spiele (für aufeinander folgende Durchgänge) & Hauptmodul \\
 			\hline
-			\texttt{numberOfWins/1} & Anzahl der bisher gewonnenen Spiele (für aufeinander folgende Durchgänge) & Hauptmodul \\
+			\texttt{currentStream/1} & Speichert den aktuell gesetzten Ausgabestrom (Konsole, Datei, keiner) & Hauptmodul, Ausgabemodul \\
 			\hline
-			\texttt{numberOfLosses/1} & Anzahl der bisher verlorenen Spiele (für aufeinander folgende Durchgänge) & Hauptmodul \\
-			\hline
-			\texttt{currentStream/1} & Aktuell gesetzter Ausgabestrom (Konsole, Datei, keiner) & Hauptmodul, Ausgabemodul \\
-			\hline
-		\end{tabular}
+%		\end{tabular}
 		\caption{Prädikate für globale Spielvariablen}
 		\label{tbl:globalevariablen}
-	\end{table}
+	\end{longtable}
 	
 	Im Folgenden werden die Aufgaben und die Funktionsweise der verschiedenen Module erläutert.
 
 \subsubsection{Hauptmodul} \label{sec:hauptmodul}
-	Das Hauptmodul \texttt{main.pl} wird beim starten des Clients aufgerufen. Das Modul initialisiert zunächst die Verbindung zum
+	Das Hauptmodul \texttt{main.pl} wird beim Starten des Clients aufgerufen. Der Client bietet die Möglichkeit eine konfigurierbare Anzahl
+	von Runden zu spielen. Dies wird vorallem bei Spielen verwendet, in denen zwei \textit{Computergegner} gegen einander antreten. 
+	Beim Start des Clients werden deshalb zunächst die Anzahl der Spiele, Siege sowie Niederlagen initialisiert und in den Prädikaten
+	\texttt{numberOfGames/1}, \texttt{numberOfWins/1} sowie \texttt{numberOfLooses/1} gespeichert. Außerdem wird der gewünschte Ausgabestream
+	im Prädikat \texttt{verbose/1} hinterlegt.
+	
+	Für jedes neue Spiel initialisiert das Modul zunächst die Verbindung zum
 	Spielserver. Anschließend werden Spielvorbereitungen über das Prädikat \texttt{initPrologClient/0} aus dem 
 	Initialisierungsmodul getroffen (siehe Abschnitt \ref{sec:initModule}).
 	
@@ -59,23 +65,23 @@
 	beendet.
 	
 	Nach jedem Angriff überprüft der Client, ob er das Spiel gewonnen hat. Gleichermaßen überprüft er nach jeder Verteidigung, 
-	ob er das Spiel verloren hat. Tritt einer der beiden Fälle in Kraft, so beendet sich der Client mit einer der beiden Ausgaben
-	\textit{KI wins. End of game.} oder \textit{KI looses. End of game.}.
-	
-	\todoin{counting und multigaming dokumentieren + KI won X times and lost Y times}
+	ob er das Spiel verloren hat. Tritt einer der beiden Fälle in Kraft, so beendet der Client das Spiel. 
+	Anschließend überprüft der Client ob weitere Runden ausstehen. Ist dies der Fall, so wird ein neues Spiel initialisiert.
+	Andernfalls beendet sich der Client mit einer Ausgabe über den Spielverlauf:
+	\textit{End of game. KI won \texttt{n} times and lost \texttt{m} times.}.
 
 \subsubsection{Initialisierungsmodul} \label{sec:initModule}
-	Die Aufgaben des Initialisierungsmoduls \texttt{initModule.pl} sind das initialisieren der Spielfelder, darunter auch
-	das Platzieren der eigenen Schiffe. Hierzu werden die Prädikate \texttt{initMyField/0} und \texttt{initEnemyField/0} verwendet.
+	Die Aufgaben des Initialisierungsmoduls \texttt{initModule.pl} sind das Initialisieren der Spielfelder, darunter auch
+	das Platzieren der eigenen Schiffe, sowie das Initialisieren der Openlist für primär anzugreifende Felder (siehe Abschnitt \ref{sec:strategy}).
 	
-	Die verwendeten Spielfelder werden global in den dynamischen Prädikaten \texttt{myField/1} und \texttt{enemyField/1}
+	Zur Initialisierung der Spielfelder verwendet das Modul die Prädikate \texttt{initMyField/0} und \texttt{initEnemyField/0}.
+	Die Spielfelder werden global in den dynamischen Prädikaten \texttt{myField/1} und \texttt{enemyField/1}
 	gespeichert, um einen einfachen Zugriff von jedem Modul zu ermöglichen. 
-	
-	Das Initialisierungsmodul initialisiert außerdem die ebenfalls global gespeicherte Openlist, 
-	die vom Strategiemodul verwendet wird (siehe Abschnitt \ref{sec:strategy}). 
+	 
 	\todoin {Spellcheck from here, please.}
-	Zur Platzierung der eigenen Schiffe, verwendet das Initialisierungsmodul das Prädikat \texttt{place/1} aus der Implementierung 
-	der Schiffspositionierung in \texttt{initShips.pl}.
+	\todoin{Bogi - Schreib bitte erstmal verständliche Sätze ;)}
+	Zur Platzierung der eigenen Schiffe verwendet das Initialisierungsmodul das Prädikat \texttt{place/1} aus dem Modul zur 
+	Schiffspositionierung (siehe Abschnitt \ref{sec:initships}).
 	Die von \texttt{place/1} gelieferte Liste beinhaltet (unter anderem) die Koordinaten der Schiffe, welche durch das Prädikat 
 	\texttt{fillWithShips/3} im globalen, eigenen Spielfeld \texttt{myField/1} als belegt gekennzeichnet werden. Hierfür wird 
 	die von \texttt{place/1} bezogene Liste rekursiv abgearbeitet und die enthaltenen X-Y-Koordinaten in \texttt{MyField/1} mit dem 
@@ -117,8 +123,6 @@
 	Schlägt die zuletzt erläuterte Überprüfung fehl, so wurde nur ein Teil eines Schiffes getroffen. Und die entsprechende Antwort wird zurück 
 	gegeben.
 	
-	\todoin{Ne schöne Grafik?}
-	
 	
 \subsubsection{Angriffsmodul} \label{sec:attackModule}
 	Die Aufgabe des Angriffsmoduls \texttt{attackModule.pl} ist es, eine Koordinate für den nächsten Angriff zu liefern und außerdem den 
@@ -141,19 +145,6 @@
 
 \subsubsection{Strategiemodul} \label{sec:strategy}
 
-	\begin{table}[H]
-	\centering
-		\begin{tabular} { | l | l |}
-		\hline
-		Prädikat & Verwendung \\
-		\hline
-		 &  \\
-		\hline
-		Schnittstellenprädikate & verwendet von \\
-		\hline
-		\end{tabular}
-	\end{table}
-	
 	Das Strategiemodul \texttt{strategy.pl} stellt das Prädikat zur Bestimmung des nächsten Angriffspunktes \texttt{getPointOfAttack/2}
 	zur Verfügung. Außerdem füllt dieses Modul die Liste der priorisiert anzugreifenden Punkte über das Prädikat \texttt{updateOpenList/3}. 
 	
@@ -165,7 +156,7 @@
 	
 	Wurde das gerade attackierte Schiff vollständig versenkt, so kann die aktuelle Openlist vollständig geleert werden, da stets nur ein 
 	Schiff attackiert wird. Außerdem werden die unmittelbar benachbarten Felder des versenkten Schiffes als \textit{Wasser} markiert, denn
-	Aufgrund der Spielregeln darf sich auf diesen Feldern kein weiteres Schiff befinden (Prädikat \texttt{surroundWithWater}). 
+	Aufgrund der Spielregeln darf sich auf diesen Feldern kein weiteres Schiff befinden (Prädikat \texttt{surroundWithWater/4}). 
 	
 	Ist die Antwort des Gegeners \textit{Treffer}, so muss die OpenList aktualisiert werden. 
 	Dazu werden zunächst alle benachbarten Felder in die Openlist eingetragen, deren Status unbekannt ist 
@@ -178,11 +169,13 @@
 		Das Ausgabemodul \texttt{outputModule.pl} beinhaltet Prädikate zur Ausgabe der \textit{globalen Variablen} \texttt{myField/1},
 		\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt normalerweise auf der Standardausgabe und kann während des Spiels oder zu
 		Debugzwecken verwendet werden.
+\todoin{Bogi - ich glaub das 'normalerweise' aus dem vorherigen satz gilt jetzt nicht mehr oder? entweder im Standardcode ändern oder hier im text - was denst du?}
 
 		Um Eine Überflutung der Ausgabekonsole bei vielen automatisierten Spieldurchläufen (zum Beispiel: KI gegen KI, 1000 spiele) zu vermeiden, kann 
 		die Ausgabe über das Prädikat \texttt{verbose/1} gesteuert werden (siehe Abschnitt \ref{ssub:ausgabeverhalten}).
 \subsubsection{Ausgabeverhalten} % (fold)
 \label{ssub:ausgabeverhalten}
+\todoin{spellcheck??}
 		Das Modul \texttt{verbosity.pl} steuert den Ausgabekanal, auf dem während des Spielens Debug-Informationen dargestellt werden können. 
 		Es sind drei verschiedene Ausgabeverhalten implementiert:
 			\begin{enumerate}
