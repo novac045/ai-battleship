@@ -1,0 +1,21 @@
+\section{Benutzungshinweise für Endbenutzer} \label{sec:Endbenutzer}
+
+	Um das Spiel \textit{Schiffe-Versenken} zu spielen muss zunächst der Spielserver gestartet werden. Anschließend können, je nach
+	Spielabsicht zwei der bereitgestellten Clients gestartet werden. Dabei ist es egal, ob zwei Java-Clients, zwei Prolog-Clients oder
+	je ein Client von jedem Typ gestartet wird. 
+	
+\subsection{Starten des Servers}
+
+\subsection{Starten eines Java-Client}
+
+\subsection{Starten eines Prolog-Client}
+	Ein Prolog-Client kann über einen Doppelclick auf die Datei \texttt{start.bat} aus dem Ordner \texttt{Battleship\\src\\prolog} 
+	gestartet werden. Es öffnet sich eine Konsole, in der die Ausgaben des Clients (je nach Konfiguration) angezeigt werden.
+	
+	\subsubsection {Konfiguration des Prolog-Client}
+		Standardmäßig ist der Prolog-Client für die Ausführung einer Runde konfiguriert. Außerdem werden die Spielzüge des Prolog-Clients auf
+		der Kommandozeile ausgegeben. Sollen diese Einstellungen geändert werden so muss die Datei \texttt{main.pl} entsprechend angepasst werden.
+		Das Prädikat \texttt{numberOfGames/1} kann zur Festlegung der Rundenanzahl und das Prädikat \texttt{verbose} zur Anpassung der Ausgabe 
+		genutzt werden. Dabei steht der Wert \texttt{0} für keine Ausgabe, \texttt{1} für die Ausgabe in eine Datei und \texttt{2} für 
+		die Ausgabe auf der Konsole.
+	
