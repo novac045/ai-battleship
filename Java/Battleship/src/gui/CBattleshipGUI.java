@@ -99,10 +99,10 @@ public class CBattleshipGUI extends JFrame implements ActionListener, Observer {
         // Fenster automatisch justieren, sodass alle Elemente
         // sichtbar sind
         pack();
-        setVisible(true);
         // Zum korrekten Aufbau der GUI einmal ein Update
         // vom Obserable holen
         update(null, null);
+        setVisible(true);
     }
 
     /**
