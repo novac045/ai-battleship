@@ -24,12 +24,12 @@ Dieser Übergang erfolgt durch den Empfang des Startkommandos, mit dem Opcode = 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[trim=105mm 155mm 5mm 42mm,clip,width=0.5\textwidth]{images/SMController.pdf}
+  \includegraphics[trim=70mm 170mm 5mm 39mm,clip,width=0.5\textwidth]{images/SMController.pdf}
   \caption{Zustandsübergänge des Clients}
   \label{fig:Clientstates}
 \end{figure}
 
-\todoin{Vic - Bemerkung zur Grafik: es gibt doch garkeinen OPCODE == LOST oder WON? Meiner Meinung nach wird der Zustandsübergang wird durch 'letztes Schiff versenkt' ausgelöst und dann hängt es davon ab, ob es das eigene ist oder nicht..? gleiches gilt für die folgende abbildung}
+%\todoin{Vic - Bemerkung zur Grafik: es gibt doch garkeinen OPCODE == LOST oder WON? Meiner Meinung nach wird der Zustandsübergang wird durch 'letztes Schiff versenkt' ausgelöst und dann hängt es davon ab, ob es das eigene ist oder nicht..? gleiches gilt für die folgende abbildung}
 
 Befindet sich der Client im \emph{RUNNING}-Status, so wechselt er zwischen seinen internen Zuständen \emph{ATTACK} und \emph{DEFENCE} hin und her.
 Dieser Wechsel erfolgt immer dann, wenn eine \emph{ATTACKRESPONSE} Nachricht mit dem Opcode = 2 übertragen wurde.
