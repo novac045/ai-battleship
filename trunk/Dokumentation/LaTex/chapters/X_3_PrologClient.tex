@@ -79,20 +79,29 @@
 	gespeichert, um einen einfachen Zugriff von jedem Modul zu ermöglichen. 
 	 
 	\todoin {Spellcheck from here, please.}
-	\todoin{Bogi - Schreib bitte erstmal verständliche Sätze ;)}
+	\todoin{Bogi - Schreib bitte erstmal verständliche Sätze ;)\newline Gesoffen? ;-D das ist super verständlich!! (Bin nochmal drübergegangen)}
 	Zur Platzierung der eigenen Schiffe verwendet das Initialisierungsmodul das Prädikat \texttt{place/1} aus dem Modul zur 
-	Schiffspositionierung (siehe Abschnitt \ref{sec:initships}).
+	Schiffspositionierung (\texttt{initShips.pl}, siehe Abschnitt \ref{sec:initships}).
 	Die von \texttt{place/1} gelieferte Liste beinhaltet (unter anderem) die Koordinaten der Schiffe, welche durch das Prädikat 
-	\texttt{fillWithShips/3} im globalen, eigenen Spielfeld \texttt{myField/1} als belegt gekennzeichnet werden. Hierfür wird 
+	\texttt{fillWithShips/3} im eigenen Spielfeld \texttt{myField/1} als belegt gekennzeichnet werden. Hierfür wird 
 	die von \texttt{place/1} bezogene Liste rekursiv abgearbeitet und die enthaltenen X-Y-Koordinaten in \texttt{MyField/1} mit dem 
-	Status 6 belegt, der aussagt dass hier ein Teil eines Schiffes steht.
+	Status 6 belegt. Dieser Status sagt im Prolog-Client aus, dass sich auf der Koordinate ein Teil eines Schiffes befindet.
 	
 	Die Listenelemente enhalten neben den Koordinaten noch eine Nummer zur Identifizierung des Schiffes, sowie die "'Teilenummer"' 
-	die angibt um den wievielten Teil eines Schiffes es sich handelt. Getrennt sind diese Komponenten durch einen Backslash. Somit 
-	stellt sich ein Listenelement wie folgt dar \texttt{Schiffs-ID/Teilnummer/X-Koordinate/Y-Koordinate}.
-	Die X- und Y-Koordinate müssen zur korrekten Verwendungen jeweils noch um Eins dekrementiert werden, weil in der \texttt{initShips.pl} von 
+	die angibt um den wievielten Teil eines Schiffes es sich handelt. Getrennt sind diese Komponenten durch einen Schrägstrich. Somit 
+	stellt sich ein Listenelement wie folgt dar: \texttt{Schiffs-ID/Teilnummer/X-Koordinate/Y-Koordinate}.
+	Die X- und Y-Koordinate müssen zur korrekten Verwendungen jeweils noch einmal dekrementiert werden, weil im Modul \texttt{initShips.pl} von 
 	einem Koordinatensystem mit den Wertebereichen $1\le X/Y\le 10$ ausgegangen wird, während \texttt{myField/1} vom Wertebereich $0\le X/Y\le 9$ ausgeht.
-	\todoin {Sequenzdiagramm/Ablaufdiagramm, evtl.}
+	
+	Die folgende Abbildung \ref{fig:filleswithShips3} bildet diesen Ablauf schematisch, als UML-Diagramm, ab. Die abgebildete Schleife 
+	wird in Prolog durch Rekursion realisiert.
+	\begin{figure}[H] % (fold)
+		\centering
+		\includegraphics[width=.9\textwidth]{images/fillWithShips.eps}
+		\caption{UML Aktivitätsdiagramm des Prädikats \texttt{fillWithships/3}. \emph{Quelle: Eigene Darstellung.}}
+		\label{fig:fillwithShips3}
+	\end{figure}
+	% figure fig:fillwithShips3 (end)
 
 \subsubsection{Modul zur Plazierung von Schiffen} \label{sec:initships}	
 	\todoin{Bogi - TODO \newline ACK! Begonnen, Muse verloren. Später gehts weiter}
@@ -168,9 +177,9 @@
 
 \subsubsection{Ausgabemodul}
 		Das Ausgabemodul \texttt{outputModule.pl} beinhaltet Prädikate zur Ausgabe der \textit{globalen Variablen} \texttt{myField/1},
-		\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt normalerweise auf der Standardausgabe und kann während des Spiels oder zu
+		\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt standardgemäß auf der Standardausgabe und kann während des Spiels oder zu
 		Debugzwecken verwendet werden.
-\todoin{Bogi - ich glaub das 'normalerweise' aus dem vorherigen satz gilt jetzt nicht mehr oder? entweder im Standardcode ändern oder hier im text - was denst du?}
+\todoin{Bogi - ich glaub das 'normalerweise' aus dem vorherigen satz gilt jetzt nicht mehr oder? entweder im Standardcode ändern oder hier im text - was denst du?\newline ACK! Text hier angepasst!}
 
 		Um Eine Überflutung der Ausgabekonsole bei vielen automatisierten Spieldurchläufen (zum Beispiel: KI gegen KI, 1000 spiele) zu vermeiden, kann 
 		die Ausgabe über das Prädikat \texttt{verbose/1} gesteuert werden (siehe Abschnitt \ref{ssub:ausgabeverhalten}).
