@@ -14,7 +14,7 @@
 	
 	% Black Box
 	% \subsection{Funktionaler Test}
-	Um zu überprüfen ob das entwickelte Spiel die gewünschten Funktionen bietet wurden funktionale Tests durchgeführt. 
+	Um zu überprüfen ob das entwickelte Spiel die gewünschten Funktionen bietet, wurden funktionale Tests durchgeführt. 
 	Als Spezifikation hierfür wurden die in Abschnitt \ref{sec:Spielregeln} beschriebenen Eigenschaften des Spiels \textit{Schiffe-Versenken}
 	verwendet. 
 	
@@ -29,6 +29,22 @@
 
 \subsection{Testfälle}
 
+	Der erste Testfall untersucht die korrekte Initialisierung des Prologclients. Insbesondere stellt die regelkonforme Platzieung der
+	Schiffe einen wichtigen Bestandteil des Spiels dar. 
+	\todoin{Beschreibung: Wie haben wir getestet?}
+	
+	Im gleichen Rahmen der Prüfung auf die korrekte Platzierung der Schiffe muss ebenfalls validiert werden, ob die geforderte Anzahl an Schiffen und die
+	korrekten Schiffstypen auf dem Spielfeld zu finden sind.
+	\todoin{Ebenfalls Beschreibung wie wir das getestet haben}
+	
+	Der dritte Testfall behandelt die Auswahl des nächsten anzugreifenden Spielfeldes. Im besonderen Fokus steht die Aufgabe der Verfolgung eines 
+	getroffenen, aber noch nicht vesenkten Schiffes.
+	\todoin{Beschreibung des Tests}
+	
+	Der vierte Testfall untersucht die korrekte Behandlung eines versenkten Schiffes. Insbesondere soll geprüft werden, ob die Umgebung in einer 4er-Nachbarschaft
+	mit Wasser aufgedeckt wird, da an diesen Stellen laut Regelbeschreibung keine Schiffe platziert werden dürfen und somit für die nachfolgenden Züge uninteressant sind.
+	\todoin{Beschreibung des Tests}
+	
 	Vorbedignung - KI Ausgabe auf der Konsole
 	
 	- eigene Schiffe gültig platziert
