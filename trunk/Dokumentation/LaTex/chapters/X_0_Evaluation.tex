@@ -1,7 +1,38 @@
 \section{Evaluation} \label{sec:Evaluation}
 
 \subsection{Testkonzept}
+\todoin{Bogi, Vic - lest euch das bitte durch und guckt ob wir das wirklich so verteidigen können.. thx}
 
-\todoin{Entwicklertest, Testbarkeit der Software (Treiber,...), Positiv- und Negativtests, Stresstest (nicht funktional)}
+	Ziel der durchgeführten Tests war es, mögliche Fehlerzustände im implementierten Programm aufzudecken und außerdem zu belegen, dass das System
+	wie erwartet funktioniert. 
+	
+	% White Box
+	% \todoin{Entwicklertest, Testbarkeit der Software (Treiber,...), Positiv- und Negativtests,}
+	Da die Verwendung strukturorientierter Testverfahren die Entwicklung eines Testrahmens bedeuten und dies den Rahmen des Projektes sprengen würde,
+	wurde von der Verwendung dieser Verfahren abgesehen.  
+	Stattdessen wurde der Einsatz verschiedener Black-Box Methoden vorgesehen.
+	
+	% Black Box
+	% \subsection{Funktionaler Test}
+	Um zu überprüfen ob das entwickelte Spiel die gewünschten Funktionen bietet wurden funktionale Tests durchgeführt. 
+	Als Spezifikation hierfür wurden die in Abschnitt \ref{sec:Spielregeln} beschriebenen Eigenschaften des Spiels \textit{Schiffe-Versenken}
+	verwendet. 
+	
+	\todoin{zustandsbasierter test - testet auch ungültige zustandsübergänge - möglcih???}
+	
+	% nicht funktional
+	Außerdem wurden auch nicht funktionale Testverfahren verwendet. Zum Einen wurde ein Langzeittest durchgeführt, bei dem zwei
+	Prolog-Clients 1000 Spiele gegen einander Spielen. Ziel dieses Tests war es diese hohe Anzahl von Spielen fehlerfrei zu beenden. 	
+	
+	\todoin{nicht funktional: portabilitätstest - wurde ja auf 2 plattformen entwickelt??!}
+	\todoin{nicht funktional: Benutzbarkeit - hat nicht jemand von euch lust seine mama mal spielen zu lassen? oder ich setz beate ran wenn die mal hier ist ;)}
 
 \subsection{Testfälle}
+
+	Vorbedignung - KI Ausgabe auf der Konsole
+	
+	- eigene Schiffe gültig platziert
+	- richtige anzahl und größe der schiffe
+	- gegnerische schiffe werden attackiert wenn ein treffer gelandet wurde
+	- gegnerisches schiff wird nach versenken mit wasser umschlossen
+	- 
