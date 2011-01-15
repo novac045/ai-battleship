@@ -3,7 +3,13 @@
 	Abbildung \ref{fig:prologmodule} zeigt das Zusammenspiel der Module. Dabei stellt ein Pfeil die Verwendung eines Prädikates aus
 	dem jeweiligen Modul dar. Die im Diagramm dargestellten Pfeile stellen somit die Schnittstellen zwischen den Modulen dar.
 	
-	\todoin{Bogi - Bild zum Modulzusammenspiel zusammenklickern ;)} \label{fig:prologmodule}
+	\begin{figure}[H] % (fold)
+		\centering
+		\includegraphics[width=0.9\textwidth]{images/ModuleCommunication.pdf}
+		\caption{UML Kommunikationsdiagramm zur Kommunikation zwischen den Modulen des Prolog-Clients}
+		\label{fig:prologmodule}
+	\end{figure}
+	% figure fig:prologmodule (end)
 
 	Des Weiteren arbeiten einige der Module gemeinsam auf \textit{globalen} Spielvariablen, die mit Hilfe von dynamischen Prädikaten
 	gespeichert werden. Tabelle \ref{tbl:globalevariablen} zeigt diese Variablen, ihren Zweck sowie ihre Verwendung auf.
@@ -97,7 +103,7 @@
 	wird in Prolog durch Rekursion realisiert.
 	\begin{figure}[H] % (fold)
 		\centering
-		\includegraphics[width=.9\textwidth]{images/fillWithShips.eps}
+		\includegraphics[width=.9\textwidth]{images/fillWithShips.pdf}
 		\caption{UML Aktivitätsdiagramm des Prädikats \texttt{fillWithships/3}. \emph{Quelle: Eigene Darstellung.}}
 		\label{fig:fillwithShips3}
 	\end{figure}
