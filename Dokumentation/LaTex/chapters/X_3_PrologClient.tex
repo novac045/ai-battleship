@@ -95,7 +95,7 @@
 	
 	Die Listenelemente enhalten neben den Koordinaten noch eine Nummer zur Identifizierung des Schiffes, sowie die "'Teilenummer"' 
 	die angibt um den wievielten Teil eines Schiffes es sich handelt. Getrennt sind diese Komponenten durch einen Schrägstrich. Somit 
-	stellt sich ein Listenelement wie folgt dar: \texttt{Schiffs-ID/Teilnummer/X-Koordinate/Y-Koordinate}.
+	stellt sich ein Listenelement wie folgt dar: \texttt{Schiffs-ID}/ \texttt{Teilnummer}/ \texttt{X-Koordinate}/ \texttt{Y-Koordinate}.
 	Die X- und Y-Koordinate müssen zur korrekten Verwendungen jeweils noch einmal dekrementiert werden, weil im Modul \texttt{initShips.pl} von 
 	einem Koordinatensystem mit den Wertebereichen $1\le X/Y\le 10$ ausgegangen wird, während \texttt{myField/1} vom Wertebereich $0\le X/Y\le 9$ ausgeht.
 	
@@ -112,13 +112,28 @@
 \subsubsection{Modul zur Plazierung von Schiffen} \label{sec:initships}	
 	\todoin{Bogi - TODO \newline ACK! Begonnen, Muse verloren. Später gehts weiter}
 	Die Aufgabe des Positionierungsmoduls \texttt{initShips.pl} ist es, die Schiffe der künstlichen Intelligenz auf dem Spielfeld zu platzieren.
-	Hierfür werden in diesem Modul die Regeln zur legalen Positionierung der Schiffe (vgl. \ref{sec:Spielregeln}) implementiert. Neben den Regeln 
+	Hierfür werden in diesem Modul die Regeln zur legalen Positionierung der Schiffe (siehe Abschnitt \ref{sec:Spielregeln}) implementiert. Neben den Regeln 
 	zur Platzierung definiert \texttt{initShips.pl} auch die Anzahl und Länge der im Spiel genutzten Schiffe. Des weiteren wurden Prädikate implementiert, 
 	welche die Regeln auf die Menge der Schiffe Anwenden um so mögliche Positionierungen dieser auf dem Spielfeld zu erzeugen.
 	
 	Das Prädikat \texttt{place/1} stößt die Erzeugung einer zufälligen Aufstellung aller Schiffe auf dem Spielfeld an und gibt diese als Liste der Form 
-	\newline \texttt{Schiffs-ID/Teilnummer/X-Koordinate/Y-Koordinate} an. 
+	\texttt{Schiffs-ID}/ \texttt{Teilnummer}/ \texttt{X-Koordinate}/ \texttt{Y-Koordinate} an.
 	
+	Um sicherzustellen das nur legale Positionierungen verwendet werden, wurden die Spielregeln (siehe Abschnitt \ref{sec:Spielregeln}) wie folgt implementiert:
+	\begin{itemize}
+		\item Schiffe dürfen Horizontal oder Vertikal auf dem Spielfeld platziert werden.\newline
+		\lstset{language=Prolog,caption=Implementierung der Platzierungsregel in Prolog,label=code:PrologRules1,	   
+		inputencoding=latin1,extendedchars=true,basicstyle=\footnotesize,numbers=left,numberstyle=\footnotesize}
+		\lstinputlisting[firstline=29, lastline=46]{includes/initShips.pl}
+		\item Verschiedene Schiffe dürfen einander nicht berühren, aber diagonal versetzt stehen.
+		\lstset{language=Prolog,caption=Implementierung der Platzierungsregel in Prolog,label=code:PrologRules2,	   
+		inputencoding=latin1,extendedchars=true,basicstyle=\footnotesize,numbers=left,numberstyle=\footnotesize}
+		\lstinputlisting[firstline=47, lastline=68]{includes/initShips.pl}
+	\end{itemize}
+	Die Anwendung dieser Regeln erfolgt durch die Abfolge rekursiver Prädikate, welche eine Liste von legal Positionierten Schiffen aufbauen. Es wird also 
+	erst ein Schiff auf dem Spielfeld Positioniert, dann ein Zweites dazu gesetzt, darauf folgt das dritte Schiff und so weiter, bis alle fünf Schiffe Positioniert 
+	sind. Um eine möglichst zufällige und unvorhersehbare Positionierung der Schiffe zu erreichen werden, da wo es möglich ist, Sequenzen von Zufallszahlen anstatt 
+	fest kodierter Listen genutzt. Folgendes UML-Diagramm (Abb. \ref{fig:initShips}) stellt den diesen Ablauf schematisch und vereinfacht dar.
 \subsubsection{Verteidigungsmodul} \label{sec:defendModule}
 	Die Aufgabe des Verteidigungsmoduls \texttt{defendModule.pl} ist es einen Angriff des Gegners zu verarbeiten.
 	Zum einen muss dabei der Status des eigenen Feldes \texttt{myField/1} aktualisiert 
