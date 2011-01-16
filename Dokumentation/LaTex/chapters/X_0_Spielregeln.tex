@@ -1,28 +1,40 @@
 \section{Spielregeln}
 \label{sec:Spielregeln}
 
-Da die allgemeinen Regeln des Spiels \textit{Schiffe-Versenken} bekannt sein sollten, werden an dieser Stelle nur die relevanten Eckdaten 
-und besondere Vereinbarungen aufgeführt:
+Im folgenden werde die Spielregeln des Spiels \emph{Schiffe-Versenken} beschrieben. Diese allgemein gültigen Regeln, sind für 
+die im folgenden beschriebene Umsetzung des Spiels in Prolog und Java als Spezifikation anzusehen.
 
-\todoin{In Progress (16.01. 15:00) - ich werde dies irgendwie auf eine möglichst Formale Spezifikation 'umdichten' - SB}
+%Da die allgemeinen Regeln des Spiels \textit{Schiffe-Versenken} bekannt sein sollten, werden an dieser Stelle nur die relevanten Eckdaten 
+%und besondere Vereinbarungen aufgeführt:
+
+\todoin{Findet jemand Fehler, Mehrdeutigkeiten, Ungenauigkeiten, Auslassung?!- SB}
 
 \begin{itemize}
-	\item Spielfelder
+	\item \textbf{Spielfeld} \newline Für das eigene und das gegnerische Spielfeld gelten die folgenden Regeln:
 		\begin{itemize}
-			\item 10 x 10 Felder gross
-			\item Eigenes Feld entweder: Wasser, Schiff, Getroffen
-			\item Gegnerisches Feld entweder: Unbekannt, Treffer, Versenkt
+			\item Das Spielfeld eines jeden Spielers ist 10x10 Felder groß.
+			\item Jedes eigene Feld hat einen der folgenden Status: Wasser, Schiff, Getroffen oder Versenkt
+			\item Jedes gegnerische Feld hat infolgedessen einen der folgenden Status: Unbekannt, Wasser, Treffer oder Versenkt.
 		\end{itemize}
-	\item Schiffe
+	\item \textbf{Schiffe} \newline Für die am Spiel beteiligten Schiffe gelten die folgenden Regeln:
 		\begin{itemize}
-			\item 1 x 5er, 1 x 4er, 2 x 3er, 1 x 2 er
-			\item Schiffe dürfen sich nicht berühren
-			\item Eine \textit{schräge} Platzierung der Schiffe \textbf{zu einander} ist gültig. Anders ausgedrückt dürfen Schiffe sich \textbf{nicht} in
-				der 4er Nachbarschaft (horizontal und vertikal benachbarte Felder) zu einander befinden, jedoch in den diagonal benachbarten Feldern.
+			\item Folgende Schiffe müssen auf dem Spielfeld platziert werden: 1x 5er, 1x 4er, 2x 3er, 1x 2er.
+			\item Schiffe dürfen einander nicht berühren.
+			\item Schiffe dürfen Horizontal und Vertikal, nicht aber Diagonal auf dem Spielfeld platziert werden. % Fragt sich, ob Sie AKTROPHAL positioniert werden können ;-) - kleiner Scherz ... höhö
+			\item Schiffe dürfen Diagonal versetzt (Aneinander liegende Eckpunkte) platziert werden.
+			\item Schiffe dürfen nach der ersten Platzierung nicht mehr verschoben werden.
 		\end{itemize}
-	\item Spielablauf
+	\item \textbf{Spielablauf} \newline Für den Spielablauf gelten die Folgenden Regeln und abläufe:
 		\begin{itemize}
-			\item Die beiden Spieler schießen abwechselnd bis sämtliche Schiffe eines Spielers versenkt sind.
+			\item Beide Spieler 'schießen' abwechselnd auf das Spielfeld des anderen.
+			\item Das Los entscheidet, welcher Spieler beginnt.
+			\item Ein angreifender Spieler teilt dem Gegner die angegriffene Koordinate mit (bspw. "E5").
+			\item Der angegriffene Spieler Antwortet nun wahrheitsgemäß mit:
+				\begin{itemize}
+					\item \emph{"Wasser!"} wenn kein Schiff auf dem angegriffenen Feld steht.
+					\item \emph{"Treffer!"} wenn ein Schiff auf dem angegriffenen Feld steht.
+					\item \emph{"Versenkt!"} wenn der letzte Teil eines Schiffes auf diesem Feld getroffen wurde.
+				\end{itemize}
+			\item \textbf{Spielende:} Es gewinnt der Spieler, der zuerst alle Fünf Schiffe des Gegners versenkt hat.
 		\end{itemize}
-	
 \end{itemize}
