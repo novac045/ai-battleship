@@ -83,9 +83,7 @@
 	Zur Initialisierung der Spielfelder verwendet das Modul die Prädikate \texttt{initMyField/0} und \texttt{initEnemyField/0}.
 	Die Spielfelder werden global in den dynamischen Prädikaten \texttt{myField/1} und \texttt{enemyField/1}
 	gespeichert, um einen einfachen Zugriff von jedem Modul zu ermöglichen. 
-	 
-	\todoin {Spellcheck from here, please.}
-	\todoin{Bogi - Schreib bitte erstmal verständliche Sätze ;)\newline Gesoffen? ;-D das ist super verständlich!! (Bin nochmal drübergegangen)}
+	
 	Zur Platzierung der eigenen Schiffe verwendet das Initialisierungsmodul das Prädikat \texttt{place/1} aus dem Modul zur 
 	Schiffspositionierung (\texttt{initShips.pl}, siehe Abschnitt \ref{sec:initships}).
 	Die von \texttt{place/1} gelieferte Liste beinhaltet (unter anderem) die Koordinaten der Schiffe, welche durch das Prädikat 
@@ -222,7 +220,6 @@
 		Das Ausgabemodul \texttt{outputModule.pl} beinhaltet Prädikate zur Ausgabe der \textit{globalen Variablen} \texttt{myField/1},
 		\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt standardgemäß auf der Standardausgabe und kann während des Spiels oder zu
 		Debugzwecken verwendet werden.
-\todoin{Bogi - ich glaub das 'normalerweise' aus dem vorherigen satz gilt jetzt nicht mehr oder? entweder im Standardcode ändern oder hier im text - was denst du?\newline ACK! Text hier angepasst!}
 
 		Um Eine Überflutung der Ausgabekonsole bei vielen automatisierten Spieldurchläufen (zum Beispiel: KI gegen KI, 1000 spiele) zu vermeiden, kann 
 		die Ausgabe über das Prädikat \texttt{verbose/1} gesteuert werden (siehe Abschnitt \ref{ssub:ausgabeverhalten}).
