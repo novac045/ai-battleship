@@ -1,7 +1,7 @@
 \subsection{Client - Prolog} \label{sec:Prologclient}
 	Die Aufgaben des Prolog-Clients sind in verschiedene Module unterteilt, um die verschiedenen Teile austauschbar zu halten. 
 	Abbildung \ref{fig:prologmodule} zeigt das Zusammenspiel der Module. Dabei stellt ein Pfeil die Verwendung eines Prädikates aus
-	dem jeweiligen Modul dar. Die im Diagramm dargestellten Pfeile stellen somit die Schnittstellen zwischen den Modulen dar.
+	dem jeweiligen Modul dar. Die im Diagramm dargestellten Pfeile zeigen somit die Schnittstellen zwischen den Modulen auf.
 	
 	\begin{figure}[H] % (fold)
 		\centering
@@ -74,7 +74,8 @@
 	ob er das Spiel verloren hat. Tritt einer der beiden Fälle in Kraft, so beendet der Client das Spiel. 
 	Anschließend überprüft der Client ob weitere Runden ausstehen. Ist dies der Fall, so wird ein neues Spiel initialisiert.
 	Andernfalls beendet sich der Client mit einer Ausgabe über den Spielverlauf:
-	\textit{End of game. KI won \texttt{n} times and lost \texttt{m} times.}.
+	\textit{End of game. KI won \texttt{n} times and lost \texttt{m} times.} wobei \textit{\texttt{n}} bzw. \textit{\texttt{m}}
+	die Anzahl der Siege bzw. Niederlagen ist.
 
 \subsubsection{Initialisierungsmodul} \label{sec:initModule}
 	Die Aufgaben des Initialisierungsmoduls \texttt{initModule.pl} sind das Initialisieren der Spielfelder, darunter auch
@@ -97,7 +98,7 @@
 	Die X- und Y-Koordinate müssen zur korrekten Verwendungen jeweils noch einmal dekrementiert werden, weil im Modul \texttt{initShips.pl} von 
 	einem Koordinatensystem mit den Wertebereichen $1\le X/Y\le 10$ ausgegangen wird, während \texttt{myField/1} vom Wertebereich $0\le X/Y\le 9$ ausgeht.
 	
-	Die folgende Abbildung \ref{fig:fillwithShips3} bildet diesen Ablauf schematisch, als UML-Diagramm, ab. Die abgebildete Schleife 
+	Abbildung \ref{fig:fillwithShips3} zeigt diesen Ablauf schematisch als UML-Diagramm. Die abgebildete Schleife 
 	wird in Prolog durch Rekursion realisiert.
 	\begin{figure}[H] % (fold)
 		\centering
@@ -111,7 +112,7 @@
 	Die Aufgabe des Positionierungsmoduls \texttt{initShips.pl} ist es, die Schiffe der künstlichen Intelligenz auf dem Spielfeld zu platzieren.
 	Hierfür werden in diesem Modul die Regeln zur legalen Positionierung der Schiffe (siehe Abschnitt \ref{sec:Spielregeln}) implementiert. Neben den Regeln 
 	zur Platzierung definiert \texttt{initShips.pl} auch die Anzahl und Länge der im Spiel genutzten Schiffe. Des weiteren wurden Prädikate implementiert, 
-	welche die Regeln auf die Menge der Schiffe Anwenden um so mögliche Positionierungen dieser auf dem Spielfeld zu erzeugen.
+	welche die Regeln auf die Menge der Schiffe anwenden, um so mögliche Positionierungen dieser auf dem Spielfeld zu erzeugen.
 	
 	Das Prädikat \texttt{place/1} stößt die Erzeugung einer zufälligen Aufstellung aller Schiffe auf dem Spielfeld an und gibt diese als Liste der Form 
 	\texttt{Schiffs-ID}/ \texttt{Teilnummer}/ \texttt{X-Koordinate}/ \texttt{Y-Koordinate} an.
@@ -127,14 +128,14 @@
 		inputencoding=latin1,extendedchars=true,basicstyle=\footnotesize,numbers=left,numberstyle=\footnotesize}
 		\lstinputlisting[firstline=47, lastline=68]{includes/initShips.pl}
 	\end{itemize}
-	Die Anwendung dieser Regeln erfolgt durch die Abfolge rekursiver Prädikate, welche eine Liste von legal Positionierten Schiffen aufbauen. Es wird also 
-	erst ein Schiff auf dem Spielfeld Positioniert, dann ein Zweites dazu gesetzt, darauf folgt das dritte Schiff und so weiter, bis alle fünf Schiffe Positioniert 
-	sind. Um eine möglichst zufällige und unvorhersehbare Positionierung der Schiffe zu erreichen werden, da wo es möglich ist, Sequenzen von Zufallszahlen anstatt 
+	Die Anwendung dieser Regeln erfolgt durch die Abfolge rekursiver Prädikate, welche eine Liste von legal positionierten Schiffen aufbauen. Es wird also 
+	erst ein Schiff auf dem Spielfeld positioniert, dann ein Zweites dazu gesetzt, darauf folgt das dritte Schiff und so weiter, bis alle fünf Schiffe Positioniert 
+	sind. Um eine möglichst zufällige und unvorhersehbare Positionierung der Schiffe zu erreichen, werden, da wo es möglich ist, Sequenzen von Zufallszahlen anstatt 
 	fest kodierter Listen genutzt. Folgendes UML-Diagramm (Abb. \ref{fig:itShips}) stellt den diesen Ablauf schematisch und vereinfacht dar.
 	\begin{itemize}
 		\item Das \texttt{Template} ist eine Liste, welche die Schiffe und Eigenschaften (die Länge) beschreibt. Für ein fünf Teile langes Schiff, finden sich im 
 		Template fünf Elemente der Form \texttt{Schiffs-ID: 1-5}/ \texttt{Teilenummer: 1-5}/ \texttt{X-Koordinate: Variabel}/ \texttt{Y-Koordinate: Variabel}.
-		\item Zu Beginn der Positionierung wird die Reihenfolge, in der die Schiffe platziert werden, zufällig Festgelegt. Hierfür wird eine zufällig Sequenz der 
+		\item Zu Beginn der Positionierung wird die Reihenfolge, in der die Schiffe platziert werden, zufällig festgelegt. Hierfür wird eine zufällige Sequenz der 
 		Zahlen 1 bis 5 erzeugt und in der Liste \texttt{ships} gespeichert.
 	\end{itemize}
 	\begin{figure}[H] % (fold)
@@ -153,7 +154,7 @@
 	welches das Spielfeld abbildet) der Reihe nach abgearbeitet und somit alle legalen Positionierungen für die übergebene Schiffsliste gefunden. Aufgrund der 
 	Tatsache, dass immer nur ein Schiff mit Variablen X- und Y-Koordinaten in der übergebenen Liste vorhanden ist (andere, ggf. vorhandene Schiffe, haben bereits 
 	in vorherigen durchläufen Koordinaten zugewiesen bekommen), hält sich der Rechenaufwand und die Anzahl der möglichen Positionierungen klein und Prolog kann 
-	eine Menge an Lösungen finden und zurück geben.
+	eine Menge an Lösungen finden und zurückgeben.
 \subsubsection{Verteidigungsmodul} \label{sec:defendModule}
 	Die Aufgabe des Verteidigungsmoduls \texttt{defendModule.pl} ist es einen Angriff des Gegners zu verarbeiten.
 	Zum einen muss dabei der Status des eigenen Feldes \texttt{myField/1} aktualisiert 
@@ -225,7 +226,6 @@
 		die Ausgabe über das Prädikat \texttt{verbose/1} gesteuert werden (siehe Abschnitt \ref{ssub:ausgabeverhalten}).
 \subsubsection{Ausgabeverhalten} % (fold)
 \label{ssub:ausgabeverhalten}
-\todoin{spellcheck??}
 		Das Modul \texttt{verbosity.pl} steuert den Ausgabekanal, auf dem während des Spielens Debug-Informationen dargestellt werden können. 
 		Es sind drei verschiedene Ausgabeverhalten implementiert:
 			\begin{enumerate}
@@ -233,8 +233,7 @@
 				\item \texttt{verbose(1)} : Ausgaben während des Spiels werden in eine Textdatei umgeleitet.
 				\item \texttt{verbose(2)} : Ausgaben während des Spiels erscheinen auf der Konsole.
 			\end{enumerate}
-			Bei allen Modi wird nach Beendigung aller konfigurierten Spiele, eine Zusammenfassung der Ergebnisse (siehe Abschnitt \ref{subssec:hauptmodul}) 
-			auf der Ausgabekonsole Ausgegeben.
+			Bei allen Modi wird nach Beendigung aller konfigurierten Spiele, eine Zusammenfassung der Ergebnisse auf der Ausgabekonsole ausgegeben.
 
 			Zur Realisierung der verschiedenen Ausgabemodi wird der Standardausgabestrom der SWI-Prolog Umgebung über das Systemprädikat \texttt{set\_output/1} 
 			geändert. Die Implementierung von \texttt{verbose/1} findet sich in \texttt{verbosity.pl}. Hier wird je nach Argument ein anderer Ausgabestrom 
@@ -244,7 +243,7 @@
 				\item \texttt{verbose(1)} : erzeugen eines Ausgabestroms in die Datei "'Output.txt"' im Unterordner "'GameLogs"' per \texttt{open/3}.
 				\item \texttt{verbose(2)} : erzeugen eines Ausgabestroms auf die Ausgabekonsole per \texttt{user\_output/0}.
 			\end{itemize}
-			Nach dem erzeugen des jeweiligen Ausgabestroms wird dieser über das Systemprädikat \texttt{set\_output} gesetzt und der aktuelle Ausgabestrom 
+			Nach dem Erzeugen des jeweiligen Ausgabestroms wird dieser über das Systemprädikat \texttt{set\_output} gesetzt und der aktuelle Ausgabestrom 
 			im globalen Prädikat \texttt{currentStream/1} gesetzt, sodass er überall im Programm manipuliert werden kann.
 			Vor Ausgabe der Spielzusammenfassung wird der momentane Ausgabestrom über das oben beschriebene Prädikat \texttt{currentStream/1} geholt und 
 			über das Systemprädikat \texttt{close/1} geschlossen. Direkt danach wird \texttt{verbose(2)} gesetzt, sodass die Ausgabe 
