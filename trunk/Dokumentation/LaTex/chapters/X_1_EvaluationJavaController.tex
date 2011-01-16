@@ -1,0 +1,25 @@
+Des Weiteren wurde die Controllerklasse \texttt{CPlayingFieldController} des Java-Clients einem Unittest unterzogen.
+Diese Klasse bildet das zentrale Element der Spiellogik.
+Das Ziel dieses Tests ist die Sicherstellung der korrekten Statuswechsel, sowie die korrekte repräsentation der Spielinformationen.
+
+Jedoch ist eine Untersuchung der einzelnen Methoden in diesem Fall nicht zielführend, da die internen Zustände und Variablen nur durch den Nachrichtenaustausch indirekt manipuliert werden können.
+Außerdem ist zu beachten, dass die Schiffsplatzierung zufällig erfolgt, sodass diese Komponente nicht vorhergesagt und somit geprüft werden kann.
+
+Die Testsequenz entspricht den ersten Zügen eines angehenden Spiels. 
+Sie unterteilt sich in die primär in die Phase der Initialisierung und die des laufenden Spiels.
+
+Im Rahmen des Tests werden zwei Instanzen der Klasse \texttt{CPlayingFieldController} erzeugt, die sich mit dem Spieleserver verbinden.
+Unmittelbar nachdem sich ein Client verbunden hat, geht dieser in die Initialisierungphase über, was anhand des Unittests bestätigt wurde.
+Außerdem konnte ebenfalls bestätigt werden, dass der erste Spielteilnehmer erwartungemäß im Verteidigungszustand startet.
+
+Im weiteren Verlauf der Testfolge verbindet sich ein weiterer Client.
+Erwartungsgemäß konnte verifiziert werden, dass dieser zum Einen den ersten Angriffs ausführt und zum Anderen sein Status in die des laufenden Spiels gewechselt ist.
+
+In der zweiten Phase des Tests werden abwechselnd Angriffe gestartet und es wird geprüft, ob sich die internen Spielfelder den eingehenden Informationen entsprechend geändert haben.
+Die korrekte Darstellung des gegnerischen Spielfelds von \emph{UNKNOWN} zu \emph{WATER} bzw. \emph{HIT} konnte bestätigt werden.
+
+Nach zwei weiteren Spielzügen konnte der korrekte Wechsel vom Angriffs- in den Verteidigungszustand und vice versa der Clients verifiziert werden.
+
+Da die Schiffe zufällig platziert werden, kann eine Evaluation des Spielendes nicht automatisch erfolgen.
+Aus diesem Grund wurde händisch ein Spiel JavaClient vs. JavaClient ausgetragen und geprüft, ob nach dem letzten versenkten Schiff der entsprechende Statuswechsel erfolgte.
+Auch dieser Test konnte erfolgreich bestätigt werden.
