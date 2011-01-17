@@ -1,33 +1,34 @@
 \section{Benutzungshinweise für Endbenutzer} \label{sec:Endbenutzer}
 	\todoin {Gut so?! -SB}
-	Um das Spiel \textit{Schiffe-Versenken} zu spielen muss zunächst der Spielserver gestartet werden. Anschließend können, je nach
+	Um das Spiel \textit{Schiffe-Versenken} zu spielen, muss zunächst der Spielserver gestartet werden. Anschließend können, je nach
 	Spielabsicht zwei der bereitgestellten Clients gestartet werden. Dabei ist es egal, ob zwei Java-Clients, zwei Prolog-Clients oder
 	je ein Client von jedem Typ gestartet wird. 
 	
 	\subsection{Systemvoraussetzungen} % (fold)
 	\label{sub:systemvoraussetzungen}
-		Um ein Fehlerfreies starten des Servers und der Clients gewährleisten zu können, ist ein Installiertes Java-Runtime-Environment 
-		der Version 1.6 erforderlich. Dieses kann ggf. unter \url{http://www.java.com/de/download}(stand: 16.01.2011) heruntergeladen werden.
+		Um ein fehlerfreies Starten des Servers und der Clients gewährleisten zu können, ist ein installiertes Java-Runtime-Environment 
+		der Version 1.6 erforderlich. Dieses kann ggf. unter \url{http://www.java.com/de/download} (Stand: 16.01.2011) heruntergeladen werden.
 		\newline
-		Des weiteren muss SWI-Prolog in Version 5.10.1 auf dem System installiert sein, um die KI-Komponenten ausführen zu können. SWI-Prolog 
+		Des Weiteren muss SWI-Prolog in Version 5.10.1 auf dem System installiert sein, um die KI-Komponenten ausführen zu können. SWI-Prolog 
 		kann ggf. unter \url{http://www.swi-prolog.org/Download.html} bezogen werden.
 	% subsection systemvoraussetzungen (end)
 %	\todoin{Voraussetzung SWI Prolog und Java (Version bla oder höher) installiert}
 	
 \subsection{Starten des Servers}
 %	\todoin{Wie beschreibt man denn jetzt ein möglichst komfortables Starten der Java Geschichten?}
-	Der zum spielen benötigte Server, \texttt{Battleship\_Server.jar}, kann entweder selbst gestartet werden, oder 
+	Der zum Spielen benötigte Server, \texttt{Battleship\_Server.jar}, kann entweder selbst gestartet werden, oder 
 	durch eines der beiliegenden Start-Skripte.
-	Ist es erforderlich, den Server eigenhändig zu starten, kann dies über den Kommandozeilenbefehl:\newline
+	Der Server kann ebenfalls durch den nachfolgenden Befehl manuell auf der Kommandozeile gestartet werden: \newline
+	%Ist es erforderlich, den Server eigenhändig zu starten, kann dies über den Kommandozeilenbefehl:\newline
 	\texttt{java -jar Battleship\_Server.jar}\newline
-	im, den Server beinhaltenden, Ordner getan werden.
+	%im, den Server beinhaltenden, Ordner getan werden.
 
 \subsection{Starten eines Java-Client}
-	Der Client, welcher das eigene Spielfeld abbildet, \texttt{Battleship\_Client.jar}, kann, analog zum Server, entweder selbst gestartet werden, oder 
+	Der Client, welcher das eigene Spielfeld abbildet, \texttt{Battleship\_Client.jar}, kann analog zum Server, entweder selbst gestartet werden, oder 
 	durch eines der beiliegenden Start-Skripte.
-	Ist es erforderlich, den Client eigenhändig zu starten, kann dies über den Kommandozeilenbefehl:\newline
+	Ist es erforderlich, den Client eigenhändig zu starten, kann dies über den Kommandozeilenbefehl getan werden:\newline
 	\texttt{java -jar Battleship\_Client.jar}\newline
-	im, den Client beinhaltenden, Ordner getan werden.
+	%im, den Client beinhaltenden, Ordner getan werden.
 
 \subsection{Starten eines Prolog-Client}
 	Ein Prolog-Client kann über einen Doppelclick auf die Datei \texttt{start\_prolog\_Windows} aus dem Ordner 
@@ -36,7 +37,7 @@
 	
 	\subsubsection {Konfiguration des Prolog-Client}
 		Standardmäßig ist der Prolog-Client für die Ausführung einer Runde konfiguriert. Außerdem werden die Spielzüge des Prolog-Clients auf
-		der Kommandozeile ausgegeben. Sollen diese Einstellungen geändert werden so muss die Datei \texttt{main.pl} entsprechend angepasst werden.
+		der Kommandozeile ausgegeben. Sollen diese Einstellungen geändert werden, so muss die Datei \texttt{main.pl} entsprechend angepasst werden.
 		Das Prädikat \texttt{numberOfGames/1} kann zur Festlegung der Rundenanzahl und das Prädikat \texttt{verbose/1} zur Anpassung der Ausgabe 
 		genutzt werden. Dabei steht der Wert \texttt{0} für keine Ausgabe, \texttt{1} für die Ausgabe in eine Datei und \texttt{2} für 
 		die Ausgabe auf der Konsole.
@@ -48,7 +49,7 @@
 		\item KI-Spieler gegen KI-Spieler: \texttt{start\_KI-KI-Match\_\emph{OS}.bat}
 		\item Menschlicher Spieler gegen Menschlischen Spieler: \texttt{start\_Human-Human-Match.bat}
 	\end{itemize}
-	Anmerkung: \texttt{\emph{OS}} ist durch "'Windows"' oder "'Unix"' zu ersetzen, je nach Betriebssystem.
+	Anmerkung: Je nach Betriebssystem is \texttt{\emph{OS}} durch "'Windows"' oder "'Unix"' zu ersetzen.
 	
 	Die Benutzung dieser Startskripts führt dazu, dass alle benötigten Komponenten auf der Konsole gestartet werden. Dies führt dazu, dass die Konsole 
 	auf der das Startskript ausgeführt wird, mit den Ausgaben aller drei Komponenten beschrieben wird. Für Debugging-Zwecke sollte also auf die Verwendung dieser 
