@@ -1,0 +1,619 @@
+------- NEW SILENT SESSION -------Connected
+ W  W  W  W  W  W  W  W  W  W 
+ W  W  W  W  W  W  W  W  o  W 
+ W  W  o  W  W  W  W  W  o  W 
+ W  W  o  W  W  W  W  W  W  W 
+ W  W  o  W  o  W  W  o  W  W 
+ W  W  W  W  o  W  W  o  W  W 
+ W  W  W  W  o  W  W  o  W  W 
+ W  W  o  W  o  W  W  o  W  W 
+ W  W  o  W  W  W  W  o  W  W 
+ W  W  o  W  W  W  W  W  W  W 
+Received start signal
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 1, 6 and hit: 1
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 3, 9 and hit: 2
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  X  U  U  U  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 1, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 2, 9 and hit: 1
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  W  X  U  U  U  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 2, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 4, 9 and hit: 2
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  W  X  X  U  U  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 3, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 5, 9 and hit: 3
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 4, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 7, 6 and hit: 1
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 5, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 2, 5 and hit: 1
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 6, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 0, 5 and hit: 1
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 7, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 1, 0 and hit: 1
+ U  W  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 8, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 2, 0 and hit: 2
+ U  W  X  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 0 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 3, 0 and hit: 2
+ U  W  X  X  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 1 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 4, 0 and hit: 3
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 1, 1 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 8, 1 and hit: 1
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  W  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 2, 1 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 2, 3 and hit: 1
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  W  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  U  U  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 3, 1 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 3, 6 and hit: 2
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  W  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  U  X  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 4, 1 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 2, 6 and hit: 1
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  W  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  W  X  U  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 5, 1 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 4, 6 and hit: 1
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  W  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ W  U  W  U  U  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 6, 1 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 3, 5 and hit: 3
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  W  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  U  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 7, 1 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 1, 9 and hit: 1
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  W  U 
+ U  U  U  U  U  U  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 8, 1 -> 2
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 5, 2 and hit: 1
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  W  U 
+ U  U  U  U  U  W  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 1 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 2, 4 and hit: 1
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  U  U  W  U 
+ U  U  U  U  U  W  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  W  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 2 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 6, 1 and hit: 2
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  U  X  U  W  U 
+ U  U  U  U  U  W  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  W  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 3 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 5, 1 and hit: 1
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  W  X  U  W  U 
+ U  U  U  U  U  W  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  W  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 5 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 7, 1 and hit: 1
+ U  W  X  X  X  W  U  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  W  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 4 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 6, 0 and hit: 1
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  U  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  W  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 6 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 6, 2 and hit: 2
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  U  U  U 
+ U  U  W  U  U  U  U  U  U  U 
+ U  U  W  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 7 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 6, 3 and hit: 2
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  U  U  U 
+ U  U  W  U  U  U  X  U  U  U 
+ U  U  W  W  U  U  U  U  U  U 
+ W  U  W  X  W  U  U  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 8 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 6, 4 and hit: 3
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  W  U  U 
+ U  U  W  U  U  W  X  W  U  U 
+ U  U  W  W  U  W  X  W  U  U 
+ W  U  W  X  W  U  W  U  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 9, 9 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 7, 5 and hit: 1
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  W  U  U 
+ U  U  W  U  U  W  X  W  U  U 
+ U  U  W  W  U  W  X  W  U  U 
+ W  U  W  X  W  U  W  W  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  U  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 2 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 2, 7 and hit: 1
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  W  U  U 
+ U  U  W  U  U  W  X  W  U  U 
+ U  U  W  W  U  W  X  W  U  U 
+ W  U  W  X  W  U  W  W  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  W  W  U  U  U  U  U  U 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 3 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 9, 7 and hit: 1
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  W  U  U 
+ U  U  W  U  U  W  X  W  U  U 
+ U  U  W  W  U  W  X  W  U  U 
+ W  U  W  X  W  U  W  W  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  W  W  U  U  U  U  U  W 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 4 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 9, 3 and hit: 2
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  W  U  U 
+ U  U  W  U  U  W  X  W  U  X 
+ U  U  W  W  U  W  X  W  U  U 
+ W  U  W  X  W  U  W  W  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  W  W  U  U  U  U  U  W 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 5 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 8, 3 and hit: 1
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  W  U  U 
+ U  U  W  U  U  W  X  W  W  X 
+ U  U  W  W  U  W  X  W  U  U 
+ W  U  W  X  W  U  W  W  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  W  W  U  U  U  U  U  W 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 6 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 9, 2 and hit: 2
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  W  U  X 
+ U  U  W  U  U  W  X  W  W  X 
+ U  U  W  W  U  W  X  W  U  U 
+ W  U  W  X  W  U  W  W  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  W  W  U  U  U  U  U  W 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 7 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 9, 4 and hit: 2
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  U 
+ U  U  U  U  U  W  X  W  U  X 
+ U  U  W  U  U  W  X  W  W  X 
+ U  U  W  W  U  W  X  W  U  X 
+ W  U  W  X  W  U  W  W  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  W  W  U  U  U  U  U  W 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 8 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 9, 1 and hit: 1
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  W 
+ U  U  U  U  U  W  X  W  U  X 
+ U  U  W  U  U  W  X  W  W  X 
+ U  U  W  W  U  W  X  W  U  X 
+ W  U  W  X  W  U  W  W  U  U 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  W  W  U  U  U  U  U  W 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 0, 9 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 9, 5 and hit: 2
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  W 
+ U  U  U  U  U  W  X  W  U  X 
+ U  U  W  U  U  W  X  W  W  X 
+ U  U  W  W  U  W  X  W  U  X 
+ W  U  W  X  W  U  W  W  U  X 
+ U  W  W  X  W  U  U  W  U  U 
+ U  U  W  W  U  U  U  U  U  W 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+    KI is defending
+    - Waiting for input
+    - KI got attacked at: 1, 9 -> 1
+    KI is attacking
+    - Waiting for response
+    - KI attacked        : State: 9, 6 and hit: 4
+ U  W  X  X  X  W  W  U  U  U 
+ U  U  W  W  W  W  X  W  W  W 
+ U  U  U  U  U  W  X  W  U  X 
+ U  U  W  U  U  W  X  W  W  X 
+ U  U  W  W  U  W  X  W  U  X 
+ W  U  W  X  W  U  W  W  U  X 
+ U  W  W  X  W  U  U  W  U  X 
+ U  U  W  W  U  U  U  U  U  W 
+ U  U  U  W  W  W  U  U  U  U 
+ U  W  W  X  X  X  W  U  U  U 
+KI wins.
+disconnected
