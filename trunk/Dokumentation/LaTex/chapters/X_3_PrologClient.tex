@@ -22,7 +22,7 @@
 		morekeywords={connectedHV,distance,abs},
 		morekeywords=[2]{S,S1,S2,P,P1,P2,X,X1,X2,Y,Y1,Y2},
 		otherkeywords={:-,.},
-		commentstyle=\color{MidnightBlue}\emph,
+		commentstyle=\color{MidnightBlue}\emph\tiny,
 		stringstyle=\color{cyan}	
 	}
 \subsection{Client - Prolog} \label{sec:Prologclient}
@@ -148,11 +148,11 @@
 	\begin{itemize}
 		\item Schiffe dürfen Horizontal oder Vertikal auf dem Spielfeld platziert werden.\newline
 		\lstinputlisting[firstline=29, lastline=46,
-		caption=Implementierung der Platzierungsregel in Prolog,
+		caption={Implementierung der Platzierungsregel,dass Schiffe Horizontal oder Vertikal ausgerichtet sein m"ussen, in Prolog},
 		label=code:PrologRules1]{includes/initShips.pl}
 		\item Verschiedene Schiffe dürfen einander nicht berühren, aber diagonal versetzt stehen.
 		\lstinputlisting[firstline=47, lastline=68, 
-		caption=Implementierung der Platzierungsregel in Prolog,
+		caption={Implementierung der Platzierungsregel,dass Schiffe einander nicht ber"uhren d"urfen, in Prolog},
 		label=code:PrologRules2]{includes/initShips.pl}
 	\end{itemize}
 	Die Anwendung dieser Regeln erfolgt durch die Abfolge rekursiver Prädikate, welche eine Liste von legal positionierten Schiffen aufbauen. Es wird also 
