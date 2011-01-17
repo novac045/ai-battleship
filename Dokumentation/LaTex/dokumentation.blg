@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: dokumentation.aux
+A level-1 auxiliary file: chapters/0_deckblatt.aux
+A level-1 auxiliary file: toc.aux
+The style file: is-abbrv.bst
+Database file #1: includes/literatur.bib
+You've used 1 entry,
+            2588 wiz_defined-function locations,
+            578 strings with 5016 characters,
+and the built_in function-call counts, 387 in all, are:
+= -- 28
+> -- 23
+< -- 0
++ -- 10
+- -- 8
+* -- 20
+:= -- 63
+add.period$ -- 4
+call.type$ -- 1
+change.case$ -- 7
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 12
+empty$ -- 34
+format.name$ -- 8
+if$ -- 76
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 20
+num.names$ -- 2
+pop$ -- 18
+preamble$ -- 1
+purify$ -- 6
+quote$ -- 0
+skip$ -- 5
+stack$ -- 0
+substring$ -- 6
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 2
+width$ -- 2
+write$ -- 24
