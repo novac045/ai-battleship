@@ -21,8 +21,8 @@
 	\todoin{zustandsbasierter test - testet auch ungültige zustandsübergänge - möglcih???}
 	
 	% nicht funktional
-	Außerdem wurden auch nicht funktionale Testverfahren verwendet. Zum Einen wurde ein Langzeittest durchgeführt, bei dem zwei
-	Prolog-Clients 1000 Spiele gegen einander Spielen. Ziel dieses Tests war es diese hohe Anzahl von Spielen fehlerfrei zu beenden. 	
+	Außerdem wurden auch nicht funktionale Testverfahren verwendet. In diesem Kontext wurde auch ein Langzeittest durchgeführt, bei dem zwei
+	Prolog-Clients 1000 Spiele gegeneinander spielen. Ziel dieses Tests war es diese hohe Anzahl von Spielen fehlerfrei zu beenden. 	
 	
 	\todoin{nicht funktional: portabilitätstest - wurde ja auf 2 plattformen entwickelt??!}
 	\todoin{nicht funktional: Benutzbarkeit - hat nicht jemand von euch lust seine mama mal spielen zu lassen? oder ich setz beate ran wenn die mal hier ist ;)}
@@ -36,14 +36,14 @@
 
 	\subsubsection{Testfall 1, Testfall 2} % (fold)
 	\label{ssub:testfall_1_testfall_2}
-		Zur Überprüfung der Korrektheit der Platzierung, der richtigen Gesamtanzahl der Schiffe sowie die korrekte Anzahl der einzelnen Typen, wurden 
-		die Startaufstellungen von 100 KI-gegen-KI spielen gespeichert und ausgewertet. Bei jedem KI-gegen-KI Spiel erzeugt der prolog Client zwei 
+		Zur Überprüfung der Korrektheit der Platzierung, der richtigen Gesamtanzahl der Schiffe, sowie die korrekte Anzahl der einzelnen Typen, wurden 
+		die Startaufstellungen von 100 KI-gegen-KI spielen gespeichert und ausgewertet. Bei jedem KI-gegen-KI Spiel erzeugt der Prolog Client zwei 
 		Aufstellungen (eine je KI-Spieler). Die so resultierenden 200 Aufstellungen wurden vom Entwicklerteam ausgewertet und auf Korrektheit in den 
 		angegebenen Aspekten überprüft.
 		
 		\paragraph{Testergebnis} % (fold)
 		\label{par:testergebnis}
-			Das überprüfen der 200 generierten Aufstellungen ergab folgendes Ergebnis:
+			Das Überprüfen der 200 generierten Aufstellungen ergab folgendes Ergebnis:
 			\begin{table}[H] % (fold)
 				\centering
 				\begin{tabular}{|p{.16\textwidth}|p{.16\textwidth}|p{.16\textwidth}|p{.16\textwidth}|p{.16\textwidth}|p{.16\textwidth}|} 
@@ -58,7 +58,7 @@
 			\end{table}
 			% table tbl:tf1tf2 (end)
 		% paragraph testergebnis (end)
-		Das Testergebnis zeigt, dass die Routine zum platzieren der Schiffe wie erwartet arbeitet. Beim Testen wurde gleichzeitig auch überprüft, 
+		Das Testergebnis zeigt, dass die Routine zum Platzieren der Schiffe wie erwartet arbeitet. Beim Testen wurde gleichzeitig auch überprüft, 
 		wie oft Duplikate durch die Routine erzeugt werden (also identische Platzierungen).
 		Das Auftreten keiner Duplikate lässt schlussfolgern, dass der Einsatz der Prolog-Systemprädikate \texttt{random/1} und \texttt{randseq/3} 
 		den gewünschten Effekt liefern (siehe Abschnitt \ref{sec:initships}) und wie erwartet arbeiten.

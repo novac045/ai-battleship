@@ -137,22 +137,22 @@
 
 \subsubsection{Modul zur Plazierung von Schiffen} \label{sec:initships}	
 	Die Aufgabe des Positionierungsmoduls \texttt{initShips.pl} ist es, die Schiffe der künstlichen Intelligenz auf dem Spielfeld zu platzieren.
-	Hierfür werden in diesem Modul die Regeln zur legalen Positionierung der Schiffe (siehe Abschnitt \ref{sec:Spielregeln}) implementiert. Neben den Regeln 
-	zur Platzierung definiert \texttt{initShips.pl} auch die Anzahl und Länge der im Spiel genutzten Schiffe. Des weiteren wurden Prädikate implementiert, 
+	Hierf¸r werden in diesem Modul die Regeln zur legalen Positionierung der Schiffe (siehe Abschnitt \ref{sec:Spielregeln}) implementiert. Neben den Regeln 
+	zur Platzierung definiert \texttt{initShips.pl} auch die Anzahl und Länge der im Spiel genutzten Schiffe. Des Weiteren wurden Prädikate implementiert, 
 	welche die Regeln auf die Menge der Schiffe anwenden, um so mögliche Positionierungen dieser auf dem Spielfeld zu erzeugen.
 	
 	Das Prädikat \texttt{place/1} stößt die Erzeugung einer zufälligen Aufstellung aller Schiffe auf dem Spielfeld an und gibt diese als Liste der Form 
 	\texttt{Schiffs-ID}/ \texttt{Teilnummer}/ \texttt{X-Koordinate}/ \texttt{Y-Koordinate} an.
 	
-	Um sicherzustellen das nur legale Positionierungen verwendet werden, wurden die Spielregeln (siehe Abschnitt \ref{sec:Spielregeln}) wie folgt implementiert:
+	Um sicherzustellen, dass nur legale Positionierungen verwendet werden, wurden die Spielregeln (siehe Abschnitt \ref{sec:Spielregeln}) wie folgt implementiert:
 	\begin{itemize}
-		\item Schiffe dürfen Horizontal oder Vertikal auf dem Spielfeld platziert werden.\newline
+		\item Schiffe dürfen horizontal oder vertikal auf dem Spielfeld platziert werden.\newline
 		\lstinputlisting[firstline=29, lastline=46,
 		caption={Implementierung der Platzierungsregel,dass Schiffe Horizontal oder Vertikal ausgerichtet sein m"ussen, in Prolog},
 		label=code:PrologRules1]{includes/initShips.pl}
 		\item Verschiedene Schiffe dürfen einander nicht berühren, aber diagonal versetzt stehen.
 		\lstinputlisting[firstline=47, lastline=68, 
-		caption={Implementierung der Platzierungsregel,dass Schiffe einander nicht ber"uhren d"urfen, in Prolog},
+		caption={Implementierung der Platzierungsregel, dass Schiffe einander nicht ber"uhren d"urfen, in Prolog},
 		label=code:PrologRules2]{includes/initShips.pl}
 	\end{itemize}
 	Die Anwendung dieser Regeln erfolgt durch die Abfolge rekursiver Prädikate, welche eine Liste von legal positionierten Schiffen aufbauen. Es wird also 
@@ -180,7 +180,7 @@
 	Regeln auf die übergebene Liste von Schiffen an. Hierfür werden die übergeben X- und Y-Sequenzen (\texttt{Xseq}, \texttt{Yseq}; die Wertebereiche des Koordinatensystems, 
 	welches das Spielfeld abbildet) der Reihe nach abgearbeitet und somit alle legalen Positionierungen für die übergebene Schiffsliste gefunden. Aufgrund der 
 	Tatsache, dass immer nur ein Schiff mit Variablen X- und Y-Koordinaten in der übergebenen Liste vorhanden ist (andere, ggf. vorhandene Schiffe, haben bereits 
-	in vorherigen durchläufen Koordinaten zugewiesen bekommen), hält sich der Rechenaufwand und die Anzahl der möglichen Positionierungen klein und Prolog kann 
+	in vorherigen Durchläufen Koordinaten zugewiesen bekommen), hält sich der Rechenaufwand und die Anzahl der möglichen Positionierungen klein und Prolog kann 
 	eine Menge an Lösungen finden und zurückgeben.
 \subsubsection{Verteidigungsmodul} \label{sec:defendModule}
 	Die Aufgabe des Verteidigungsmoduls \texttt{defendModule.pl} ist es einen Angriff des Gegners zu verarbeiten.
@@ -208,13 +208,13 @@
 	Dafür werden die Prädikate \texttt{doAttack/2} und \texttt{attackResponse/3} verwendet. 
 	
 	Wird das Prädikat \texttt{doAttack} aufgerufen, so nutzt das Angriffsmodul zunächst das Prädikat \texttt{getPointOfAttack/2} des
-	Strategiemoduls, um den als nächstes zu attackierenden Punkt zu erhalten. Anschließend überprüft \texttt{doAttack/2} 
+	Strategiemoduls, um den als nächstes zu attackierenden Punkt zu erhalten. Anschließend überprüft \texttt{doAttack/2},
 	ob die erhaltene Koordinate im Feld des Gegners \texttt{enemyField/1} als unbekannt (Status 0) gilt (Prädikat \texttt{doAttackCheck}. 
 	Ist dies nicht der Fall, so wird eine neue Koordinate von \texttt{getPointOfAttack/2} angefordert. 
 	Gilt die Koordinate als unbekannt, so wird dieser Punkt als nächster Angriffspunkt zurück gegeben.
 	
-	Das Prädikat \texttt{attackResponse/3} verarbeitet die Antwort des Gegners auf einen Angriff. Zum einen wird das intern gehaltene, 
-	gegnerische Feld aktualisiert (\texttt{updateEnemyField/3}), zum anderen wird die Openlist für weitere Angriffe über 
+	Das Prädikat \texttt{attackResponse/3} verarbeitet die Antwort des Gegners auf einen Angriff. Zum Einen wird das intern gehaltene, 
+	gegnerische Feld aktualisiert (\texttt{updateEnemyField/3}), zum Anderen wird die Openlist für weitere Angriffe über 
 	das Prädikat \texttt{updateOpenList/3} aus dem Strategiemodul aktualisiert (siehe Abschnitt \ref{sec:strategy}).
 	
 	Zur Aktualisierung des gegnerischen Spielfeldes \texttt{enemyField/1} wird der vom Gegener erhaltene Status in das entsprechende 
@@ -246,10 +246,10 @@
 
 \subsubsection{Ausgabemodul}
 		Das Ausgabemodul \texttt{outputModule.pl} beinhaltet Prädikate zur Ausgabe der \textit{globalen Variablen} \texttt{myField/1},
-		\texttt{enemyField/1} sowie \texttt{openList/1}. Die Ausgabe erfolgt standardgemäß auf der Standardausgabe und kann während des Spiels oder zu
+		\texttt{enemyField/1}, sowie \texttt{openList/1}. Die Ausgabe erfolgt standardgemäß auf der Standardausgabe und kann während des Spiels oder zu
 		Debugzwecken verwendet werden.
 
-		Um Eine Überflutung der Ausgabekonsole bei vielen automatisierten Spieldurchläufen (zum Beispiel: KI gegen KI, 1000 spiele) zu vermeiden, kann 
+		Um eine Überflutung der Ausgabekonsole bei vielen automatisierten Spieldurchläufen (zum Beispiel: KI gegen KI, 1000 Spiele) zu vermeiden, kann 
 		die Ausgabe über das Prädikat \texttt{verbose/1} gesteuert werden (siehe Abschnitt \ref{ssub:ausgabeverhalten}).
 \subsubsection{Ausgabeverhalten} % (fold)
 \label{ssub:ausgabeverhalten}

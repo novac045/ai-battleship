@@ -4,7 +4,7 @@
 
 Die Software des Spiels "'Schiffe versenken"' wurde als Client-Server Anwendung gemäß Abbildung \ref{fig:Kommunikationsteilnehmer} entworfen.
 Die zentrale Kommunikationsschnittstelle stellt der Kommunikationsserver dar, der auf dem Port $54321$ eingehende Verbindungen annimmt.
-Verbindungen können sowohl mittels eines Java-Clients hergestellt werden, die von einem Menschen bedient werden, als auch von Prolog-Clients, die vollständig autonom agieren.
+Verbindungen können sowohl mittels Java-Clients hergestellt werden, die von einem Menschen bedient werden, als auch von Prolog-Clients, die vollständig autonom agieren.
 Es liegen hinsichtlich der Clientkombinationen keine Beschränkungen vor, sodass auch z.B. ein Prolog-Client gegen einen anderen Prolog-Client antreten kann.
 
 \begin{figure}[H]
@@ -15,7 +15,7 @@ Es liegen hinsichtlich der Clientkombinationen keine Beschränkungen vor, sodass
 \end{figure}
 
 Der gesamte Spielverlauf lässt sich anhand der Statusdiagramme in den Abbildungen \ref{fig:Clientstates} und \ref{fig:SubClientstates} beschreiben.
-Diese sind sowohl für den Javaclient, als auch für das Prologprogramm gültig.
+Diese sind sowohl für den Java-Client, als auch für das Prologprogramm gültig.
 
 Unmittelbar nach Start des Clients befindet sich dieser im Initialisierungszustand \emph{INITIALIZATION}.
 Während dieser Phase obliegt es dem Client seine Schiffe gemäß den Regeln zu platzieren.
