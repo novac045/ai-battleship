@@ -1,3 +1,29 @@
+\definecolor{listingBackground}{rgb}{0.95,0.95,0.95}
+\lstset{language=Prolog, 
+		backgroundcolor=\color{listingBackground},
+		numbers=left,
+		numberstyle=\footnotesize,
+		breaklines=true,
+		breakautoindent=true,
+		postbreak=\space,
+		tabsize=2,
+		basicstyle=\ttfamily\footnotesize,
+		showspaces=false,
+		showstringspaces=false,
+		stepnumber=2,
+		numbersep=5pt,
+		keywordstyle=\color{red}\bfseries\emph,
+		keywordstyle=[2]\color{cyan}\ttfamily,
+		frame=single,
+		inputencoding=latin1,
+		extendedchars=true,
+		captionpos=b, 
+		morekeywords={connectedHV,distance,abs},
+		morekeywords=[2]{S,S1,S2,P,P1,P2,X,X1,X2,Y,Y1,Y2},
+		otherkeywords={:-,.},
+		commentstyle=\color{MidnightBlue}\emph,
+		stringstyle=\color{cyan}	
+	}
 \subsection{Client - Prolog} \label{sec:Prologclient}
 	Die Aufgaben des Prolog-Clients sind in verschiedene Module unterteilt, um die verschiedenen Teile austauschbar zu halten. 
 	Abbildung \ref{fig:prologmodule} zeigt das Zusammenspiel der Module. Dabei stellt ein Pfeil die Verwendung eines Prädikates aus
@@ -120,13 +146,13 @@
 	Um sicherzustellen das nur legale Positionierungen verwendet werden, wurden die Spielregeln (siehe Abschnitt \ref{sec:Spielregeln}) wie folgt implementiert:
 	\begin{itemize}
 		\item Schiffe dürfen Horizontal oder Vertikal auf dem Spielfeld platziert werden.\newline
-		\lstset{language=Prolog,caption=Implementierung der Platzierungsregel in Prolog,label=code:PrologRules1,	   
-		inputencoding=latin1,extendedchars=true,basicstyle=\footnotesize,numbers=left,numberstyle=\footnotesize}
-		\lstinputlisting[firstline=29, lastline=46]{includes/initShips.pl}
+		\lstinputlisting[firstline=29, lastline=46,
+		caption=Implementierung der Platzierungsregel in Prolog,
+		label=code:PrologRules1]{includes/initShips.pl}
 		\item Verschiedene Schiffe dürfen einander nicht berühren, aber diagonal versetzt stehen.
-		\lstset{language=Prolog,caption=Implementierung der Platzierungsregel in Prolog,label=code:PrologRules2,	   
-		inputencoding=latin1,extendedchars=true,basicstyle=\footnotesize,numbers=left,numberstyle=\footnotesize}
-		\lstinputlisting[firstline=47, lastline=68]{includes/initShips.pl}
+		\lstinputlisting[firstline=47, lastline=68, 
+		caption=Implementierung der Platzierungsregel in Prolog,
+		label=code:PrologRules2]{includes/initShips.pl}
 	\end{itemize}
 	Die Anwendung dieser Regeln erfolgt durch die Abfolge rekursiver Prädikate, welche eine Liste von legal positionierten Schiffen aufbauen. Es wird also 
 	erst ein Schiff auf dem Spielfeld positioniert, dann ein Zweites dazu gesetzt, darauf folgt das dritte Schiff und so weiter, bis alle fünf Schiffe Positioniert 
