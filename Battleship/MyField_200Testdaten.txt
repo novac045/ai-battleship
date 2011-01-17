@@ -550,7 +550,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
-51	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+51	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  _  o 
@@ -561,7 +561,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  o  o  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
-52	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+52	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  o  _  _  _  _  _ 
  o  _  _  _  o  _  _  _  _  _ 
@@ -572,7 +572,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-53	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+53	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  _  _  _ 
@@ -583,7 +583,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-54	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+54	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  o  _  o  o  _ 
  _  o  _  _  _  o  _  _  _  _ 
@@ -594,7 +594,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  o 
  o  o  o  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  _ 
-55	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+55	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  o  o  o  _  _ 
@@ -605,7 +605,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  o  o  o  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
-56	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+56	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
@@ -616,7 +616,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  o  o  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-57	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+57	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  o  _ 
@@ -627,7 +627,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  o  o 
  _  _  _  _  _  _  _  _  _  _ 
-58	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+58	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  o  o  _  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
@@ -638,7 +638,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  o  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
-59	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+59	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  _  _  _  _  _ 
@@ -649,7 +649,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  o  o  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-60	Duplikate:()	Schiffe:()	Typen:()	GŸltig:()
+60	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  o  o  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  o 
@@ -660,7 +660,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-61
+61	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -671,7 +671,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  o  o  _  _  _ 
-62
+62	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  _  _  _  o  o  o  o 
  _  _  o  _  o  _  _  _  _  _ 
  _  _  o  _  o  _  _  _  _  _ 
@@ -682,7 +682,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-63
+63	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  o  _  _  _ 
@@ -693,7 +693,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  o  o  o  o  _ 
-64
+64	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  o  o  o  _  _  _  _ 
@@ -704,7 +704,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
  _  o  o  o  o  o  _  o  _  _ 
-65
+65	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -715,7 +715,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  o  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-66
+66	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  o  o  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -726,7 +726,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  o  o  _  _  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  o  o  _  _  _  _  _ 
-67
+67	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
@@ -737,7 +737,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  o  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
-68
+68	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  o  o 
  _  _  _  _  _  _  o  _  _  _ 
@@ -748,7 +748,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-69
+69	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
  _  _  o  _  _  _  o  _  _  o 
@@ -759,7 +759,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  _  _  _  _ 
-70
+70	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  o  _  o  o  o  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
@@ -770,7 +770,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-71
+71	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
  o  _  o  _  o  _  _  _  _  _ 
@@ -781,7 +781,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  o  _  _ 
  _  _  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-72
+72	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
@@ -792,7 +792,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  o  o  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
-73
+73	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  o  o  o  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
@@ -803,7 +803,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  o  o  o  o  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
-74
+74	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  o  o  o  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -814,7 +814,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  o  o  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
-75
+75	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
@@ -825,7 +825,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  o  o  _  _  _ 
-76
+76	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  o  o  _  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
@@ -836,7 +836,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  o  o  o  _  _  _ 
-77
+77	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  o  o  o  _ 
@@ -847,7 +847,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  o  o  o  o  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
-78
+78	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  o  o  o  o 
  o  o  o  o  _  _  _  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
@@ -858,7 +858,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  o  o  _  _  _  _ 
  o  o  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-79
+79	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -869,7 +869,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  o  o 
  _  _  _  _  o  o  _  _  _  _ 
-80
+80	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  o  o  o  o 
  _  _  o  _  o  _  _  _  _  _ 
@@ -880,7 +880,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  _  _  _  o 
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-81
+81	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  o  _  _  _  _  o 
@@ -891,7 +891,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  o  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-82
+82	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  o  _  _ 
  o  _  o  _  _  _  _  o  _  _ 
@@ -902,7 +902,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  o  _  _  o  _ 
  _  _  _  _  _  o  _  _  _  _ 
-83
+83	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  o  _  o  _  _  _  _ 
  _  _  _  o  _  o  _  _  _  _ 
@@ -913,7 +913,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  o  _  o  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
-84
+84	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  o 
  o  _  o  _  _  _  _  _  _  o 
@@ -924,7 +924,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  o  o  o  _ 
  o  _  _  _  _  _  _  _  _  _ 
-85
+85	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  o  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  o  o 
  _  _  _  _  _  _  _  _  _  _ 
@@ -935,7 +935,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-86
+86	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  o  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
@@ -946,7 +946,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
-87
+87	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
@@ -957,7 +957,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  o  _  _  _  _ 
-88
+88	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -968,7 +968,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  o  o  o  o  o  _ 
  o  o  o  o  _  _  _  _  _  _ 
-89
+89	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -979,7 +979,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-90
+90	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -990,7 +990,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  o  _  o  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-91
+91	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  o  o  o 
  _  o  _  _  _  _  _  _  _  _ 
@@ -1001,7 +1001,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
-92
+92	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  o  o  o 
  _  _  _  _  o  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
@@ -1012,7 +1012,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-93
+93	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
@@ -1023,7 +1023,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
  _  o  o  o  o  _  _  _  o  _ 
-94
+94	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  o  _  o  o  o 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1034,7 +1034,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
-95
+95	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  o  _  _  _  _  o  _ 
  _  o  _  o  _  _  o  _  o  _ 
@@ -1045,7 +1045,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-96
+96	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1056,7 +1056,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  o  o  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-97
+97	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  o  _  _ 
@@ -1067,7 +1067,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-98
+98	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  o  _ 
  _  _  o  o  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
@@ -1078,7 +1078,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-99
+99	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  o  o  _  _  o  o  o  o  o 
  _  _  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
@@ -1089,7 +1089,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-100
+100	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
@@ -1100,7 +1100,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  _  _  o  _  _ 
  _  o  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
-101
+101	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
@@ -1111,7 +1111,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  _  _  _  _  _  _ 
-102
+102	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1122,7 +1122,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  o  o  o  o  o 
-103
+103	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
@@ -1133,7 +1133,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  o  o  o  _ 
  o  o  o  o  o  _  _  _  _  _ 
-104
+104	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  o  o  o  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
@@ -1144,7 +1144,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  o  o  o  o 
-105
+105	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  o  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
@@ -1155,7 +1155,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-106
+106	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  _  o  _  _  _  _  _  _  _ 
  o  _  o  _  _  _  _  _  _  _ 
  o  _  o  _  o  o  o  _  _  _ 
@@ -1166,7 +1166,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-107
+107	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
@@ -1177,7 +1177,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  _  o  _  _ 
  _  _  _  _  _  o  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
-108
+108	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1188,7 +1188,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  _  o  _  _  o 
  _  _  _  o  _  _  o  _  _  o 
  _  _  _  o  _  _  o  _  _  _ 
-109
+109	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  o  o  o  _  _  _  _ 
@@ -1199,7 +1199,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
-110
+110	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  o  _  _  o  o  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
@@ -1210,7 +1210,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-111
+111	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  o  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  _  _  _  _  _  _ 
@@ -1221,7 +1221,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-112
+112	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  o  _  o  _  _  _  _  _  o  _ 
@@ -1232,7 +1232,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  _  _  _  _  _ 
-113
+113	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  _  _  _  _ 
@@ -1243,7 +1243,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-114
+114	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  _  _  _  _ 
  o  _  o  _  _  _  o  o  o  _ 
@@ -1254,7 +1254,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-115
+115	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  _  o  o  _ 
  _  _  _  _  _  o  _  _  _  _ 
@@ -1265,7 +1265,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  _  _  _  o  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  _  _  _ 
-116
+116	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1276,7 +1276,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  _  _  o  _  o 
  _  _  _  _  _  _  _  o  _  o 
  _  _  _  _  _  _  _  _  _  o 
-117
+117	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  o  o 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1287,7 +1287,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  o  _  _  o  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-118
+118	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  o  _  _  _ 
  _  _  _  _  o  _  o  _  _  o 
  _  _  _  _  o  _  o  _  _  o 
@@ -1298,7 +1298,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-119
+119	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  o  o  o  o 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  _  _  _ 
@@ -1309,7 +1309,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  o  o  o  _  _ 
-120
+120	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
@@ -1320,7 +1320,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  o  _  _  _  _  _  _ 
  _  o  _  o  _  _  _  o  _  _ 
  _  o  _  o  _  _  _  o  _  _ 
-121
+121	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  o  _  _ 
  o  o  o  _  _  _  _  _  _  _ 
@@ -1331,7 +1331,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-122
+122	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  o  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
  o  _  _  _  _  _  o  _  _  _ 
@@ -1342,7 +1342,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-123
+123	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  o  o  o  _ 
@@ -1353,7 +1353,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
-124
+124	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1364,7 +1364,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
-125
+125	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
@@ -1375,7 +1375,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  o  _  _  _ 
  _  _  o  _  _  _  _  _  _  o 
  _  _  o  _  _  _  _  _  _  o 
-126
+126	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1386,7 +1386,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  _  _  _  o 
  _  _  _  _  _  _  _  o  _  o 
  _  _  _  _  _  _  _  o  _  _ 
-127
+127	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  o 
  _  _  _  o  _  _  _  _  _  o 
@@ -1397,7 +1397,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
-128
+128	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  o  _  _  _  _  _ 
  _  _  _  _  o  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
@@ -1408,7 +1408,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-129
+129	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  _  _  _  _  _ 
@@ -1419,7 +1419,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  _  _  o  _ 
  _  _  _  _  _  o  _  _  o  _ 
  o  o  o  o  _  _  _  _  _  _ 
-130
+130	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  o  _  o  _ 
  _  _  _  _  _  _  o  _  o  _ 
@@ -1430,7 +1430,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  _  _  _ 
-131
+131	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  o 
@@ -1441,7 +1441,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  o  o  _  _  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  o  o 
-132
+132	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
@@ -1452,7 +1452,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  o  _  _  _  _  _ 
  _  o  _  _  o  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
-133
+133	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  o  _ 
  _  _  o  o  o  _  _  _  o  _ 
@@ -1463,7 +1463,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  o  o  o  o 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-134
+134	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1474,7 +1474,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  o  o  o  o  o  _  o 
  _  o  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  _  _  _  _  _ 
-135
+135	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  o  _  _ 
  _  _  _  o  _  o  _  o  _  _ 
@@ -1485,7 +1485,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
-136
+136	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  _  _  _ 
@@ -1496,7 +1496,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  o  o  o  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
-137
+137	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  _  _  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1507,7 +1507,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  o  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
  _  o  o  o  o  _  _  _  _  _ 
-138
+138	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  o  _  o  _ 
@@ -1518,7 +1518,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  o  _  o  _  _  _  _ 
  _  _  _  o  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
-139
+139	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  o  o  _  _  _ 
@@ -1529,7 +1529,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  o  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
  o  o  o  o  o  _  o  _  _  _ 
-140
+140	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
@@ -1540,7 +1540,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  o  o  _  o  _  o 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-141
+141	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  o  o  _  _  o  o  o  _  _  _ 
@@ -1551,7 +1551,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
-142
+142	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  o  _  o  _  _  o  o  o  o 
@@ -1562,7 +1562,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  o  _  _  _  _ 
  _  o  _  _  _  o  _  _  _  _ 
  _  o  _  _  _  o  _  _  _  _ 
-143
+143	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  o  o  o  o  o  _ 
  _  _  _  o  _  _  _  _  _  _ 
  o  _  _  o  _  _  _  _  _  _ 
@@ -1573,7 +1573,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  _  _  _ 
-144
+144	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1584,7 +1584,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  o 
  _  _  _  _  o  _  _  _  _  o 
  _  _  _  _  o  _  _  _  _  o 
-145
+145	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  o  _  _  _  _  _  _ 
  _  o  _  o  _  o  _  _  _  _ 
  _  o  _  _  _  o  _  _  _  _ 
@@ -1595,7 +1595,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-146
+146	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  o  _  _  _ 
  o  o  o  o  _  _  o  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
@@ -1606,7 +1606,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  o  o  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
-147
+147	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
  o  o  _  _  _  _  o  _  _  _ 
@@ -1617,7 +1617,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  _  _  o  _  o 
  _  _  _  o  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
-148
+148	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
@@ -1628,7 +1628,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  o  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  o  o 
  _  _  _  _  _  _  _  _  _  _ 
-149
+149	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  o  _  _  o  _  _  _  _  _ 
  _  o  _  _  o  _  _  _  o  _ 
@@ -1639,7 +1639,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-150
+150	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  _  _  _ 
@@ -1650,7 +1650,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  o  o  _  o 
  _  _  _  _  _  _  _  _  _  o 
  _  _  o  o  o  o  _  _  _  _ 
-151
+151	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
  _  o  o  _  o  _  _  o  _  _ 
@@ -1661,7 +1661,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  o  o 
-152
+152	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
  _  o  o  o  _  _  _  _  _  o 
@@ -1672,7 +1672,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-153
+153	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  o  o  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
@@ -1683,7 +1683,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  o  o  o  _  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-154
+154	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
@@ -1694,7 +1694,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  o  o  _ 
-155
+155	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
@@ -1705,7 +1705,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  _  o  o  _  _ 
  _  o  _  o  o  o  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
-156
+156	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
@@ -1716,7 +1716,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  o  o  o  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  o  o  _  o  _ 
-157
+157	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  o  o  _  _ 
@@ -1727,7 +1727,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-158
+158	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1738,7 +1738,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  o  o  o  o  o  _ 
  _  o  _  _  _  _  _  _  _  o 
  _  o  _  o  o  o  o  _  _  o 
-159
+159	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  _  _  _ 
  _  o  _  _  _  _  _  _  _  o 
@@ -1749,7 +1749,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-160
+160	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  o  _ 
  _  o  o  o  o  o  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
@@ -1760,7 +1760,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
  _  _  _  _  _  o  _  _  _  _ 
-161
+161	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1771,7 +1771,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  _  _  o  o  o 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-162
+162	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1782,7 +1782,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  o  o  o  _  _  _  _ 
-163
+163	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
@@ -1793,7 +1793,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  o  o  _  _  _  _  _ 
-164
+164	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  o  o  o  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  o  _  o  _  _  _  _ 
@@ -1804,7 +1804,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  o  o  o  _ 
-165
+165	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
@@ -1815,7 +1815,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  o  o  o 
  _  _  _  o  o  o  o  _  _  _ 
-166
+166	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
@@ -1826,7 +1826,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
  _  _  o  o  o  _  _  _  _  _ 
-167
+167	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  o  _  _  _  _  _  _ 
  _  o  _  o  _  _  _  _  _  _ 
  _  o  _  o  _  _  _  _  _  _ 
@@ -1837,7 +1837,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-168
+168	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  o  o  o 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  o  o  _  _ 
@@ -1848,7 +1848,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  o  _ 
  o  o  o  _  _  _  _  _  _  _ 
-169
+169	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1859,7 +1859,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
-170
+170	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  o  _  _  _  _ 
@@ -1870,7 +1870,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  o  o  o  o 
-171
+171	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  o  o  _  o 
@@ -1881,7 +1881,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
-172
+172	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  _  _  _  _  _  _  _ 
@@ -1892,7 +1892,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  o  o  o  _  _  _  o  _ 
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
-173
+173	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  o  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
  _  _  _  _  _  _  o  _  _  _ 
@@ -1903,7 +1903,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  o  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-174
+174	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  _  o  o  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  o  o  o  _  _ 
@@ -1914,7 +1914,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  o  o 
-175
+175	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1925,7 +1925,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  o  o  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
-176
+176	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  o  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
@@ -1936,7 +1936,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  o 
  o  o  o  _  _  _  _  _  _  o 
  _  _  _  _  _  o  o  _  _  _ 
-177
+177	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  o  o  o  _ 
@@ -1947,7 +1947,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  o  _  _  o  _ 
  _  o  _  _  _  o  _  _  o  _ 
  _  _  _  _  _  o  _  _  _  _ 
-178
+178	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
  o  o  o  _  o  _  _  o  o  o 
@@ -1958,7 +1958,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  o  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  _  _  _  _ 
-179
+179	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  o 
@@ -1969,7 +1969,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  o 
-180
+180	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -1980,7 +1980,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  _  _  _  _  _  _ 
-181
+181	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  o  _  _  _ 
  _  _  o  _  _  _  o  _  _  _ 
@@ -1991,7 +1991,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-182
+182	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
  _  _  o  _  _  _  _  _  _  _ 
@@ -2002,7 +2002,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  o  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  o  o  _  _  _  _  _  _  _  _ 
-183
+183	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  o  o  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -2013,7 +2013,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  o  o  o  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
-184
+184	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  o 
@@ -2024,7 +2024,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  o  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-185
+185	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -2035,7 +2035,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  o  o  o  o  o  _  _  _  _ 
-186
+186	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  o 
@@ -2046,7 +2046,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-187
+187	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  o  o  o  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
@@ -2057,7 +2057,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  o  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
-188
+188	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  o  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
@@ -2068,7 +2068,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
-189
+189	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  o  o 
  _  _  _  _  _  _  _  _  _  _ 
@@ -2079,7 +2079,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  o  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
-190
+190	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  _  o  o  o  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  o  _  _  _  _  _  _ 
@@ -2090,7 +2090,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  o  o  o  o 
-191
+191	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  o  o  o  _  _  _  o  o  o  _ 
@@ -2101,7 +2101,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  o  o  o  o  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-192
+192	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  o  _  _  _  _  _ 
  o  _  _  _  o  _  o  _  _  _ 
  o  _  _  _  o  _  o  _  _  _ 
@@ -2112,7 +2112,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  o  _  _  o  o  o  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-193
+193	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  o  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -2123,7 +2123,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  o  o  _  _  _ 
-194
+194	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  o  o  o  o  o 
  o  o  o  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -2134,7 +2134,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-195
+195	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
@@ -2145,7 +2145,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  _  o  o  o  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-196
+196	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  o  o  o  _  _  _  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  o  _  _  o  _  _ 
@@ -2156,7 +2156,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  o  _ 
  _  _  _  _  _  _  _  _  _  _ 
-197
+197	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  o  _  _  _  o  o  o  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
@@ -2167,7 +2167,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  _  _  _  _  _  _  _ 
  _  _  _  _  o  o  o  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
-198
+198	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  o  _  _  _  _  _  _  _  _ 
  _  o  _  _  _  _  _  _  _  _ 
  _  _  _  _  _  _  _  _  _  _ 
@@ -2178,7 +2178,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  o  _  o  _  _  _  _  _ 
  _  _  o  _  o  _  _  _  _  _ 
  _  _  _  _  o  _  _  _  _  _ 
-199
+199	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  o  _  _  _ 
  o  _  _  _  _  _  o  _  _  _ 
  o  _  _  _  _  _  _  _  _  _ 
@@ -2189,7 +2189,7 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  _  _  o  _  o  o  o  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
  _  _  _  o  _  _  _  _  _  _ 
-200
+200	Duplikate:()	Schiffe:(5)	Typen:(4)	GŸltig:(1)
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
  _  _  _  _  _  _  _  o  _  _ 
@@ -2200,4 +2200,3 @@ Nr	Duplikate:(Nummern d Duplikate)	Schiffe:(Gesamtanzahl)	Typen:(Anz versch. Sch
  _  o  _  _  _  _  _  _  _  o 
  _  _  _  _  _  _  _  _  _  _ 
  _  _  o  o  o  _  _  _  _  _ 
-
