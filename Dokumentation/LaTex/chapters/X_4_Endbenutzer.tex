@@ -1,5 +1,4 @@
 \section{Benutzungshinweise für Endbenutzer} \label{sec:Endbenutzer}
-	\todoin {Gut so?! -SB}
 	Um das Spiel \textit{Schiffe-Versenken} zu spielen, muss zunächst der Spielserver gestartet werden. Anschließend können, je nach
 	Spielabsicht zwei der bereitgestellten Clients gestartet werden. Dabei ist es egal, ob zwei Java-Clients, zwei Prolog-Clients oder
 	je ein Client von jedem Typ gestartet wird. 
@@ -26,7 +25,7 @@
 \subsection{Starten eines Java-Client}
 	Der Client, welcher das eigene Spielfeld abbildet, \texttt{Battleship\_Client.jar}, kann analog zum Server, entweder selbst gestartet werden, oder 
 	durch eines der beiliegenden Start-Skripte.
-	Ist es erforderlich, den Client eigenhändig zu starten, kann dies über den Kommandozeilenbefehl getan werden:\newline
+	Ist es erforderlich, den Client eigenhändig zu starten, kann dies über den folgenden Kommandozeilenbefehl getan werden:\newline
 	\texttt{java -jar Battleship\_Client.jar}\newline
 	%im, den Client beinhaltenden, Ordner getan werden.
 
@@ -43,15 +42,15 @@
 		die Ausgabe auf der Konsole.
 \subsection{Startskripte} % (fold)
 \label{sub:startskripte}
-	Die beiliegenden Startskript starten alle zum Spielen erforderliche Komponenten. Es sind Startskript für drei Spielmodi vorhanden:
+	Die beiliegenden Startskripte starten alle zum Spielen erforderlichen Komponenten. Es sind drei Startskripte für verschiedene Spielmodi vorhanden:
 	\begin{itemize}
 		\item Menschlicher Spieler gegen KI-Spieler: \texttt{start\_Human-KI-Match\_\emph{OS}.bat}
 		\item KI-Spieler gegen KI-Spieler: \texttt{start\_KI-KI-Match\_\emph{OS}.bat}
 		\item Menschlicher Spieler gegen Menschlischen Spieler: \texttt{start\_Human-Human-Match.bat}
 	\end{itemize}
-	Anmerkung: Je nach Betriebssystem is \texttt{\emph{OS}} durch "'Windows"' oder "'Unix"' zu ersetzen.
+	Anmerkung: Je nach Betriebssystem ist \texttt{\emph{OS}} durch "'Windows"' oder "'Unix"' zu ersetzen.
 	
-	Die Benutzung dieser Startskripts führt dazu, dass alle benötigten Komponenten auf der Konsole gestartet werden. Dies führt dazu, dass die Konsole 
-	auf der das Startskript ausgeführt wird, mit den Ausgaben aller drei Komponenten beschrieben wird. Für Debugging-Zwecke sollte also auf die Verwendung dieser 
+	Die Benutzung dieser Startskripts bewirkt, dass alle benötigten Komponenten auf einer Konsole gestartet werden. Dies führt dazu, dass die Konsole 
+	auf der das Startskript ausgeführt wird, mit den Ausgaben aller drei Komponenten beschrieben wird. Für Debugging-Zwecke sollte daher auf die Verwendung dieser 
 	Skripte verzichtet werden.
 % subsection startskripte (end)
