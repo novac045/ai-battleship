@@ -40,9 +40,35 @@
 		die Startaufstellungen von 100 KI-gegen-KI spielen gespeichert und ausgewertet. Bei jedem KI-gegen-KI Spiel erzeugt der prolog Client zwei 
 		Aufstellungen (eine je KI-Spieler). Die so resultierenden 200 Aufstellungen wurden vom Entwicklerteam ausgewertet und auf Korrektheit in den 
 		angegebenen Aspekten überprüft.
-		\todoin {Testdaten elektronisch Anhängen, Ausdruck wäre Sinnlos. Auf Tabelle im Anhang verweisen. -SB}
+		
+		\paragraph{Testergebnis} % (fold)
+		\label{par:testergebnis}
+			Das überprüfen der 200 generierten Aufstellungen ergab folgendes Ergebnis:
+			\begin{table}[H] % (fold)
+				\centering
+				\begin{tabular}{|p{.16\textwidth}|p{.16\textwidth}|p{.16\textwidth}|p{.16\textwidth}|p{.16\textwidth}|p{.16\textwidth}|} 
+					\hline
+					Geprüfte Aufstellungen & Fehlerhafter Platzierungen &Fehlerhafte Schiffsanzahl&Fehlerhafte Schiffstypen&Korrekte Aufstellungen&Duplikate\\ 
+					\hline\hline
+					200 & 0 & 0 & 0 & 200 & 0\\
+					\hline
+				\end{tabular}
+				\caption{Testresultat für Testfall 1 und Testfall2}
+				\label{tbl:tf1tf2}
+			\end{table}
+			% table tbl:tf1tf2 (end)
+		% paragraph testergebnis (end)
+		Das Testergebnis zeigt, dass die Routine zum platzieren der Schiffe wie erwartet arbeitet. Beim Testen wurde gleichzeitig auch überprüft, 
+		wie oft Duplikate durch die Routine erzeugt werden (also identische Platzierungen).
+		Das Auftreten keiner Duplikate lässt schlussfolgern, dass der Einsatz der Prolog-Systemprädikate \texttt{random/1} und \texttt{randseq/3} 
+		den gewünschten Effekt liefern (siehe Abschnitt \ref{sec:initships}) und wie erwartet arbeiten.
+		
+		Die Liste der Ausgewerteten Textdaten befindet sich in \newline \texttt{Battleship\textbackslash MyField\_200Testdaten.txt}
 	% subsubsection testfall_1_testfall_2 (end)
+	\subsubsection{subsubsection name} % (fold)
+	\label{ssub:subsubsection_name}
 	
+
 	Der dritte Testfall behandelt die Auswahl des nächsten anzugreifenden Spielfeldes. Im besonderen Fokus steht die Aufgabe der Verfolgung eines 
 	getroffenen, aber noch nicht vesenkten Schiffes.
 	\todoin{Beschreibung des Tests}
@@ -52,6 +78,7 @@
 	\todoin{Beschreibung des Tests}
 	
 	Vorbedignung - KI Ausgabe auf der Konsole
+	% subsubsection subsubsection_name (end)
      \input{chapters/X_1_EvaluationJavaController}
 	%- eigene Schiffe gültig platziert
 	%- richtige anzahl und größe der schiffe
