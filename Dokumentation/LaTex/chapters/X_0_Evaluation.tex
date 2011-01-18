@@ -68,19 +68,29 @@
 		
 		Die Liste der Ausgewerteten Textdaten befindet sich in \newline \texttt{Battleship\textbackslash MyField\_200Testdaten.txt}
 	% subsubsection testfall_1_testfall_2 (end)
-	\subsubsection{subsubsection name} % (fold)
-	\label{ssub:subsubsection_name}
+	\subsubsection{Testfall 3} % (fold)
+	\label{ssub:testfall_3}
 	
 	Der dritte Testfall behandelt die Auswahl des nächsten anzugreifenden Spielfeldes. Im besonderen Fokus steht die Aufgabe der Verfolgung eines 
 	getroffenen, aber noch nicht versenkten Schiffes.
-	\todoin{Beschreibung des Tests}
+	Hierfür wurde ein Spieler-gegen-KI spiel durchgeführt und die Ausgaben der KI in eine Datei umgeleitet. Das Spiel wurde künstlich in die Länge 
+	gezogen bis die KI gewann, indem der Spieler gezielt auf unbelegte Spielfelder der KI geschossen hat.
+	Nachdem die KI gewann, wurde die mitgeschriebene Datei, analysiert. Hierbei wurden die von der KI ausgewählten zu attakierenden Felder gegen die,
+	durch die Strategie (siehe Abschnitt \ref{sec:strategy}) zu erwartenden überprüft. Diese Analyse ist in Tabelle \ref{tbl:testfall3} nachzuvollziehen.
+	\input{includes/tbl_testfall3}
+	
+	\paragraph{Testergebnise} % (fold)
+	\label{par:testergebnise}
+	 \todoin {alles gut hier ...}
+	% paragraph testergebnise (end)
 	
 	Der vierte Testfall untersucht die korrekte Behandlung eines versenkten Schiffes. Insbesondere soll geprüft werden, ob die Umgebung in einer 4er-Nachbarschaft
-	mit Wasser aufgedeckt wird, da an diesen Stellen laut Regelbeschreibung keine Schiffe platziert werden dürfen und somit für die nachfolgenden Züge uninteressant sind.
+	mit Wasser aufgedeckt wird, da an diesen Stellen laut Regelbeschreibung keine Schiffe platziert werden dürfen und somit für die nachfolgenden Züge 
+	uninteressant sind.
 	\todoin{Beschreibung des Tests}
 	
 	Vorbedignung - KI Ausgabe auf der Konsole
-	% subsubsection subsubsection_name (end)
+	% subsubsection testfall_3 (end)
      \input{chapters/X_1_EvaluationJavaController}
 	%- eigene Schiffe gültig platziert
 	%- richtige anzahl und größe der schiffe
