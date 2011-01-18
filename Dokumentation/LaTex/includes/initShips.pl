@@ -27,47 +27,47 @@ Schiffs-ID / Teilenummer / X-Koordinate / Y-Koordinate*/
 	5/2/_X51/_Y51,
 	5/1/_X52/_Y52])
 ).
-/* Teile des selben Schiffes m√ºssen 
+/* Teile des selben Schiffes m¸ssen 
 aneinander liegen (Horizontal) */
 connectedHV(S1,P1,X1,Y1,S2,P2,X2,Y2):-
 	S1 == S2,		%Das Selbe Schiff,
 	P1 \== P2,		%verschiedene Teile dieses Schiffs:
 	X1-X2 =:= P1-P2,%Aufeinander folgende teile, 
-	Y1 == Y2,		%m√ºssen aufeinander folgenden Koordinaten liegen (Horizontal)
-	!
+	Y1 == Y2,		%m¸ssen aufeinander folgenden 
+	!				%Koordinaten liegen (Horizontal)
 .
-/* Teile des selben Schiffes m√ºssen 
+/* Teile des selben Schiffes m¸ssen 
 aneinander liegen (Vertikal) */
 connectedHV(S1,P1,X1,Y1,S2,P2,X2,Y2):-
 	S1 == S2,		%Das Selbe Schiff,
 	P1 \== P2,		%verschiedene Teile dieses Schiffs:
 	Y1-Y2 =:= P1-P2,%Aufeinander folgende teile, 
-	X1 == X2,		%m√ºssen aufeinander folgenden Koordinaten liegen (Vertikal)
-	!
+	X1 == X2,		%m¸ssen aufeinander folgenden
+	!				%Koordinaten liegen (Vertikal)
 .
-/*Ungleiche Schiffe m√ºssen 
+/*Ungleiche Schiffe m¸ssen 
 Ein Feld Abstand halten, 
 ODER Diagonal versetzt stehen (Vertikal)*/
 distance(S1,S2,X1,Y1,X2,Y2):-
 	S1 \== S2,		%Verschiedene Schiffe:
-	((Y1 == Y2,		%bei gleicher Y-Koordinate
-	abs(X1-X2)>1);	%m√ºssen die X-Koordinaten mehr als 1 Feld Abstand halten;
+	((Y1 == Y2,		%bei gleicher Y-Koordinate m¸ssen
+	abs(X1-X2)>1);	%die X-Koord. mehr als 1 Feld Abstand halten;
 	(Y1 \== Y2,		%bei verschiedener X-Koordinate
-	abs(X1-X2)>=1)),%reicht auch ein Feld Abstand (Diagonal versetzt)
-	!
+	abs(X1-X2)>=1)),%reicht auch ein Feld 
+	!				%Abstand (Diagonal versetzt)
 .
-/*Ungleiche Schiffe m√ºssen 
+/*Ungleiche Schiffe m¸ssen 
 Ein Feld Abstand halten, 
 ODER Diagonal versetzt stehen (Horizontal)*/
 distance(S1,S2,X1,Y1,X2,Y2):-
 	S1 \== S2,		%Verschiedene Schiffe:
-	((X1 == X2,		%bei gleicher X-Koordinate
-	abs(Y1-Y2)>1);	%m√ºssen die Y-Koordinaten mehr als 1 Feld Abstand halten;
+	((X1 == X2,		%bei gleicher X-Koordinate m¸ssen
+	abs(Y1-Y2)>1);	%die Y-Koord. mehr als 1 Feld Abstand halten;
 	(X1 \== X2,		%bei verschiedener Y-Koordinate
-	abs(Y1-Y2)>=1)),%reicht auch ein Feld Abstand (Diagonal versetzt)
-	!
+	abs(Y1-Y2)>=1)),%reicht auch ein Feld 
+	!				%Abstand (Diagonal versetzt)
 .
-/*Wendet die Platzierungsregeln f√ºr eine 
+/*Wendet die Platzierungsregeln f¸r eine 
 Liste von Schiffen an, auf einem Spielfeld 
 mit den Wertebereichen Xseq und Yseq*/
 initShips([],_,_).
@@ -85,25 +85,25 @@ rules(S1/P1/X1/Y1,[S2/P2/X2/Y2|Others]):-
 	distance(S1,S2,X1,Y1,X2,Y2)),
 	rules(S1/P1/X1/Y1,Others)
 .
-/*Erzeugt eine Liste von Schiffen mit zuf√§llig gew√§hlten,
+/*Erzeugt eine Liste von Schiffen mit zuf‰llig gew‰hlten,
 legalen Positionierungen.*/
 itShips([],_,[]).
 itShips([Ship|OtherShips],Template,Positions):-
 	itShips(OtherShips,Template,TmpPositions),
 
-	randseq(10,10,Xseq), %zuf√§llige Reihenfolge der X-Koordinaten
-	randseq(10,10,Yseq), %zuf√§llige Reihenfolge der Y-Koordinaten
+	randseq(10,10,Xseq), %zuf‰llige Reihenfolge der X-Koordinaten
+	randseq(10,10,Yseq), %zuf‰llige Reihenfolge der Y-Koordinaten
 	
-	findall((Ship/P/X/Y),member(Ship/P/X/Y,Template),OneRandomShip), % Lade Template f√ºr ein Schiff
-	append(OneRandomShip,TmpPositions,TMP), % speichere Schiff in Tempor√§re Liste
-	findall(TMP,initShips(TMP,Xseq,Yseq),AllPossiblePositions), % finde alle legalen Positionierungen f√ºr Schiffe in Temp. Liste
+	findall((Ship/P/X/Y),member(Ship/P/X/Y,Template),OneRandomShip), % Lade Template f¸r ein Schiff
+	append(OneRandomShip,TmpPositions,TMP), % speichere Schiff in Tempor‰re Liste
+	findall(TMP,initShips(TMP,Xseq,Yseq),AllPossiblePositions), % finde alle legalen Positionierungen f¸r Schiffe in Temp. Liste
 	
 	length(AllPossiblePositions,RandomMax),				% auswahl einer
-	RandomIndex is random(RandomMax),					% zuf√§lligen, legalen Positionierung
-	nth0(RandomIndex,AllPossiblePositions,Positions)	% und speichern dieser Positionierung in der R√ºckgabeliste
+	RandomIndex is random(RandomMax),					% zuf‰lligen, legalen Positionierung
+	nth0(RandomIndex,AllPossiblePositions,Positions)	% und speichern dieser Positionierung in der R¸ckgabeliste
 .
-/*Erzeugt eine zuf√§llige Platzierungsreihenfolge
-f√ºr die Schiffe und st√∂√üt das platzieren nach dieser Reihenfolge an*/
+/*Erzeugt eine zuf‰llige Platzierungsreihenfolge
+f¸r die Schiffe und stˆﬂt das platzieren nach dieser Reihenfolge an*/
 place(Positions):-
 	template(Template),
 	randseq(5,5,Ships),
