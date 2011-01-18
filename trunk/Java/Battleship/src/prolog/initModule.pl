@@ -57,13 +57,13 @@ fillWithDummies(Field, DummyField) :-
 	substitute(0/4/1, F7, 0/4/State, F8),
 	substitute(0/5/1, F8, 0/5/State, DummyField).
 	
-/* Ships: _W/_W/X/Y */
+/* Ships: _S/_P/X/Y */
 /* Field X/Y/6 */     
 fillWithShips([],A,A).
 fillWithShips([_/_/Xi/Yi|Others], InitialField, FilledField):-
 	fillWithShips(Others, InitialField, TmpField),
 	State is 6,
-	X is Xi-1,
-	Y is Yi-1,
+	X is Xi-1,	%Transformation der Koordinaten
+	Y is Yi-1,	%Transformation der Koordinaten
 	substitute(X/Y/1, TmpField, X/Y/State, FilledField)
 .
