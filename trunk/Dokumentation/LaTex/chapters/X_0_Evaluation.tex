@@ -30,6 +30,9 @@
 \subsection{Testfälle}
 	Zur Umsetzung des beschriebenen Testkonzepts (siehe Abschnitt \ref{sec:Evaluation}) wurden konkrete Testfälle konzeptioniert und
 	durchgeführt. Im Folgenden werden die Testfälle, ihre Durchführung und das Testergebnis beschrieben. 
+	
+	Für alle durchgeführten Testfälle des Prolog-Clients war es nötig, die Ausgabe auf eine Textdatei umzuleiten (siehe Abschnitt \ref{ssub:ausgabeverhalten}) 
+	um die Auswertung von Spielverläufen zu erleichtern.
 
 	\subsubsection{Testfall 1, Testfall 2} % (fold)
 	\label{ssub:testfall_1_testfall_2}
@@ -73,27 +76,42 @@
 	
 	Der dritte Testfall behandelt die Auswahl des nächsten anzugreifenden Spielfeldes. Im besonderen Fokus steht die Aufgabe der Verfolgung eines 
 	getroffenen, aber noch nicht versenkten Schiffes.
+	
 	Hierfür wurde ein Spieler-gegen-KI spiel durchgeführt und die Ausgaben der KI in eine Datei umgeleitet. Das Spiel wurde künstlich in die Länge 
 	gezogen bis die KI gewann, indem der Spieler gezielt auf unbelegte Spielfelder der KI geschossen hat.
+	\todoin {Neu formulieren:}
 	Nachdem die KI gewann, wurde die mitgeschriebene Datei, analysiert. Hierbei wurden die von der KI ausgewählten zu attakierenden Felder gegen die,
 	durch die Strategie (siehe Abschnitt \ref{sec:strategy}) zu erwartenden überprüft. Diese Analyse ist in Tabelle \ref{tbl:testfall3} nachzuvollziehen.
 	\input{includes/tbl_testfall3}
 	
-	\paragraph{Testergebnise} % (fold)
-	\label{par:testergebnise}
-	 \todoin {alles gut hier ...}
-	% paragraph testergebnise (end)
+	\paragraph{Testergebnis} % (fold)
+	\label{par:testergebnis}
+	 Tabelle \ref{tbl:testfall3} stellt alle, von der KI gewählten Schüssen, den erwarteten gegenüber. Es ist zu sehen, dass die KI zu jeder Zeit 
+	die durch die Spielstrategie vorgegebenen Koordinaten auswählt.
 	
-	Der vierte Testfall untersucht die korrekte Behandlung eines versenkten Schiffes. Insbesondere soll geprüft werden, ob die Umgebung in einer 4er-Nachbarschaft
-	mit Wasser aufgedeckt wird, da an diesen Stellen laut Regelbeschreibung keine Schiffe platziert werden dürfen und somit für die nachfolgenden Züge 
-	uninteressant sind.
-	\todoin{Beschreibung des Tests}
-	
-	Vorbedignung - KI Ausgabe auf der Konsole
+	Die Liste der Ausgewerteten Textdaten befindet sich in \newline \texttt{Battleship\textbackslash Output\_1.txt}
+	% paragraph testergebnis (end)
 	% subsubsection testfall_3 (end)
-     \input{chapters/X_1_EvaluationJavaController}
-	%- eigene Schiffe gültig platziert
-	%- richtige anzahl und größe der schiffe
-	%- gegnerische schiffe werden attackiert wenn ein treffer gelandet wurde
-	%- gegnerisches schiff wird nach versenken mit wasser umschlossen
-	%- 
+	\subsection{Testfall 4} % (fold)
+	\label{sub:testfall_4}
+		Der vierte Testfall untersucht die korrekte Behandlung eines versenkten Schiffes. Insbesondere soll geprüft werden, ob die Umgebung in 
+		einer 4er-Nachbarschaft
+		mit Wasser aufgedeckt wird, da an diesen Stellen laut Regelbeschreibung (siehe Abschnitt \ref{sec:Spielregeln}) keine Schiffe platziert werden dürfen 
+		und somit für die nachfolgenden Züge uninteressant sind.
+		
+		Zur Testdurchführung wurde die für Testfall 3 (siehe Abschnitt \ref{ssub:testfall_3}) angefertigte Log-Datei in den Stellen ausgewertet, an denen ein 
+		Schiff versenkt wurde. In Tabelle \ref{tbl:testfall3} sind diese Stellen hervorgehoben und so schnell in der Log-Datei wiederzufinden.
+		An den betreffenden Stellen werden nun die Ausgaben des \texttt{enemyField} ausgewertet. Konkret wird das \texttt{enemyField} vor und 
+		nach dem versenken eines Schiffes verglichen, um zu überprüfen ob die 4er-Nachbarschaft komplett mit Wasser aufgedeckt wird.
+		\input{includes/tbl_testfall4}
+		Zum besseren erkennen der Muster, wurden die Ausgaben des Ausgabemoduls nachträglich bearbeitet. Die Markierung für unbekannte Felder \texttt{U} wurde 
+		durch \texttt{\_} ersetzt.
+		\paragraph{Testergebnis} % (fold)
+		\label{par:testergebnis}
+			Wie in Tabelle \ref{tbl:testfall4} zu erkennen, wird nach jedem versenken eines Schiffes die komplette \emph{4er-Nachbarschaft} mit Wasser 
+			aufgedeckt so wie es in im Abschnitt zur Spielstrategie (\ref{sec:strategy}) beschrieben ist.
+
+			Die Liste der Ausgewerteten Textdaten befindet sich in \newline \texttt{Battleship\textbackslash Output\_1.txt}
+		% paragraph testergebnis (end)
+	% subsection testfall_4 (end)
+    \input{chapters/X_1_EvaluationJavaController}
