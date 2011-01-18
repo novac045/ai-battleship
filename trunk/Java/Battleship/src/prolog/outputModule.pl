@@ -9,7 +9,7 @@ printField(4) :- write(' X '). /* last ship destroyed */
 printField(5) :- write(' error '). /* missed */
 printField(6) :- write(' o '). /* ship */
 
-outputField([]) :- /*Output to Console*/
+outputField([]) :-
 	flush_output.
 	
 outputField([9/_/State | T]) :-
@@ -37,7 +37,9 @@ printOpenList :-
 	write(OpenList), nl.
 	
 printOpenList.
-	
+
+/*Speichern der Startaufstellung der KI
+in Datei "MyField.txt"*/	
 saveMyField(Field) :-
 	append('MyField.txt'),
 	outputField(Field),nl,
