@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Angelehnt an http://www.csupomona.edu/~jrfisher/www/prolog_tutorial/8_4.html
@@ -28,6 +29,7 @@ import java.util.List;
 public class CCommunicationServer extends Thread {
     private ServerSocket m_server = null;
     private int m_port = 0;
+    Random m_RNG = new Random();
     // Fifo Liste mit Clients, die sich verbunden haben, aber noch nicht bedient werden koennen
     private List<Socket> m_pending = Collections.synchronizedList(new LinkedList<Socket>());
 
@@ -85,9 +87,11 @@ public class CCommunicationServer extends Thread {
                 Socket s2 = clients.get(1);
                 clients.remove(s1);
                 clients.remove(s2);
+                int randomNumber = m_RNG.nextInt(2);
+                boolean attackFirst = (randomNumber > 0);
                 // Daraus Objekte erzeugen
-                CClientHandler cHandle1 = new CClientHandler(participants, s1, true);
-                CClientHandler cHandle2 = new CClientHandler(participants, s2, false);
+                CClientHandler cHandle1 = new CClientHandler(participants, s1, attackFirst);
+                CClientHandler cHandle2 = new CClientHandler(participants, s2, !attackFirst);
                 // Clients in die lokale temporaere Liste eintragen, die die Spielteilnehmer
                 // identifiziert
                 participants.add(cHandle1);
